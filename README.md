@@ -4,9 +4,9 @@
 
 ## Team members
 
-[Kuan Zhang](https://github.com/Kuan000/CS389.git)
-[Xiaofeng Leng](https://github.com/Korate/cs389)
-[Zhifu Chen](https://github.com/zhenshimin/cs389)
+* [Kuan Zhang](https://github.com/Kuan000/CS389.git)
+* [Xiaofeng Leng](https://github.com/Korate/cs389)
+* [Zhifu Chen](https://github.com/zhenshimin/cs389)
 
 ## App description
 
