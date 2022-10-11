@@ -4,7 +4,8 @@
 
 ## Team members
 ![image](https://user-images.githubusercontent.com/100736782/195180687-8ed23243-c042-4b9c-ba9d-020bcc1e8582.png)
-![Kuan Zhang](https://user-images.githubusercontent.com/94885719/195204493-21493c7c-cde9-47b4-9f85-7a3b6d33e001.jpg)
+![Kuan Zhang](https://user-images.githubusercontent.com/94885719/195205042-3e9eb553-5550-43cc-8e5f-4a54faefb3fa.jpg)
+
 
 
 * [Kuan Zhang](https://github.com/Kuan000/CS389.git)
