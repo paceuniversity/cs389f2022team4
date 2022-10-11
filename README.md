@@ -8,6 +8,7 @@
 * [Kuan Zhang](https://github.com/Kuan000/CS389.git)
 * [Xiaofeng Leng](https://github.com/Korate/cs389)
 * [Zhifu Chen](https://github.com/zhenshimin/cs389)
+* ![image](https://user-images.githubusercontent.com/100736782/195180514-7fb7a18d-7595-4b0a-98b5-8f152c098fdb.png)
 
 ## App description
 
