@@ -3,12 +3,11 @@
 ## App name
 
 ## Team members
-![](https://user-images.githubusercontent.com/94885719/195180376-6d90d426-1c9d-4d7b-86fc-5b51f85d517f.jpg)
+
 
 * [Kuan Zhang](https://github.com/Kuan000/CS389.git)
 * [Xiaofeng Leng](https://github.com/Korate/cs389)
 * [Zhifu Chen](https://github.com/zhenshimin/cs389)
-* ![image](https://user-images.githubusercontent.com/100736782/195180514-7fb7a18d-7595-4b0a-98b5-8f152c098fdb.png)
 
 ## App description
 
