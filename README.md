@@ -3,7 +3,7 @@
 ## App name
 
 ## Team members
-
+![image](https://user-images.githubusercontent.com/100736782/195180687-8ed23243-c042-4b9c-ba9d-020bcc1e8582.png)
 
 * [Kuan Zhang](https://github.com/Kuan000/CS389.git)
 * [Xiaofeng Leng](https://github.com/Korate/cs389)
