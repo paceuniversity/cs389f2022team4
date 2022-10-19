@@ -22,6 +22,7 @@ Our app is designed to help people who are not residents of China learn about he
 [Calendar](https://calendar.google.com/calendar/u/0?cid=aXZoMmU3NjhzMjRkdGlxZWYwcXZvbzhxcjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
 ## Product Backlog
+[Requirements Discovery](https://docs.google.com/document/d/1a0xJW5Y15ibNuBDwzqdSxKR3DHB33l_UWZbi5JBSdk4/edit?usp=sharing)
 [Product Backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
 
 ## Architecture & Design
