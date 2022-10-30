@@ -26,7 +26,8 @@ Our app is designed to help people who are not residents of China learn about he
 * [Product Backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
 
 ## Architecture & Design
-[Architecture & Design]()
+* [Architecture](https://docs.google.com/document/d/1bI_Cret59Gq1e1PTV-7riynoREyMjHDJSweCOFwDdYY/edit?usp=sharing)
+* [Design]()
 
 ## Process
 
