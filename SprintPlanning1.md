@@ -3,7 +3,7 @@
 ## What is your Sprint Goal?
 
 * Number of User Stories you will implement during the Sprint
-  *13
+  * 13
 * User Stories you will implement during the Sprint
   * us2 Welcome screen
   * us3 User basic information collection page
