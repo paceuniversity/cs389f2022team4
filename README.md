@@ -27,7 +27,7 @@ Our app is designed to help people who are not residents of China learn about he
 
 ## Architecture & Design
 * [Architecture](https://docs.google.com/document/d/1bI_Cret59Gq1e1PTV-7riynoREyMjHDJSweCOFwDdYY/edit?usp=sharing)
-* [Design]()
+* [Design](https://docs.google.com/document/d/1uv2nw-ptiWbFuQIv8c_AWFjbS5la-xk-EgAsl2gYFKc/edit?usp=sharing)
 
 ## Process
 
