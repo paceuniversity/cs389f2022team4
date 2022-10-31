@@ -33,7 +33,7 @@ Our app is designed to help people who are not residents of China learn about he
 
 ### Sprint 1
 
-* [Sprint planning](SprintPlanning.md)
+* [Sprint planning](SprintPlanning1.md)
 * [Scrums]()
 * [Sprint demo video]()
 * [Sprint retrospective]()
