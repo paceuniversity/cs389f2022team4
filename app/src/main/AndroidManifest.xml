@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KirinRecipe"
         tools:targetApi="31">
+
         <!--First go to the Welcome page.-->
         <activity android:name=".Splash"
             android:exported="true">
@@ -19,6 +20,15 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".HomePage"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
         </activity>
 
         <activity
