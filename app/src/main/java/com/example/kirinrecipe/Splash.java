@@ -9,6 +9,7 @@ import android.os.Bundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
+// welcome page by Kuan
 public class Splash extends AppCompatActivity {
 
     @Override
@@ -20,7 +21,7 @@ public class Splash extends AppCompatActivity {
         init();
     }
     private void init() {
-
+    //Set a time control to automatically go to the next page.
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
