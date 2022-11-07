@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Kirin recipe</string>
+    <string name="welcome">Welcome to Kirin Recipe</string>
 </resources>

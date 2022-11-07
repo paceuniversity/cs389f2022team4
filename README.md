@@ -5,6 +5,10 @@
 ## Team members
 ![Kuan Zhang](https://user-images.githubusercontent.com/94885719/195205042-3e9eb553-5550-43cc-8e5f-4a54faefb3fa.jpg)
 ![image](https://user-images.githubusercontent.com/100736782/195180687-8ed23243-c042-4b9c-ba9d-020bcc1e8582.png)
+![9299ac459a101057a361d57bf11f7fa](https://user-images.githubusercontent.com/114660329/199591477-13f2f7a6-0e7c-47ad-b862-32928a9666aa.png)
+
+
+
 
 
 * [Kuan Zhang](https://github.com/Kuan000/CS389.git)
@@ -33,8 +37,10 @@ Our app is designed to help people who are not residents of China learn about he
 
 ### Sprint 1
 
-* [Sprint planning](SprintPlanning1.md) | [backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
-* [Scrums]()
+* [Sprint planning](https://docs.google.com/document/d/1j60PXfHOc-9HX0uXRbLWhP56uLqWs-RR0sBn6cdY5o0/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
+
+* [Scrums](https://docs.google.com/document/d/14luv0PBd1fqYzhJTA4FcB4JHKarRsQOP9R12vEXI4zo/edit#heading=h.erdtl50ovr6)
+
 * [Sprint demo video]()
 * [Sprint retrospective]()
 
