@@ -7,12 +7,44 @@
     tools:context=".HomePage">
 
     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="128dp"
+        android:layout_height="38dp"
+        android:gravity="center"
+        android:text="Setting"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/imageButton4"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+
+    <TextView
         android:id="@+id/textView"
-        android:layout_width="149dp"
-        android:layout_height="201dp"
-        android:text="HomePage!!!"
-        android:textColor="#EA1111"
-        android:textSize="48sp"
-        tools:layout_editor_absoluteX="131dp"
-        tools:layout_editor_absoluteY="188dp" />
+        android:layout_width="128dp"
+        android:layout_height="38dp"
+        android:gravity="center"
+        android:text="Recipe"
+        android:textIsSelectable="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toStartOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="128dp"
+        android:layout_height="155dp"
+        app:srcCompat="@drawable/recipe"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="28dp" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="128dp"
+        android:layout_height="118dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/setting" />
 </androidx.constraintlayout.widget.ConstraintLayout>

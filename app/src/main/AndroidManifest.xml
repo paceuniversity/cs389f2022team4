@@ -13,16 +13,15 @@
         android:theme="@style/Theme.KirinRecipe"
         tools:targetApi="31">
         <activity
-            android:name="com.example.kirinrecipe.CalorieActivity"
-            android:exported="false" />
+            android:name=".Userinfo"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <!-- First go to the Welcome page. -->
         <activity
-            android:name="com.example.kirinrecipe.AboutInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.kirinrecipe.AboutActivity"
-            android:exported="true" /> <!-- First go to the Welcome page. -->
-        <activity
-            android:name="com.example.kirinrecipe.Splash"
+            android:name=".Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,14 +30,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.kirinrecipe.HomePage"
+            android:name=".HomePage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.kirinrecipe.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

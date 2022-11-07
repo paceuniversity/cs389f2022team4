@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Kirin recipe</string>
     <string name="welcome">Welcome to Kirin Recipe</string>
+    <string name="basic_information">Basic information</string>
+    <string name="name_label">Name</string>
+    <string name="Age_label">Age</string>
+    <string name="Gender_label">Gender</string>
+    <string name="name_hint"><![CDATA[First name & Last name]]></string>
+    <string name="gender_hint">Male,female or none</string>
+    <string name="height_label">Height</string>
+    <string name="age_hint">Your age</string>
+    <string name="height_hint">Your height (cm)</string>
+    <string name="weight_hint">Your weight (kg)</string>
+    <string name="Preference_info">Preference</string>
+    <string name="favorite_label">Favorite</string>
+    <string name="favorite_hint">Type 1 favorite food here</string>
+    <string name="dislike_hint">Type 1 dislike food here</string>
+    <string name="dislike_label">Dislike</string>
 </resources>
