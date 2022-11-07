@@ -18,16 +18,15 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        init();
+        Timer();
     }
-    private void init() {
+    private void Timer() {
     //Set a time control to automatically go to the next page.
         Timer timer = new Timer();
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-
-                Intent intent = new Intent(Splash.this,MainActivity.class);
+                Intent intent = new Intent(Splash.this,Userinfo.class);
                 startActivity(intent);
                 Splash.this.finish();
             }
