@@ -13,13 +13,19 @@
         android:theme="@style/Theme.KirinRecipe"
         tools:targetApi="31">
         <activity
-            android:name=".Userinfo"
+            android:name=".Settingpage"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <!-- First go to the Welcome page. -->
+        <activity
+            android:name=".Userinfo"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- First go to the Welcome page. -->
         <activity
             android:name=".Splash"
             android:exported="true">

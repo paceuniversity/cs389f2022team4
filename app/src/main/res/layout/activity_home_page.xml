@@ -26,12 +26,12 @@
         android:text="Recipe"
         android:textIsSelectable="false"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/RecipeButton"
-        app:layout_constraintStart_toStartOf="@+id/RecipeButton"
-        app:layout_constraintTop_toBottomOf="@+id/RecipeButton" />
+        app:layout_constraintEnd_toEndOf="@+id/RecipeButton123"
+        app:layout_constraintStart_toStartOf="@+id/RecipeButton123"
+        app:layout_constraintTop_toBottomOf="@+id/RecipeButton123" />
 
     <ImageButton
-        android:id="@+id/RecipeButton"
+        android:id="@+id/RecipeButton123"
         android:layout_width="128dp"
         android:layout_height="155dp"
         app:layout_constraintStart_toStartOf="parent"
