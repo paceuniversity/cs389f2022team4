@@ -14,9 +14,9 @@
         android:text="Setting"
         android:textIsSelectable="false"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/SettingButton"
-        app:layout_constraintStart_toStartOf="@+id/SettingButton"
-        app:layout_constraintTop_toBottomOf="@+id/SettingButton" />
+        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/imageButton4"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
 
     <TextView
         android:id="@+id/textView"
@@ -26,24 +26,22 @@
         android:text="Recipe"
         android:textIsSelectable="false"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/RecipeBotton"
-        app:layout_constraintStart_toStartOf="@+id/RecipeBotton"
-        app:layout_constraintTop_toBottomOf="@+id/RecipeBotton" />
+        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
+        app:layout_constraintStart_toStartOf="@+id/imageButton2"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
 
     <ImageButton
-        android:id="@+id/RecipeBotton"
+        android:id="@+id/imageButton2"
         android:layout_width="128dp"
         android:layout_height="155dp"
-        android:onClick="OpenRecipePage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/recipe" />
 
     <ImageButton
-        android:id="@+id/SettingButton"
+        android:id="@+id/imageButton4"
         android:layout_width="128dp"
         android:layout_height="118dp"
-        android:onClick="OpenSettingPage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
