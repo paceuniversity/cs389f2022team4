@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="#D3D3D3"
     android:orientation="vertical"
     tools:context="com.example.kirinrecipe.AboutActivity">
 
@@ -42,7 +42,7 @@
             android:layout_height="1px"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:background="@color/black_line" />
+            android:background="#D3D3D3" />
 
         <TextView
             android:layout_width="match_parent"
@@ -62,7 +62,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:layout_marginTop="2dp"
-            android:background="@color/black_line" />
+            android:background="#D3D3D3" />
 
         <TextView
             android:layout_width="match_parent"
