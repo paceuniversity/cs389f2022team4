@@ -19,7 +19,8 @@ public class Settingpage extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void gotoPKwithus(View view) {
-
+    public void GotoPKwithus(View view) {
+        Intent intent=new Intent(Settingpage.this,PKwithus.class);
+        startActivity(intent);
     }
 }
