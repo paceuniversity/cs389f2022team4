@@ -15,7 +15,6 @@ public class HomePage extends AppCompatActivity {
     }
 
     public void GotoSetting(View view) {
-
         Intent intent=new Intent(HomePage.this,Settingpage.class);
         startActivity(intent);
     }

@@ -68,7 +68,10 @@
         android:layout_width="fill_parent"
         android:layout_weight="3"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        android:onClick="GotoPKwithus">
+
+
 
         <ImageButton
             android:id="@+id/contact_image"
