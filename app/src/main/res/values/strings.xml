@@ -16,4 +16,10 @@
     <string name="favorite_hint">Type 1 favorite food here</string>
     <string name="dislike_hint">Type 1 dislike food here</string>
     <string name="dislike_label">Dislike</string>
+    <string name="language_Setting">EN/中文</string>
+    <string name="about_Setting">About</string>
+    <string name="contact_Setting">Pk with us</string>
+    <string name="userinfo_Setting">Modify basic information</string>
+    <string name="dislike_Setting">Dislike recipe</string>
+    <string name="history_Setting">History collocation</string>
 </resources>
