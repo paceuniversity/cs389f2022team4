@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:typeface="serif"
-    android:background="#D5D6D6"
+    android:background="@drawable/underline"
     tools:context=".HomePage">
 
     <TextView
@@ -16,6 +16,7 @@
         android:text="Setting"
         android:textIsSelectable="false"
         android:textSize="20sp"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="@+id/imageButton4"
         app:layout_constraintStart_toStartOf="@+id/imageButton4"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
@@ -28,6 +29,7 @@
         android:text="Recipe"
         android:textIsSelectable="false"
         android:textSize="20sp"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="@+id/RecipeButton123"
         app:layout_constraintStart_toStartOf="@+id/RecipeButton123"
         app:layout_constraintTop_toBottomOf="@+id/RecipeButton123" />
