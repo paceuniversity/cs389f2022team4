@@ -23,4 +23,9 @@ public class Settingpage extends AppCompatActivity {
         Intent intent=new Intent(Settingpage.this,PKwithus.class);
         startActivity(intent);
     }
+
+    public void GoBack(View view) {
+        Intent intent=new Intent(Settingpage.this,HomePage.class);
+        startActivity(intent);
+    }
 }

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:backgroundTint="#F8F8F8"
+    android:typeface="serif"
     tools:context=".PKwithus">
 
   <TextView
