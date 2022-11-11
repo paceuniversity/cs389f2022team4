@@ -4,25 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Settingpage"
     android:orientation="vertical"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    >
+    android:typeface="serif"
+    tools:context=".Settingpage">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_weight="2"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:background="#D18D08"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/return_image"
-            android:layout_width="wrap_content"
+            android:layout_width="3dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/btn_star" />
+            android:layout_weight="0.8"
+            android:onClick="GoBack"
+            app:srcCompat="@drawable/return_icon" />
 
         <TextView
             android:id="@+id/language_text"
@@ -31,134 +34,163 @@
             android:layout_marginStart="150dp"
             android:layout_weight="1"
             android:text="@string/language_Setting"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@+id/return_image"
             app:layout_constraintStart_toEndOf="@+id/return_image" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_weight="3"
         android:layout_height="wrap_content"
-        android:onClick="GotoAbout">
+        android:layout_weight="2"
+        android:gravity="center"
+        android:onClick="GotoAbout"
+        android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/about_image"
-            android:layout_width="15dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
             android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/btn_star" />
+            android:layout_weight="0.8"
+            app:srcCompat="@drawable/about_icon" />
 
         <TextView
             android:id="@+id/about_text"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
             android:text="@string/about_Setting"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@+id/about_image"
             app:layout_constraintStart_toEndOf="@+id/about_image" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_weight="3"
         android:layout_height="wrap_content"
-        android:onClick="GotoPKwithus">
+        android:layout_weight="2"
+        android:gravity="center"
+        android:onClick="GotoPKwithus"
+        android:orientation="horizontal">
 
 
-        <ImageButton
+        <ImageView
             android:id="@+id/contact_image"
-            android:layout_width="42dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
             android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/btn_star" />
+            android:layout_weight="0.8"
+            app:srcCompat="@drawable/contact_icon" />
 
         <TextView
             android:id="@+id/contact_text"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
             android:text="@string/contact_Setting"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@+id/contact_image"
             app:layout_constraintStart_toEndOf="@+id/contact_image" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_weight="3"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/userinfo_image"
-            android:layout_width="138dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
             android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/btn_star" />
+            android:layout_weight="0.8"
+            app:srcCompat="@drawable/userinfo_icon" />
 
         <TextView
             android:id="@+id/userinfo_text"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
             android:text="@string/userinfo_Setting"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@+id/userinfo_image"
             app:layout_constraintStart_toEndOf="@+id/userinfo_image" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_weight="3"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/dislike_image"
-            android:layout_width="68dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
             android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/btn_star" />
+            android:layout_weight="0.8"
+            app:srcCompat="@drawable/dislike_icon" />
 
         <TextView
             android:id="@+id/dislike_text2"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
             android:text="@string/dislike_Setting"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@+id/dislike_image"
             app:layout_constraintStart_toEndOf="@+id/dislike_image" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_weight="3"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/history_image"
-            android:layout_width="97dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
             android:layout_marginStart="20dp"
-            android:layout_weight="1"
-            app:srcCompat="@android:drawable/btn_star" />
+            android:layout_weight="0.8"
+            app:srcCompat="@drawable/history_icon" />
 
         <TextView
             android:id="@+id/history_text2"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_weight="1"
             android:text="@string/history_Setting"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:typeface="serif"
             app:layout_constraintBaseline_toBaselineOf="@+id/history_image"
             app:layout_constraintStart_toEndOf="@+id/history_image" />
     </LinearLayout>
