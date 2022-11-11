@@ -19,7 +19,10 @@
         android:background="@color/Themecolor5"
         android:gravity="center_horizontal"
         android:text="@string/basic_information"
+        android:textColor="@color/white"
         android:textSize="25sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,12 +30,14 @@
     <TextView
         android:id="@+id/name_label"
         android:layout_width="50dp"
-        android:background="@drawable/underline2"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:text="@string/name_label"
+        android:textColor="@color/black"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Basicinfo" />
 
@@ -41,23 +46,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:ems = "10"
-        android:hint = "@string/name_hint"
-        android:inputType = "textPersonName"
+        android:ems="10"
+        android:hint="@string/name_hint"
+        android:inputType="textPersonName"
+        android:typeface="serif"
         app:layout_constraintBaseline_toBaselineOf="@+id/name_label"
         app:layout_constraintStart_toEndOf="@+id/name_label" />
 
     <TextView
         android:id="@+id/gender_label"
         android:layout_width="55dp"
-        android:background="@drawable/underline2"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:text="@string/Gender_label"
+        android:textColor="@color/black"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name_label" />
 
@@ -70,19 +76,21 @@
         android:ems="10"
         android:hint="@string/gender_hint"
         android:inputType="text"
+        android:typeface="serif"
         app:layout_constraintStart_toEndOf="@+id/gender_label"
         app:layout_constraintTop_toBottomOf="@+id/name_text" />
 
     <TextView
         android:id="@+id/age_label"
         android:layout_width="40dp"
-        android:background="@drawable/underline2"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:text="@string/Age_label"
+        android:textColor="@color/black"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gender_text" />
 
@@ -94,19 +102,21 @@
         android:ems="10"
         android:hint="@string/age_hint"
         android:inputType="number"
+        android:typeface="serif"
         app:layout_constraintBaseline_toBaselineOf="@+id/age_label"
         app:layout_constraintStart_toEndOf="@+id/age_label" />
 
     <TextView
         android:id="@+id/height_label"
         android:layout_width="52dp"
-        android:background="@drawable/underline2"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:text="@string/height_label"
+        android:textColor="@color/black"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/age_label" />
 
@@ -118,19 +128,21 @@
         android:ems="10"
         android:hint="@string/height_hint"
         android:inputType="number"
+        android:typeface="serif"
         app:layout_constraintBaseline_toBaselineOf="@+id/height_label"
         app:layout_constraintStart_toEndOf="@+id/height_label" />
 
     <TextView
         android:id="@+id/weight_label"
         android:layout_width="52dp"
-        android:background="@drawable/underline2"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:text="@string/weight_label"
+        android:textColor="@color/black"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/height_label" />
 
@@ -142,6 +154,7 @@
         android:ems="10"
         android:hint="@string/weight_hint"
         android:inputType="number"
+        android:typeface="serif"
         app:layout_constraintBaseline_toBaselineOf="@+id/weight_label"
         app:layout_constraintStart_toEndOf="@+id/weight_label" />
 
@@ -155,7 +168,10 @@
         android:background="@color/Themecolor5"
         android:gravity="center_horizontal"
         android:text="@string/Preference_info"
+        android:textColor="@color/white"
         android:textSize="25sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/weight_text" />
@@ -163,13 +179,14 @@
     <TextView
         android:id="@+id/favorite_label"
         android:layout_width="62dp"
-        android:background="@drawable/underline2"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:text="@string/favorite_label"
+        android:textColor="@color/black"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Preference" />
 
@@ -181,19 +198,21 @@
         android:ems="10"
         android:hint="@string/favorite_hint"
         android:inputType="text"
+        android:typeface="serif"
         app:layout_constraintBaseline_toBaselineOf="@+id/favorite_label"
         app:layout_constraintStart_toEndOf="@+id/favorite_label" />
 
     <TextView
         android:id="@+id/dislike_label"
         android:layout_width="55dp"
-        android:background="@drawable/underline2"
-        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:text="@string/dislike_label"
+        android:textColor="@color/black"
+        android:typeface="serif"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/favorite_label" />
 
@@ -214,15 +233,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
+        android:gravity="center|center_horizontal"
+        android:onClick="SaveandNext"
         android:text="Submit"
+        android:textStyle="bold"
+        android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dislike_label"
-        app:layout_constraintVertical_bias="0.0"
-        android:onClick="SaveandNext"/>
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
