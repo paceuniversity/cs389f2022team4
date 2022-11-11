@@ -5,25 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:typeface="serif"
+    android:background="@drawable/underline"
     tools:context=".Userinfo">
 
     <TextView
         android:id="@+id/Basicinfo"
-        android:gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/Themecolor5"
+        android:gravity="center_horizontal"
         android:text="@string/basic_information"
         android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/name_label"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="32dp"
         android:text="@string/name_label"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +50,9 @@
 
     <TextView
         android:id="@+id/gender_label"
-        android:layout_width="wrap_content"
+        android:layout_width="55dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -57,15 +66,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
         android:ems="10"
         android:hint="@string/gender_hint"
         android:inputType="text"
-        app:layout_constraintBaseline_toBaselineOf="@+id/gender_label"
-        app:layout_constraintStart_toEndOf="@+id/gender_label" />
+        app:layout_constraintStart_toEndOf="@+id/gender_label"
+        app:layout_constraintTop_toBottomOf="@+id/name_text" />
 
     <TextView
         android:id="@+id/age_label"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -87,7 +99,9 @@
 
     <TextView
         android:id="@+id/height_label"
-        android:layout_width="wrap_content"
+        android:layout_width="52dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -109,12 +123,14 @@
 
     <TextView
         android:id="@+id/weight_label"
-        android:layout_width="wrap_content"
+        android:layout_width="52dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="24dp"
-        android:text="@string/height_label"
+        android:text="@string/weight_label"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/height_label" />
 
@@ -133,16 +149,22 @@
         android:id="@+id/Preference"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/Themecolor5"
         android:gravity="center_horizontal"
         android:text="@string/Preference_info"
         android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/weight_text" />
 
     <TextView
         android:id="@+id/favorite_label"
-        android:layout_width="wrap_content"
+        android:layout_width="62dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -164,7 +186,9 @@
 
     <TextView
         android:id="@+id/dislike_label"
-        android:layout_width="wrap_content"
+        android:layout_width="55dp"
+        android:background="@drawable/underline2"
+        android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
@@ -178,11 +202,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="1dp"
         android:ems="10"
         android:hint="@string/dislike_hint"
         android:inputType="text"
-        app:layout_constraintBaseline_toBaselineOf="@+id/dislike_label"
-        app:layout_constraintStart_toEndOf="@+id/dislike_label" />
+        app:layout_constraintStart_toEndOf="@+id/dislike_label"
+        app:layout_constraintTop_toBottomOf="@+id/favorite_text" />
 
     <Button
         android:id="@+id/button2"
