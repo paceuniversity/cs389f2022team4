@@ -37,7 +37,6 @@ public class Basicinformation extends AppCompatActivity {
         infoDislike=(TextView)findViewById(R.id.dislike_text2);
 
     }
-    }
     public void GotoSetting2(View view) {
         Intent intent=new Intent(Basicinformation.this,Settingpage.class);
         startActivity(intent);
