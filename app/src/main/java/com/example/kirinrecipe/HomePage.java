@@ -11,13 +11,13 @@ public class HomePage extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
-        ///系统进度条 限制比较大 只能设置2个颜色
+        //The system progress bar has a relatively large limit and can only set 2 colors
         findViewProg(R.id.progressbar);
         setProg(350);
 
-        //自定义进度条使用方式 可以设置3个颜色
+        //Customize the use of the progress bar, you can set 3 colors
         findViewText();
-        //type 第几个textview ，weight 权重 占的比例
+        //The number of textviews of type, the proportion of weight weight
         setWeight(1,2);
         setWeight(2,3);
         setWeight(3,1);
