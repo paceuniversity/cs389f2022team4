@@ -10,10 +10,13 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="61dp"
         android:layout_marginTop="236dp"
+        android:background="#F6C256"
+        android:gravity="center"
         android:text="Kirin Recipe"
+        android:textColor="#FFFFFF"
         android:textSize="35sp"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,5 +34,27 @@
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="340dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="29dp"
+        android:text="Kirin Recipes focuses on improving people's diets and introducing traditional Chinese diets, thus improving their health."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="138dp"
+        android:layout_marginBottom="285dp"
+        android:text="Better recipes for you"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
