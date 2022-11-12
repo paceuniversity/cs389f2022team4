@@ -4,6 +4,9 @@ package com.example.kirinrecipe;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -12,11 +15,16 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 
+import androidx.core.view.MotionEventCompat;
+
 public class HomePage extends BaseActivity {
     private int stage = 1;
     ImageView SettingIcon;
     ImageView RandomIcon;
     ImageView RecipeIcon;
+    int distance=0;
+    private VelocityTracker mVelocityTracker = null;
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
 
     @Override
@@ -41,8 +49,59 @@ public class HomePage extends BaseActivity {
         setWeight(1, 2);
         setWeight(2, 3);
         setWeight(3, 1);
+        Log.d(LOG_TAG, "onStart");
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int index = event.getActionIndex();
+        int action = event.getActionMasked();
+        int pointerId = event.getPointerId(index);
+
+        switch(action) {
+            case MotionEvent.ACTION_DOWN:
+                if(mVelocityTracker == null) {
+                    // Retrieve a new VelocityTracker object to watch the
+                    // velocity of a motion.
+                    mVelocityTracker = VelocityTracker.obtain();
+                }
+                else {
+                    // Reset the velocity tracker back to its initial state.
+                    mVelocityTracker.clear();
+                }
+                // Add a user's movement to the tracker.
+                mVelocityTracker.addMovement(event);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mVelocityTracker.addMovement(event);
+                // When you want to determine the velocity, call
+                // computeCurrentVelocity(). Then call getXVelocity()
+                // and getYVelocity() to retrieve the velocity for each pointer ID.
+                mVelocityTracker.computeCurrentVelocity(1000);
+                // Log velocity of pixels per second
+                // Best practice to use VelocityTrackerCompat where possible.
+                //Log.d("", "X velocity: " + mVelocityTracker.getXVelocity(pointerId));
+                //Log.d("", "Y velocity: " + mVelocityTracker.getYVelocity(pointerId));
+                distance+=mVelocityTracker.getXVelocity(pointerId);
+                break;
+            case MotionEvent.ACTION_UP:
+                    if(distance>20000){
+                        GotoRight(RecipeIcon);
+                        Log.d("", ""+distance);
+                    }
+                    else if(distance<-20000){
+                        GotoLeft(RecipeIcon);
+                        Log.d("", ""+distance);
+                    }
+                    distance=0;
+                    break;
+            case MotionEvent.ACTION_CANCEL:
+                // Return a VelocityTracker object back to be re-used by others.
+                mVelocityTracker.recycle();
+                break;
+        }
+        return true;
+    }
 
     public void GotoRight(View view) {
         //Intent intent=new Intent(HomePage.this,Settingpage.class);
