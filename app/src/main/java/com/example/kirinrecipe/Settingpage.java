@@ -28,4 +28,8 @@ public class Settingpage extends AppCompatActivity {
         Intent intent=new Intent(Settingpage.this,HomePage.class);
         startActivity(intent);
     }
+    public void Gotobasicinformation(View view) {
+        Intent intent=new Intent(Settingpage.this,Basicinformation.class);
+        startActivity(intent);
+    }
 }

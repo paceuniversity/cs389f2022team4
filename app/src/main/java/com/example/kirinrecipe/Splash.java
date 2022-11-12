@@ -11,7 +11,6 @@ import java.util.TimerTask;
 
 // welcome page by Kuan
 public class Splash extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +18,7 @@ public class Splash extends AppCompatActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         Timer();
+
     }
     private void Timer() {
     //Set a time control to automatically go to the next page.
@@ -26,9 +26,11 @@ public class Splash extends AppCompatActivity {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                Intent intent = new Intent(Splash.this,Userinfo.class);
-                startActivity(intent);
-                Splash.this.finish();
+                    Intent intent = new Intent(Splash.this, Userinfo.class);
+                    startActivity(intent);
+
+                    Splash.this.finish();
+
             }
         };
         timer.schedule(timerTask,3000);
