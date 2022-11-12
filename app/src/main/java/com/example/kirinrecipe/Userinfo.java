@@ -43,6 +43,7 @@ public class Userinfo extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                //get text
                 String strName = editName.getText().toString().trim();
                 String strGender = editGender.getText().toString().trim();
                 String strAge = editAge.getText().toString().trim();
@@ -52,9 +53,22 @@ public class Userinfo extends AppCompatActivity {
                 String strDislike = editDislike.getText().toString().trim();
 
                 Intent intent = new Intent(Userinfo.this, HomePage.class);
+                /*Wrong code, need to fix.
+                //create a data packet
+                Bundle data=new Bundle();
+                //Put text data into packets
+                data.putString("Name",strName);
+                data.putString("Gender",strGender);
+                data.putString("age",strAge);
+                data.putString("height",strHeight);
+                data.putString("weight",strWeight);
+                data.putString("favorite",strFavorite);
+                data.putString("dislike",strDislike);
+                //Carry packets through intent
+                intent.putExtras(data);
 
                 //Update the user content, but the database has not been established, and it is not yet possible to achieve.
-                /*user.setName(strName);
+                user.setName(strName);
                 user.setGender(strGender);
                 user.setHeight(Double.parseDouble(strHeight));
                 user.setWeight(Double.parseDouble(strWeight));
