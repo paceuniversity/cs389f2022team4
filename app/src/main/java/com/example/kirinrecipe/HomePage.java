@@ -86,11 +86,11 @@ public class HomePage extends BaseActivity {
                 break;
             case MotionEvent.ACTION_UP:
                     if(distance>20000){
-                        GotoRight(RecipeIcon);
+                        GotoRight();
                         Log.d("", ""+distance);
                     }
                     else if(distance<-20000){
-                        GotoLeft(RecipeIcon);
+                        GotoLeft();
                         Log.d("", ""+distance);
                     }
                     distance=0;
@@ -103,7 +103,7 @@ public class HomePage extends BaseActivity {
         return true;
     }
 
-    public void GotoRight(View view) {
+    public void GotoRight() {
         //Intent intent=new Intent(HomePage.this,Settingpage.class);
         //startActivity(intent);
         switch (stage) {
@@ -125,7 +125,7 @@ public class HomePage extends BaseActivity {
         }
     }
 
-    public void GotoLeft(View view) {
+    public void GotoLeft() {
         switch (stage) {
             case 0: {
                 //SettingIcon.startAnimation(Translate(0,100));
