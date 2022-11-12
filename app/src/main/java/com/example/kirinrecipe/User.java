@@ -1,6 +1,7 @@
 package com.example.kirinrecipe;
 
 public class User {
+    //Create a user class to store user information.
     public String Name,ID,Gender,Favorite,Dislike;
     public double Weight,Height;
     public int Age;
@@ -15,15 +16,15 @@ public class User {
         this.Name = name;
     }
 
-    public void setWeight(double weight){
+    public void setWeight(Double weight){
         this.Weight = weight;
     }
 
-    public void setHeight(double height){
+    public void setHeight(Double height){
         this.Height = height;
     }
 
-    public void setAge(int age){
+    public void setAge(Integer age){
         this.Age = age;
     }
 
