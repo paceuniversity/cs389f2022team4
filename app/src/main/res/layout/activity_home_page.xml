@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:typeface="serif"
-    android:background="@drawable/underline"
     tools:context=".HomePage">
+
+    <include
+        layout="@layout/caloreis_layout"
+        android:visibility="gone"/>
+
+    <include
+        layout="@layout/caloreis_v2_layout"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -16,7 +21,6 @@
         android:text="Setting"
         android:textIsSelectable="false"
         android:textSize="20sp"
-        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="@+id/imageButton4"
         app:layout_constraintStart_toStartOf="@+id/imageButton4"
         app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
@@ -29,7 +33,6 @@
         android:text="Recipe"
         android:textIsSelectable="false"
         android:textSize="20sp"
-        android:typeface="serif"
         app:layout_constraintEnd_toEndOf="@+id/RecipeButton123"
         app:layout_constraintStart_toStartOf="@+id/RecipeButton123"
         app:layout_constraintTop_toBottomOf="@+id/RecipeButton123" />
@@ -38,6 +41,7 @@
         android:id="@+id/RecipeButton123"
         android:layout_width="128dp"
         android:layout_height="155dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/recipe" />
@@ -52,20 +56,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/setting" />
-
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="266dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:max="100"
-        android:progress="40"
-        android:progressBackgroundTint="#FF5722"
-        android:progressTint="#C54E4E"
-        android:secondaryProgress="60"
-        android:secondaryProgressTint="#FFEB3B"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
