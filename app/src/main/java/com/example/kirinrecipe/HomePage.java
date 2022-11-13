@@ -226,13 +226,11 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         if(e1.getX()-e2.getX()>100){
-            Log.d("", "右往左");
             GotoLeft();
             return true;
         }
         if(e1.getX()-e2.getX()<-100){
             GotoRight();
-            Log.d("", "左往右");
             return true;
         }
         return false;
