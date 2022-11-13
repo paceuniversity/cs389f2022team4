@@ -41,7 +41,7 @@ Our app is designed to help people who are not residents of China learn about he
 
 * [Scrums](https://docs.google.com/document/d/14luv0PBd1fqYzhJTA4FcB4JHKarRsQOP9R12vEXI4zo/edit#heading=h.erdtl50ovr6)
 
-* [Sprint demo video](https://youtube.com/shorts/QpDDSNdVZu4?feature=share) | [APK](https://drive.google.com/file/d/1OjNIvKCBwUp6QIbdmin_u2hvnk3PBCz5/view?usp=sharing)
+* [Sprint demo video](https://docs.google.com/document/d/1sx4U5R2CfmIH7RmAu8vnvGeCZPZCR0CFvoLcRfc4Hdw/edit?usp=sharing) | [APK](https://drive.google.com/file/d/1OjNIvKCBwUp6QIbdmin_u2hvnk3PBCz5/view?usp=sharing)
 * [Sprint retrospective](https://docs.google.com/document/d/1OYmTOI90PCeeqBxHunbp2MILSeb3CzmG6VzCl-3tyZk/edit?usp=sharing)
 
 ### Sprint 2
