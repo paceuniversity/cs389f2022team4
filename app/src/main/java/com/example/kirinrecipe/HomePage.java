@@ -129,7 +129,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
                 //SettingIcon.startAnimation(Translate(0,100));
                 move(SettingIcon, 0, 100, 0.7f, 0, 0.7f, 0, 300);
                 move(RecipeIcon, 0, 500, 1, 0.7f, 1, 0.7f, 300);
-                move(RandomIcon, 0, 400, 0.7f, 1, 0.7f, 1, 300);
+                move(RandomIcon, 0, centerX/2+70, 0.7f, 1, 0.7f, 1, 300);
                 stage = 0;
                 hint="Random Recipe";
             }
@@ -151,7 +151,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
                 //SettingIcon.startAnimation(Translate(0,100));
                 move(SettingIcon, 100, 0, 0, 0.7f, 0, 0.7f, 300);
                 move(RecipeIcon, 500, 0, 0.7f, 1, 0.7f, 1, 300);
-                move(RandomIcon, 400, 0, 1, 0.7f, 1, 0.7f, 300);
+                move(RandomIcon, centerX/2+70, 0, 1, 0.7f, 1, 0.7f, 300);
                 stage = 1;
                 hint="Choose Your Recipe";
             }
@@ -217,6 +217,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
 
     @Override
     public void onLongPress(MotionEvent e) {
+        Log.d("", "Longepress+ ");
         Toast toast;
         toast = Toast.makeText(this, hint,
                 Toast.LENGTH_SHORT);
