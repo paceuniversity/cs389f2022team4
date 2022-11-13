@@ -32,7 +32,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     String hint="Choose Your Recipe";
     GestureDetector detector;
     private VelocityTracker mVelocityTracker = null;
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    private static final String LOG_TAG = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
