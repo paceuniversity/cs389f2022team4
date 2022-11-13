@@ -2,9 +2,11 @@ package com.example.kirinrecipe;
 
 
 import android.content.Intent;
+import android.gesture.Gesture;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -14,18 +16,23 @@ import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.core.view.MotionEventCompat;
 
-public class HomePage extends BaseActivity {
+
+public class HomePage extends BaseActivity implements GestureDetector.OnGestureListener {
     private int stage = 1;
     ImageView SettingIcon;
     ImageView RandomIcon;
     ImageView RecipeIcon;
+    int centerX;
+    int centerY;
     int distance=0;
+    String hint="Choose Your Recipe";
+    GestureDetector detector;
     private VelocityTracker mVelocityTracker = null;
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,9 @@ public class HomePage extends BaseActivity {
         setContentView(R.layout.activity_home_page);
         DisplayMetrics dm = getResources().getDisplayMetrics();
 
+        centerX=dm.widthPixels/2;
+        centerY=dm.heightPixels/2;
+        detector = new GestureDetector(HomePage.this,this);
         SettingIcon = findViewById(R.id.setting_icon);
         RandomIcon = findViewById(R.id.random_icon);
         RecipeIcon = findViewById(R.id.recipe_icon);
@@ -49,15 +59,16 @@ public class HomePage extends BaseActivity {
         setWeight(1, 2);
         setWeight(2, 3);
         setWeight(3, 1);
-        Log.d(LOG_TAG, "onStart");
+        Log.d(LOG_TAG, "onStart"+centerX+" "+centerY);
     }
 
-    @Override
+    /*@Override
     public boolean onTouchEvent(MotionEvent event) {
         int index = event.getActionIndex();
         int action = event.getActionMasked();
         int pointerId = event.getPointerId(index);
 
+        RecipeIcon.hasOnClickListeners()
         switch(action) {
             case MotionEvent.ACTION_DOWN:
                 if(mVelocityTracker == null) {
@@ -69,6 +80,7 @@ public class HomePage extends BaseActivity {
                     // Reset the velocity tracker back to its initial state.
                     mVelocityTracker.clear();
                 }
+                Log.d("", ""+event.getX()+" "+event.getY());
                 // Add a user's movement to the tracker.
                 mVelocityTracker.addMovement(event);
                 break;
@@ -85,14 +97,15 @@ public class HomePage extends BaseActivity {
                 distance+=mVelocityTracker.getXVelocity(pointerId);
                 break;
             case MotionEvent.ACTION_UP:
-                    if(distance>20000){
-                        GotoRight(RecipeIcon);
+                    if(distance>10000){
+                        GotoRight();
                         Log.d("", ""+distance);
                     }
-                    else if(distance<-20000){
-                        GotoLeft(RecipeIcon);
+                    else if(distance<-10000){
+                        GotoLeft();
                         Log.d("", ""+distance);
                     }
+                    else Log.d("", ""+distance);
                     distance=0;
                     break;
             case MotionEvent.ACTION_CANCEL:
@@ -101,9 +114,14 @@ public class HomePage extends BaseActivity {
                 break;
         }
         return true;
+    }*/
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return detector.onTouchEvent(event);
     }
 
-    public void GotoRight(View view) {
+    public void GotoRight() {
         //Intent intent=new Intent(HomePage.this,Settingpage.class);
         //startActivity(intent);
         switch (stage) {
@@ -113,6 +131,7 @@ public class HomePage extends BaseActivity {
                 move(RecipeIcon, 0, 500, 1, 0.7f, 1, 0.7f, 300);
                 move(RandomIcon, 0, 400, 0.7f, 1, 0.7f, 1, 300);
                 stage = 0;
+                hint="Random Recipe";
             }
             break;
             case 2: {
@@ -120,12 +139,13 @@ public class HomePage extends BaseActivity {
                 move(RecipeIcon, -500, 0, 0.7f, 1, 0.7f, 1, 300);
                 move(RandomIcon, -100, 0, 0, 0.7f, 0, 0.7f, 300);
                 stage = 1;
+                hint="Choose Your Recipe";
             }
             break;
         }
     }
 
-    public void GotoLeft(View view) {
+    public void GotoLeft() {
         switch (stage) {
             case 0: {
                 //SettingIcon.startAnimation(Translate(0,100));
@@ -133,6 +153,7 @@ public class HomePage extends BaseActivity {
                 move(RecipeIcon, 500, 0, 0.7f, 1, 0.7f, 1, 300);
                 move(RandomIcon, 400, 0, 1, 0.7f, 1, 0.7f, 300);
                 stage = 1;
+                hint="Choose Your Recipe";
             }
             break;
             case 1: {
@@ -140,6 +161,7 @@ public class HomePage extends BaseActivity {
                 move(RecipeIcon, 0, -500, 1, 0.7f, 1, 0.7f, 300);
                 move(RandomIcon, 0, -100, 0.7f, 0, 0.7f, 0, 300);
                 stage = 2;
+                hint="Setting Page";
             }
             break;
         }
@@ -155,8 +177,7 @@ public class HomePage extends BaseActivity {
         icon.startAnimation(move);
     }
 
-
-    public void NextPage(View view) {
+    public void NextPage() {
         Intent intent;
         switch (stage) {
             case 0:
@@ -169,5 +190,51 @@ public class HomePage extends BaseActivity {
                 break;
 
         }
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        if(Math.abs(e.getX()-centerX)<200&&Math.abs(e.getY()-centerY)<200)
+            NextPage();
+        else Log.d("", "tap+ "+e.getX()+" "+e.getY());
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+        Toast toast;
+        toast = Toast.makeText(this, hint,
+                Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        if(e1.getX()-e2.getX()>100){
+            Log.d("", "右往左");
+            GotoLeft();
+            return true;
+        }
+        if(e1.getX()-e2.getX()<-100){
+            GotoRight();
+            Log.d("", "左往右");
+            return true;
+        }
+        return false;
     }
 }
