@@ -32,7 +32,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     String hint="Choose Your Recipe";
     GestureDetector detector;
     private VelocityTracker mVelocityTracker = null;
-    private static final String LOG_TAG = MainActivity.class.getSimpleName();
+    private static final String LOG_TAG = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +129,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
                 //SettingIcon.startAnimation(Translate(0,100));
                 move(SettingIcon, 0, 100, 0.7f, 0, 0.7f, 0, 300);
                 move(RecipeIcon, 0, 500, 1, 0.7f, 1, 0.7f, 300);
-                move(RandomIcon, 0, 400, 0.7f, 1, 0.7f, 1, 300);
+                move(RandomIcon, 0, centerX/2+70, 0.7f, 1, 0.7f, 1, 300);
                 stage = 0;
                 hint="Random Recipe";
             }
@@ -151,7 +151,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
                 //SettingIcon.startAnimation(Translate(0,100));
                 move(SettingIcon, 100, 0, 0, 0.7f, 0, 0.7f, 300);
                 move(RecipeIcon, 500, 0, 0.7f, 1, 0.7f, 1, 300);
-                move(RandomIcon, 400, 0, 1, 0.7f, 1, 0.7f, 300);
+                move(RandomIcon, centerX/2+70, 0, 1, 0.7f, 1, 0.7f, 300);
                 stage = 1;
                 hint="Choose Your Recipe";
             }
@@ -217,6 +217,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
 
     @Override
     public void onLongPress(MotionEvent e) {
+        Log.d("", "Longepress+ ");
         Toast toast;
         toast = Toast.makeText(this, hint,
                 Toast.LENGTH_SHORT);
@@ -226,13 +227,11 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         if(e1.getX()-e2.getX()>100){
-            Log.d("", "右往左");
             GotoLeft();
             return true;
         }
         if(e1.getX()-e2.getX()<-100){
             GotoRight();
-            Log.d("", "左往右");
             return true;
         }
         return false;
