@@ -48,7 +48,7 @@ Our app is designed to help people who are not residents of China learn about he
 
 * [Sprint planning](https://docs.google.com/document/d/1kRnkbGOzWPMmot_jiexY2iI43Z3wWRArN3hkCnRHLqw/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
 * [Scrums]()
-* [Sprint demo video]() | [APK]
+* [Sprint demo video]() | [APK]()
 * [Sprint retrospective]()
 * [Sprint PPT]()
 ### Sprint 3
