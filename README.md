@@ -46,11 +46,11 @@ Our app is designed to help people who are not residents of China learn about he
 * [Sprint PPT](https://docs.google.com/presentation/d/1Uy-yyqVwJ4thG3KOa3NqaKIukBYVcpjr/edit?usp=sharing&ouid=118323067870476336102&rtpof=true&sd=true)
 ### Sprint 2
 
-* [Sprint planning]()
+* [Sprint planning](https://docs.google.com/document/d/1kRnkbGOzWPMmot_jiexY2iI43Z3wWRArN3hkCnRHLqw/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
 * [Scrums]()
-* [Sprint demo video]() 
+* [Sprint demo video]() | [APK]
 * [Sprint retrospective]()
-
+* [Sprint PPT]()
 ### Sprint 3
 
 * [Sprint planning]()
