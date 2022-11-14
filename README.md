@@ -43,7 +43,7 @@ Our app is designed to help people who are not residents of China learn about he
 
 * [Sprint demo video](https://docs.google.com/document/d/1sx4U5R2CfmIH7RmAu8vnvGeCZPZCR0CFvoLcRfc4Hdw/edit?usp=sharing) | [APK](https://drive.google.com/file/d/1OjNIvKCBwUp6QIbdmin_u2hvnk3PBCz5/view?usp=sharing)
 * [Sprint retrospective](https://docs.google.com/document/d/1OYmTOI90PCeeqBxHunbp2MILSeb3CzmG6VzCl-3tyZk/edit?usp=sharing)
-
+* [Sprint PPT](https://docs.google.com/presentation/d/1Uy-yyqVwJ4thG3KOa3NqaKIukBYVcpjr/edit?usp=sharing&ouid=118323067870476336102&rtpof=true&sd=true)
 ### Sprint 2
 
 * [Sprint planning]()
