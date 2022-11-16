@@ -29,9 +29,9 @@ public class Basicinformation extends AppCompatActivity {
         infoWeight=(TextView)findViewById(R.id.weight_text2);
         infoFavorite=(TextView) findViewById(R.id.favorite_text2);
         infoDislike=(TextView)findViewById(R.id.dislike_text2);
-        Button button1 = (Button)findViewById(R.id.button3);
+        Button button3 = (Button)findViewById(R.id.button3);
         
-        button1.setOnClickListener(new View.OnClickListener() {
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Basicinformation.this,"User information is saved",Toast.LENGTH_SHORT).show();
