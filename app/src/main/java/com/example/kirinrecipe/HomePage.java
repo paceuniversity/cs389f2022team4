@@ -181,8 +181,12 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         Intent intent;
         switch (stage) {
             case 0:
+                intent = new Intent(HomePage.this, Randomrecipes.class);
+                startActivity(intent);
                 break;
             case 1:
+                intent = new Intent(HomePage.this, DIYrecipes.class);
+                startActivity(intent);
                 break;
             case 2:
                 intent = new Intent(HomePage.this, Settingpage.class);
