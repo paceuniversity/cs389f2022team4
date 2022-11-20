@@ -23,4 +23,6 @@
     <string name="userinfo_Setting">Basic information</string>
     <string name="dislike_Setting">Dislike recipe</string>
     <string name="history_Setting">History record</string>
+    <string name="search_recipe">Search</string>
+    <string name="searchbar_diy"> Please enter the keywords</string>
 </resources>
