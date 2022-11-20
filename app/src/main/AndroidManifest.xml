@@ -20,6 +20,20 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".DIYrecipes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Randomrecipes"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".Basicinformation"
             android:exported="false">
             <meta-data
