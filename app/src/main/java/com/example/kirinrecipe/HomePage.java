@@ -60,6 +60,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         move(RandomIcon, 0, 0, 1, 0.7f, 1, 0.7f, 0);
         move(SettingIcon, 0, 0, 1, 0.7f, 1, 0.7f, 0);
 
+
         //CreateProgress();
 
         Log.d(LOG_TAG, "onStart"+centerX+" "+centerY);
