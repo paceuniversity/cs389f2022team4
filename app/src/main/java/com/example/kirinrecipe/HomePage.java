@@ -57,8 +57,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
 
         //The system progress bar has a relatively large limit and can only set 2 colors
         CreateProgress();
-        //Customize the use of the progress bar, you can set 3 colors
-        //The number of textviews of type, the proportion of weight weight
+
         Log.d(LOG_TAG, "onStart"+centerX+" "+centerY);
         Log.d("", "Calorie"+Calorie);
 
