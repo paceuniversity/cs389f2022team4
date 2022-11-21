@@ -64,7 +64,6 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
 
         Log.d(LOG_TAG, "onStart"+centerX+" "+centerY);
         Log.d("", "Calorie"+Calorie);
-
     }
 
     /*@Override
@@ -216,7 +215,6 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         if(Math.abs(e.getX()-centerX)<200&&Math.abs(e.getY()-centerY)<200)
             NextPage();
         else Log.d("", "tap+ "+e.getX()+" "+e.getY());
-        AddCalorie(100);
         return false;
     }
 
@@ -232,6 +230,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         toast = Toast.makeText(this, hint,
                 Toast.LENGTH_SHORT);
         toast.show();
+        AddCalorie(300);
 
     }
 

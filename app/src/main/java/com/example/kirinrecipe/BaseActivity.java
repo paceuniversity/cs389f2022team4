@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.math.MathUtils;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -19,7 +20,7 @@ public class BaseActivity extends AppCompatActivity {
     static  int Calorie=100;
     static  int TempCalorie=50;
     static  int MaxCalorie=1000;
-
+    static int AnimateCalorie=100;
 
     public void findViewProg(int id) {
         progressbar = findViewById(id);
@@ -38,7 +39,7 @@ public class BaseActivity extends AppCompatActivity {
     public  void CreateProgress(){
         layout = findViewById(R.id.layout);
         progressbar=findViewById(R.id.progressBar2);
-        progressbar.setProgress(Calorie);
+        progressbar.setProgress(AnimateCalorie);
     }
     //Set Weight
     public void setWeight(float type,int weight){
@@ -55,10 +56,37 @@ public class BaseActivity extends AppCompatActivity {
 
     public void AddCalorie(int prog) {
         Calorie+=prog;
-        progressbar.incrementProgressBy(prog);
-
+        //progressbar.incrementProgressBy(prog);
+        new Thread(){
+            public void run(){
+                super.run();
+                while (AnimateCalorie<Calorie){
+                    AnimateCalorie++;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressbar.incrementProgressBy(1);
+                        }
+                    });
+                    try {
+                        Thread.sleep(duration());
+                        Log.d("", "duration"+duration());
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                }
+                Log.d("", "CalorieCurrent"+Calorie);
+            }
+        }.start();
     }
-
+    int duration(){
+        int time = (int)lerp(1f,100f,1f/(Calorie+1-AnimateCalorie));
+        //if(time>15)time = 15;
+        return time;
+    }
+    float lerp (float x,float y,float weight){
+        return (x+(y-x)*weight);
+    }
     public void AddTempCalorie(int prog) {
 
     }
