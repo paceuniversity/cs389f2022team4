@@ -39,6 +39,11 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
 
     ProgressBar progressBar2;
 
+    @Override
+    protected void onStart() {
+        CreateProgress();
+        super.onStart();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +60,8 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         move(RandomIcon, 0, 0, 1, 0.7f, 1, 0.7f, 0);
         move(SettingIcon, 0, 0, 1, 0.7f, 1, 0.7f, 0);
 
-        //The system progress bar has a relatively large limit and can only set 2 colors
-        CreateProgress();
+
+        //CreateProgress();
 
         Log.d(LOG_TAG, "onStart"+centerX+" "+centerY);
         Log.d("", "Calorie"+Calorie);
