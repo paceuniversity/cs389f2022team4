@@ -1,6 +1,9 @@
 package com.example.kirinrecipe;
 
 import android.util.Log;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -9,9 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class BaseActivity extends AppCompatActivity {
 
-    ProgressBar progressbar;
+    static ProgressBar progressbar;
     double sum = 1000;
-    private LinearLayout layout;
+    private  LinearLayout layout;
+
+    static  int Calorie=100;
+    static  int TempCalorie=50;
+    static  int MaxCalorie=1000;
+
 
     public void findViewProg(int id) {
         progressbar = findViewById(id);
@@ -27,41 +35,31 @@ public class BaseActivity extends AppCompatActivity {
             layout.removeAllViews();
         }
     }
+    public  void CreateProgress(){
+        layout = findViewById(R.id.layout);
+        progressbar=findViewById(R.id.progressBar2);
+        progressbar.setProgress(Calorie);
+    }
     //Set Weight
     public void setWeight(float type,int weight){
-        TextView textView = new TextView(layout.getContext());
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, 60, weight);
-        textView.setLayoutParams(params);
-        if(type == 1){
-            textView.setBackground(getDrawable(R.drawable.caloreis_3));
-        }
-
-        if(type == 2){
-            textView.setBackground(getDrawable(R.drawable.caloreis_2));
-        }
-
-        if(type == 3){
-            textView.setBackground(getDrawable(R.drawable.caloreis_4));
-        }
-
-        if(layout != null){
-            layout.addView(textView);
-        }
+        //MainProgress.setLayoutParams(new LinearLayout.LayoutParams(0, 60, weight));
+        //MainProgress.setWidth(20);
+        //ScaleAnimation s = new ScaleAnimation(sizex, sizey, sizex, sizey, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
     }
 
 
 
     public void setMax(int num) {
-        progressbar.setMax(num);
+        MaxCalorie=num;
     }
 
-    public void setProg(int prog) {
-        double num = (double) (prog / sum);
-        progressbar.setProgress((int) (num*sum));
-        setProg2((int) (sum - num*sum));
+    public void AddCalorie(int prog) {
+        Calorie+=prog;
+        progressbar.incrementProgressBy(prog);
+
     }
 
-    public void setProg2(int prog) {
-        progressbar.setSecondaryProgress(prog);
+    public void AddTempCalorie(int prog) {
+
     }
 }

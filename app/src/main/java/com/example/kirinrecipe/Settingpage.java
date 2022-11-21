@@ -32,4 +32,5 @@ public class Settingpage extends AppCompatActivity {
         Intent intent=new Intent(Settingpage.this,Basicinformation.class);
         startActivity(intent);
     }
+
 }

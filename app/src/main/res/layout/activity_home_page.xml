@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fadeScrollbars="false"
     tools:context=".HomePage">
 
-    <include
-        layout="@layout/caloreis_layout"
-        android:visibility="gone"/>
 
     <include
-        layout="@layout/caloreis_v2_layout"/>
+        android:id="@+id/include"
+        layout="@layout/caloreis_v2_layout" />
+
     <ImageView
         android:id="@+id/setting_icon"
         android:layout_width="140dp"
@@ -48,5 +48,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.524"
         app:srcCompat="@drawable/recipe_icon_foreground" />
-        
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

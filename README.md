@@ -41,16 +41,16 @@ Our app is designed to help people who are not residents of China learn about he
 
 * [Scrums](https://docs.google.com/document/d/14luv0PBd1fqYzhJTA4FcB4JHKarRsQOP9R12vEXI4zo/edit#heading=h.erdtl50ovr6)
 
-* [Sprint demo video]()
-* [Sprint retrospective]()
-
+* [Sprint demo video](https://docs.google.com/document/d/1sx4U5R2CfmIH7RmAu8vnvGeCZPZCR0CFvoLcRfc4Hdw/edit?usp=sharing) | [APK](https://drive.google.com/file/d/1OjNIvKCBwUp6QIbdmin_u2hvnk3PBCz5/view?usp=sharing)
+* [Sprint retrospective](https://docs.google.com/document/d/1OYmTOI90PCeeqBxHunbp2MILSeb3CzmG6VzCl-3tyZk/edit?usp=sharing)
+* [Sprint PPT](https://docs.google.com/presentation/d/1Uy-yyqVwJ4thG3KOa3NqaKIukBYVcpjr/edit?usp=sharing&ouid=118323067870476336102&rtpof=true&sd=true)
 ### Sprint 2
 
-* [Sprint planning]()
-* [Scrums]()
-* [Sprint demo video]()
+* [Sprint planning](https://docs.google.com/document/d/1kRnkbGOzWPMmot_jiexY2iI43Z3wWRArN3hkCnRHLqw/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
+* [Scrums](https://docs.google.com/document/d/1M-FMHCsk7zuKysaJSMtahtJ7QSaa2aDBtYYs96I-o8c/edit?usp=sharing)
+* [Sprint demo video]() | [APK]()
 * [Sprint retrospective]()
-
+* [Sprint PPT]()
 ### Sprint 3
 
 * [Sprint planning]()

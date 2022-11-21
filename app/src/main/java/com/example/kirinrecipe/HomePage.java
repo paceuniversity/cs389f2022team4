@@ -16,8 +16,11 @@ import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.kirinrecipe.BaseActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MotionEventCompat;
 
 
@@ -33,6 +36,9 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     GestureDetector detector;
     private VelocityTracker mVelocityTracker = null;
     private static final String LOG_TAG = "";
+
+    ProgressBar progressBar2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,16 +56,12 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         move(SettingIcon, 0, 0, 1, 0.7f, 1, 0.7f, 0);
 
         //The system progress bar has a relatively large limit and can only set 2 colors
-        findViewProg(R.id.progressbar);
-        setProg(350);
-
+        CreateProgress();
         //Customize the use of the progress bar, you can set 3 colors
-        findViewText();
         //The number of textviews of type, the proportion of weight weight
-        setWeight(1, 2);
-        setWeight(2, 3);
-        setWeight(3, 1);
         Log.d(LOG_TAG, "onStart"+centerX+" "+centerY);
+        Log.d("", "Calorie"+Calorie);
+
     }
 
     /*@Override
@@ -181,8 +183,12 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         Intent intent;
         switch (stage) {
             case 0:
+                intent = new Intent(HomePage.this, Randomrecipes.class);
+                startActivity(intent);
                 break;
             case 1:
+                intent = new Intent(HomePage.this, DIYrecipes.class);
+                startActivity(intent);
                 break;
             case 2:
                 intent = new Intent(HomePage.this, Settingpage.class);
@@ -207,6 +213,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         if(Math.abs(e.getX()-centerX)<200&&Math.abs(e.getY()-centerY)<200)
             NextPage();
         else Log.d("", "tap+ "+e.getX()+" "+e.getY());
+        AddCalorie(100);
         return false;
     }
 
@@ -222,6 +229,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         toast = Toast.makeText(this, hint,
                 Toast.LENGTH_SHORT);
         toast.show();
+
     }
 
     @Override

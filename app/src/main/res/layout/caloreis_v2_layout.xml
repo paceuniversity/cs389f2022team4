@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal">
+
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
@@ -13,10 +14,43 @@
         android:layout_marginRight="12dp"
         android:gravity="center"
         android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="375dp"
+            android:layout_height="23dp"
+            android:layout_gravity="center"
+            android:background="#000000"
+            android:backgroundTint="#FFFFFF"
+            android:backgroundTintMode="add"
+            android:indeterminate="false"
+            android:indeterminateOnly="false"
+            android:max="1000"
+
+            android:outlineProvider="paddedBounds"
+
+            android:progress="100"
+            android:progressBackgroundTint="#FAEDE3E3"
+
+
+            android:progressDrawable="@android:drawable/progress_horizontal"
+            android:progressTint="#FF0000"
+            android:secondaryProgress="150"
+            android:secondaryProgressTint="#A1FF3300"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/recipe_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            app:layout_constraintVertical_bias="0.502" />
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:gravity="center"
-        android:text="Toady's Calories"/>
+        android:text="Toady's Calories" />
+
 </FrameLayout>
