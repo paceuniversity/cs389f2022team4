@@ -4,12 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DIYrecipes extends BaseActivity {
+public class recipe_linking extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diyrecipes);
+        setContentView(R.layout.activity_recipe_linking);
+
         //The system progress bar has a relatively large limit and can only set 2 colors
         findViewProg(R.id.progressbar);
         setProg(350);

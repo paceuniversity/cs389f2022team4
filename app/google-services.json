@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "258347961115",
+    "project_id": "kirin-recipe-database",
+    "storage_bucket": "kirin-recipe-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258347961115:android:48bd489a69173b250621be",
+        "android_client_info": {
+          "package_name": "com.example.kirinrecipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258347961115-85bd65u65h6ifv0ap0vtjqf7uqp64vq4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCy5rE-ivX1d6UimVQdU-Y7DrrijOfKow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258347961115-85bd65u65h6ifv0ap0vtjqf7uqp64vq4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
