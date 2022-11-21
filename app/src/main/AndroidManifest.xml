@@ -20,10 +20,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_login" />
-        <activity
             android:name=".diyrecipes_2"
             android:exported="false">
             <meta-data
