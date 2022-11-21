@@ -15,17 +15,45 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <ImageView
         android:layout_width="108dp"
         android:layout_height="113dp"
-        android:layout_marginStart="236dp"
+        android:layout_marginStart="228dp"
         android:layout_marginBottom="44dp"
         android:src="@drawable/rr_right_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
     <include
         layout="@layout/caloreis_v2_layout"/>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/braised_pork_balls_in_gravy"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/char_siu"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="235dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        app:srcCompat="@drawable/scalded_prawns"
+        tools:layout_editor_absoluteX="295dp"
+        tools:layout_editor_absoluteY="235dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
