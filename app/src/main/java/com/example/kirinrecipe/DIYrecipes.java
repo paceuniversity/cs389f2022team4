@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class DIYrecipes extends BaseActivity {
+import com.google.firebase.database.FirebaseDatabase;
 
+public class DIYrecipes extends BaseActivity {
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

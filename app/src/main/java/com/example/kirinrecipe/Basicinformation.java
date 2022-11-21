@@ -12,9 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Basicinformation extends AppCompatActivity {
     private TextView infoName, infoID, infoGender, infoAge, infoHeight, infoWeight, infoFavorite, infoDislike;
-
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

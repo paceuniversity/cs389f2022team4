@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-public class Randomrecipes extends BaseActivity {
+import com.google.firebase.database.FirebaseDatabase;
 
+public class Randomrecipes extends BaseActivity {
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

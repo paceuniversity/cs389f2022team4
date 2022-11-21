@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class BaseActivity extends AppCompatActivity {
 
     static ProgressBar progressbar;
@@ -19,7 +21,7 @@ public class BaseActivity extends AppCompatActivity {
     static  int Calorie=100;
     static  int TempCalorie=50;
     static  int MaxCalorie=1000;
-
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     public void findViewProg(int id) {
         progressbar = findViewById(id);
