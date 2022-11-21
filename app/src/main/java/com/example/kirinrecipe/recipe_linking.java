@@ -12,8 +12,6 @@ public class recipe_linking extends BaseActivity {
         setContentView(R.layout.activity_recipe_linking);
 
         //The system progress bar has a relatively large limit and can only set 2 colors
-        findViewProg(R.id.progressbar);
-        setProg(350);
 
         //Customize the use of the progress bar, you can set 3 colors
         findViewText();

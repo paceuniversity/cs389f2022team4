@@ -10,10 +10,6 @@
     android:typeface="serif"
     tools:context=".DIYrecipes">
     <include
-        layout="@layout/caloreis_layout"
-        android:visibility="gone"/>
-
-    <include
         layout="@layout/caloreis_v2_layout"/>
 
     <LinearLayout
