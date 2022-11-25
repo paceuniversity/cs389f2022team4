@@ -17,13 +17,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Userinfo extends AppCompatActivity {
     private EditText editName, editID, editGender, editAge, editHeight, editWeight, editFavorite, editDislike;
     private Button btnSubmit;
-    FirebaseDatabase db = FirebaseDatabase.getInstance();
+    //FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +57,40 @@ public class Userinfo extends AppCompatActivity {
                 String strFavorite = editFavorite.getText().toString().trim();
                 String strDislike = editDislike.getText().toString().trim();
 
-                Intent intent = new Intent(Userinfo.this, HomePage.class);
+                FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String uid = user.getUid();
+
+                DatabaseReference myRef = db.getReference(uid+" strName");
+                myRef.setValue(strName);
+
+                myRef = db.getReference(uid+" strAge");
+                myRef.setValue(strAge);
+
+                myRef = db.getReference(uid+" strGender");
+                myRef.setValue(strGender);
+
+                myRef = db.getReference(uid+" strHeight");
+                myRef.setValue(strHeight);
+
+                myRef = db.getReference(uid+" strWeight");
+                myRef.setValue(strWeight);
+
+                myRef = db.getReference(uid+" strFavorite");
+                myRef.setValue(strFavorite);
+
+                myRef = db.getReference(uid+" strDislike");
+                myRef.setValue(strDislike);
+
+                if(strName.length()>0){
+                    Intent intent = new Intent(Userinfo.this, HomePage.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast toast;
+                    toast = Toast.makeText(Userinfo.this,"You must input name!",Toast.LENGTH_SHORT);
+                    toast.show();
+                }
                 /*Wrong code, need to fix.
                 //create a data packet
                 Bundle data=new Bundle();
@@ -77,7 +114,7 @@ public class Userinfo extends AppCompatActivity {
                 user.setFavorite(strFavorite);
                 user.setDislike(strDislike);*/
 
-                startActivity(intent);
+
 
 
             }
