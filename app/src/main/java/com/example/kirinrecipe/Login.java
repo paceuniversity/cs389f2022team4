@@ -89,7 +89,7 @@ public class Login extends AppCompatActivity {
                         Log.e("firebase", "Error getting data", task.getException());
                     }
                     else {
-                        if(String.valueOf(task.getResult().getValue()).length()>0){
+                        if(String.valueOf(task.getResult().getValue())!="null"){
                             Intent intent=new Intent(Login.this,HomePage.class);
                             startActivity(intent);
                         }
