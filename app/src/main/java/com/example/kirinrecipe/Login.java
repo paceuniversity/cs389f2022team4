@@ -55,7 +55,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build());
+                new AuthUI.IdpConfig.EmailBuilder().build(),
+                new AuthUI.IdpConfig.GoogleBuilder().build());
 
         Intent signInIntent =
                 AuthUI.getInstance()
