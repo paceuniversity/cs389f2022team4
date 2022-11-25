@@ -61,7 +61,7 @@ public class Userinfo extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String uid = user.getUid();
 
-                User us =new User("Xiaofeng","male","strFavorite","strDislike",uid,18,18,18,true); //new User(strName,strGender,strFavorite,strDislike,uid,18,18,18,true);
+                //new User(strName,strGender,strFavorite,strDislike,uid,18,18,18,true);
                 DatabaseReference myRef = db.getReference();
                 //myRef.child("users").child(uid).setValue(us);
                 myRef.child("users").child(uid).child("Name").setValue(strName);
