@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.math.MathUtils;
 
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class BaseActivity extends AppCompatActivity {
     static RecipeList MyrecipeList=new RecipeList();
@@ -24,7 +25,8 @@ public class BaseActivity extends AppCompatActivity {
     static  int TempCalorie=50;
     static  int MaxCalorie=1000;
 
-    FirebaseDatabase db = FirebaseDatabase.getInstance();
+    //static FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
+    FirebaseStorage storage = FirebaseStorage.getInstance();
 
     static int AnimateCalorie=100;
     static int AnimateTempCalorie=50;
