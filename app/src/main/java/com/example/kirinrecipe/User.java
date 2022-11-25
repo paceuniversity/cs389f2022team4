@@ -16,12 +16,13 @@ public class User {
         firstUse = false;
     }
 
-    public User(String Name, String Gender, String Favorite, String Dislike,
+    public User(String Name, String Gender, String Favorite, String Dislike, String ID,
                 double Weight, double Height, int Age, boolean firstUse){
         this.Name = Name;
         this.Gender = Gender;
         this.Favorite = Favorite;
         this.Dislike = Dislike;
+        this.ID = ID;
         this.Weight = Weight;
         this.Height = Height;
         this.Age = Age;
