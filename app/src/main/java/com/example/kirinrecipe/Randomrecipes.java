@@ -17,7 +17,6 @@ public class Randomrecipes extends BaseActivity {
     ImageView MiddleImage;
     ImageView RightImage;
 
-public class Randomrecipes extends BaseActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
