@@ -11,7 +11,7 @@ public class User {
 
     }
 
-    public User(String Name, String Gender, String Favorite, String Dislike,
+    public User(String Name, String Gender, String Favorite, String Dislike,String ID,
                 double Weight, double Height, int Age, boolean firstUse){
         this.Name = Name;
         this.Gender = Gender;

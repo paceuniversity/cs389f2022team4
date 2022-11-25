@@ -1,17 +1,24 @@
 package com.example.kirinrecipe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.SearchManager;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 import java.util.Random;
@@ -40,10 +47,10 @@ public class Randomrecipes extends BaseActivity {
     }
 
     public void Random(View view) {
-
         recipe r = MyrecipeList.GetRandomRecipe();
         LeftImage.setImageResource(r.ImageId);
         ModifyTempCalorie(r.perCalorie);
-        Log.d("", "RecipeList"+MyrecipeList.GetImageId(0));
+        //Log.d("", "RecipeList"+MyrecipeList.GetImageId(0));
     }
+
 }

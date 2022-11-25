@@ -26,6 +26,7 @@ import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -75,10 +76,31 @@ public class Login extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            Intent intent=new Intent(Login.this,Userinfo.class);
-            startActivity(intent);
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+
+            String uid = user.getUid();
+            FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
+            DatabaseReference myRef = db.getReference();
+            myRef.child("users").child(uid).child("Name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    }
+                    else {
+                        if(String.valueOf(task.getResult().getValue()).length()>0){
+                            Intent intent=new Intent(Login.this,HomePage.class);
+                            startActivity(intent);
+                        }
+                        else{
+                            Intent intent=new Intent(Login.this,Userinfo.class);
+                            startActivity(intent);
+                        }
+                    }
+                }
+            });
+
         }
     }
 
