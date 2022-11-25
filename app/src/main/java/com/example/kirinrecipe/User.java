@@ -2,13 +2,18 @@ package com.example.kirinrecipe;
 
 public class User {
     //Create a user class to store user information.
-    public String Name,Gender,Favorite,Dislike;
-    public double Weight,Height;
-    public int Age;
-    public boolean firstUse;
+    private String Name,Gender,Favorite,Dislike,ID;
+    private double Weight,Height;
+    private int Age;
+    private boolean firstUse;
 
     public User(){
-
+        Name = null;
+        Gender = null;
+        Favorite = null;
+        Dislike = null;
+        ID= null;
+        firstUse = false;
     }
 
     public User(String Name, String Gender, String Favorite, String Dislike,String ID,
@@ -17,6 +22,7 @@ public class User {
         this.Gender = Gender;
         this.Favorite = Favorite;
         this.Dislike = Dislike;
+        this.ID = ID;
         this.Weight = Weight;
         this.Height = Height;
         this.Age = Age;
@@ -29,6 +35,14 @@ public class User {
 
     public void setFirstUse(){
         firstUse = false;
+    }
+
+    public String getID(){
+        return ID;
+    }
+
+    public void setID(String ID){
+        this.ID = ID;
     }
 
     public String getName(){
