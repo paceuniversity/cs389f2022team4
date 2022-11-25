@@ -1,10 +1,12 @@
 package com.example.kirinrecipe;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Basicinformation extends AppCompatActivity {
@@ -32,13 +40,32 @@ public class Basicinformation extends AppCompatActivity {
         infoFavorite=(TextView) findViewById(R.id.favorite_text2);
         infoDislike=(TextView)findViewById(R.id.dislike_text2);
         Button button3 = (Button)findViewById(R.id.button3);
-        
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(Basicinformation.this,"User information is saved",Toast.LENGTH_SHORT).show();
-            }
-        });
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+            DatabaseReference myRef = db.getReference();
+
+
+            myRef.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                    }
+                    else {
+                        infoName.setText(String.valueOf(task.getResult().child("Name").getValue()));
+                        infoGender.setText(String.valueOf(task.getResult().child("Gender").getValue()));
+                        infoAge.setText(String.valueOf(task.getResult().child("Age").getValue()));
+                        infoHeight.setText(String.valueOf(task.getResult().child("Height").getValue()));
+                        infoWeight.setText(String.valueOf(task.getResult().child("Weight").getValue()));
+                        infoFavorite.setText(String.valueOf(task.getResult().child("Favorite").getValue()));
+                        infoDislike.setText(String.valueOf(task.getResult().child("Dislike").getValue()));
+
+                 }
+                }
+            });
+
 
 
         /*wrong code, need to fix.
