@@ -12,6 +12,7 @@
         android:layout_marginStart="72dp"
         android:layout_marginBottom="48dp"
         android:src="@drawable/rr_icon"
+        android:onClick="Random"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -26,34 +27,42 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <include
-        layout="@layout/caloreis_v2_layout"/>
+        android:id="@+id/include2"
+        layout="@layout/caloreis_v2_layout" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/RandomImageLeft"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="180dp"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/braised_pork_balls_in_gravy"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintEnd_toStartOf="@+id/RandomImageMiddle"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
+        app:srcCompat="@drawable/braised_pork_balls_in_gravy" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/RandomImageMiddle"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="40dp"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/char_siu"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintEnd_toStartOf="@+id/RandomImageRight"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
+        app:srcCompat="@drawable/char_siu" />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/RandomImageRight"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="180dp"
+        android:layout_marginEnd="16dp"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/scalded_prawns"
-        tools:layout_editor_absoluteX="295dp"
-        tools:layout_editor_absoluteY="235dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include2"
+        app:srcCompat="@drawable/scalded_prawns" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

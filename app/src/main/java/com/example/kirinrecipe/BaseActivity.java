@@ -14,6 +14,8 @@ import androidx.core.math.MathUtils;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class BaseActivity extends AppCompatActivity {
+    static RecipeList MyrecipeList=new RecipeList();
+
 
     static ProgressBar progressbar;
     double sum = 1000;
@@ -26,7 +28,7 @@ public class BaseActivity extends AppCompatActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     static int AnimateCalorie=100;
-
+    static int AnimateTempCalorie=50;
 
     public void findViewProg(int id) {
         progressbar = findViewById(id);
@@ -46,6 +48,7 @@ public class BaseActivity extends AppCompatActivity {
         layout = findViewById(R.id.layout);
         progressbar=findViewById(R.id.progressBar2);
         progressbar.setProgress(AnimateCalorie);
+        progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);
     }
     //Set Weight
     public void setWeight(float type,int weight){
@@ -85,8 +88,39 @@ public class BaseActivity extends AppCompatActivity {
             }
         }.start();
     }
+    public void ModifyTempCalorie(int prog){
+        TempCalorie=prog;
+        new Thread(){
+            public void run(){
+                super.run();
+                while (AnimateTempCalorie!=TempCalorie){
+                    if(TempCalorie>AnimateTempCalorie)AnimateTempCalorie++;
+                    if(TempCalorie<AnimateTempCalorie)AnimateTempCalorie--;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);
+                        }
+                    });
+                    try {
+                        Thread.sleep(duration2());
+                        Log.d("", "duration"+duration2());
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                }
+                Log.d("", "CalorieTempCurrent"+TempCalorie);
+            }
+        }.start();
+    }
     int duration(){
         int time = (int)lerp(1f,100f,1f/(Calorie+1-AnimateCalorie));
+        //if(time>15)time = 15;
+        return time;
+    }
+    int duration2(){
+        int gap=Math.abs(AnimateTempCalorie-TempCalorie);
+        int time = (int)lerp(1f,100f,1f/(gap+1));
         //if(time>15)time = 15;
         return time;
     }
