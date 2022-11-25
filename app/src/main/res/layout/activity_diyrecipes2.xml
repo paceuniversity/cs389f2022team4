@@ -1,49 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".diyrecipes_2">
 
-
-    <include
-        android:id="@+id/include"
-        layout="@layout/caloreis_v2_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:gravity="center"
+        android:onClick="GotoAbout"
+        android:orientation="horizontal">
+        <include
+            android:id="@+id/include"
+            layout="@layout/caloreis_v2_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_width="208dp"
-        android:layout_height="670dp"
-        android:layout_marginStart="202dp"
-        android:background="#9EFDD67F"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include"></LinearLayout>
+        android:layout_width="fill_parent"
+        android:layout_height="76dp"
+        android:layout_weight="1"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/Confirmbutton"
-        android:layout_width="108dp"
-        android:layout_height="113dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="28dp"
-        android:src="@drawable/rr_right_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/Selectasidedish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FED780"
+            android:gravity="center"
+            android:text="Select a side dish"
+            android:textColor="#FEFEFE"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/Selectasidedish"
-        android:layout_width="201dp"
-        android:layout_height="59dp"
-        android:layout_marginBottom="471dp"
-        android:background="#FED780"
-        android:gravity="center"
-        android:text="Select a side dish"
-        android:textColor="#FEFEFE"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/Confirmbutton"
-        app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="3"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="169dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/Confirmbutton"
+                android:layout_width="108dp"
+                android:layout_height="113dp"
+                android:src="@drawable/rr_right_icon" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="#9EFDD67F"
+            android:orientation="vertical">
+
+        </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
