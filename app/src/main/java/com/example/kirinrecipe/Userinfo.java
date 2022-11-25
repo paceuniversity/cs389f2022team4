@@ -61,26 +61,16 @@ public class Userinfo extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String uid = user.getUid();
 
-                DatabaseReference myRef = db.getReference(uid+" strName");
-                myRef.setValue(strName);
-
-                myRef = db.getReference(uid+" strAge");
-                myRef.setValue(strAge);
-
-                myRef = db.getReference(uid+" strGender");
-                myRef.setValue(strGender);
-
-                myRef = db.getReference(uid+" strHeight");
-                myRef.setValue(strHeight);
-
-                myRef = db.getReference(uid+" strWeight");
-                myRef.setValue(strWeight);
-
-                myRef = db.getReference(uid+" strFavorite");
-                myRef.setValue(strFavorite);
-
-                myRef = db.getReference(uid+" strDislike");
-                myRef.setValue(strDislike);
+                User us =new User("Xiaofeng","male","strFavorite","strDislike",uid,18,18,18,true); //new User(strName,strGender,strFavorite,strDislike,uid,18,18,18,true);
+                DatabaseReference myRef = db.getReference();
+                //myRef.child("users").child(uid).setValue(us);
+                myRef.child("users").child(uid).child("Name").setValue(strName);
+                myRef.child("users").child(uid).child("Gender").setValue(strGender);
+                myRef.child("users").child(uid).child("Age").setValue(strAge);
+                myRef.child("users").child(uid).child("Height").setValue(strHeight);
+                myRef.child("users").child(uid).child("Weight").setValue(strWeight);
+                myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
+                myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
 
                 if(strName.length()>0){
                     Intent intent = new Intent(Userinfo.this, HomePage.class);
