@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 import java.util.Random;
 
@@ -14,6 +16,10 @@ public class Randomrecipes extends BaseActivity {
     ImageView LeftImage;
     ImageView MiddleImage;
     ImageView RightImage;
+
+public class Randomrecipes extends BaseActivity {
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
