@@ -14,7 +14,6 @@ import androidx.core.math.MathUtils;
 public class BaseActivity extends AppCompatActivity {
     static RecipeList MyrecipeList=new RecipeList();
 
-
     static ProgressBar progressbar;
     double sum = 1000;
     private  LinearLayout layout;
