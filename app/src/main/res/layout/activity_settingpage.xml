@@ -29,12 +29,12 @@
 
 
         <TextView
-            android:id="@+id/language_text"
+            android:id="@+id/Signout_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"
             android:layout_weight="1"
-            android:text="@string/language_Setting"
+            android:text="@string/Sign_out"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"

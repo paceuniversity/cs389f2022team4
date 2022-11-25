@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.math.MathUtils;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class BaseActivity extends AppCompatActivity {
     static RecipeList MyrecipeList=new RecipeList();
 
@@ -21,8 +23,12 @@ public class BaseActivity extends AppCompatActivity {
     static  int Calorie=100;
     static  int TempCalorie=50;
     static  int MaxCalorie=1000;
+
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
+
     static int AnimateCalorie=100;
     static int AnimateTempCalorie=50;
+
     public void findViewProg(int id) {
         progressbar = findViewById(id);
         setMax((int) sum);

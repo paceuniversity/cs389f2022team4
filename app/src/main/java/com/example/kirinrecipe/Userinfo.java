@@ -18,11 +18,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Userinfo extends AppCompatActivity {
-    public User user;
-    public String ID;
     private EditText editName, editID, editGender, editAge, editHeight, editWeight, editFavorite, editDislike;
     private Button btnSubmit;
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
