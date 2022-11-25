@@ -42,7 +42,7 @@ public class Splash extends AppCompatActivity {
                         Log.e("firebase", "Error getting data", task.getException());
                     }
                     else {
-                        if(String.valueOf(task.getResult().getValue()).length()>0)firstin=false;
+                        if(String.valueOf(task.getResult().getValue())!="null")firstin=false;
                     }
                 }
             });
