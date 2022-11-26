@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Basicinformation extends AppCompatActivity {
-    private TextView infoName, infoID, infoGender, infoAge, infoHeight, infoWeight, infoFavorite, infoDislike;
+    private TextView infoName, infoID, infoAge, infoHeight, infoWeight,infoFavorite, infoDislike, infoGender;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
@@ -33,14 +34,22 @@ public class Basicinformation extends AppCompatActivity {
 
         //link to TextView in Basciinformation page.
         infoName=(TextView) findViewById(R.id.name_text2);
-        infoGender=(TextView)findViewById(R.id.gender_text2);
+        infoGender=(TextView) findViewById(R.id.gender_text2);
         infoAge=(TextView)findViewById(R.id.age_text2);
         infoHeight=(TextView)findViewById(R.id.height_text2);
         infoWeight=(TextView)findViewById(R.id.weight_text2);
         infoFavorite=(TextView) findViewById(R.id.favorite_text2);
-        infoDislike=(TextView)findViewById(R.id.dislike_text2);
-        Button button3 = (Button)findViewById(R.id.button3);
+        infoDislike=(TextView) findViewById(R.id.dislike_text2);
+        Button button3 = (Button)findViewById(R.id.buttonUpdate1);
 
+        button3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Basicinformation.this,UpdateUserinfo.class);
+                startActivity(intent);
+
+            }
+        });
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();

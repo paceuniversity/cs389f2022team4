@@ -6,7 +6,7 @@
     <string name="Age_label">Age</string>
     <string name="Gender_label">Gender</string>
     <string name="name_hint"><![CDATA[First name & Last name]]></string>
-    <string name="gender_hint">Male,female or none</string>
+    <string name="gender_hint">Choose your Gender here</string>
     <string name="height_label">Height</string>
     <string name="weight_label">Weight</string>
     <string name="age_hint">Your age</string>
@@ -14,8 +14,7 @@
     <string name="weight_hint">Your weight (kg)</string>
     <string name="Preference_info">Preference</string>
     <string name="favorite_label">Favorite</string>
-    <string name="favorite_hint">Type 1 favorite food here</string>
-    <string name="dislike_hint">Type 1 dislike food here</string>
+    <string name="favorite_hint">Choose your favorite type here</string>
     <string name="dislike_label">Dislike</string>
     <string name="Sign_out">Sign out</string>
     <string name="about_Setting">About us</string>
@@ -33,4 +32,43 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="dislike_hint">Choose your dislike type here</string>
+    <string-array name="recipe_type">
+        <item>Choose your main recipe type</item>
+        <item>Seafood</item>
+        <item>Pork</item>
+        <item>Mutton</item>
+        <item>Beef</item>
+        <item>Poultry</item>
+        <item>Vegetables</item>
+    </string-array>
+
+    <string-array name="favorite_type">
+        <item>Choose your favorite type here</item>
+        <item>Seafood</item>
+        <item>Pork</item>
+        <item>Mutton</item>
+        <item>Beef</item>
+        <item>Poultry</item>
+        <item>Vegetables</item>
+    </string-array>
+
+    <string-array name="dislike_type">
+        <item>Choose your dislike type here</item>
+        <item>Seafood</item>
+        <item>Pork</item>
+        <item>Mutton</item>
+        <item>Beef</item>
+        <item>Poultry</item>
+        <item>Vegetables</item>
+    </string-array>
+
+    <string-array name="Gender_type">
+        <item>Choose your Gender here</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>None</item>
+    </string-array>
+
+
 </resources>
