@@ -1,257 +1,286 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:layout_gravity="center"
     android:typeface="serif"
     android:background="@drawable/underline"
     tools:context=".Basicinformation">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center|center_horizontal"
-        android:text="Submit"
-        android:textStyle="bold"
-        android:typeface="serif"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.234"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dislike_label2"
-        app:layout_constraintVertical_bias="0.45" />
-
-    <TextView
-        android:id="@+id/Basicinfo2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/Themecolor5"
-        android:gravity="center_horizontal"
-        android:text="@string/basic_information"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold|italic"
-        android:typeface="serif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/name_label2"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/underline2"
+        android:layout_weight="0.2"
         android:gravity="center"
-        android:text="@string/name_label"
-        android:textColor="@color/black"
-        android:typeface="serif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Basicinfo2" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/name_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="@string/name_hint"
-        android:typeface="serif"
-        app:layout_constraintBaseline_toBaselineOf="@+id/name_label2"
-        app:layout_constraintStart_toEndOf="@+id/name_label2" />
+        <TextView
+            android:id="@+id/Basicinfo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/Themecolor5"
+            android:gravity="center_horizontal"
+            android:text="@string/basic_information"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold|italic"
+            android:typeface="serif" />
 
-    <TextView
-        android:id="@+id/gender_label2"
-        android:layout_width="55dp"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/underline2"
+        android:layout_weight="0.3"
         android:gravity="center"
-        android:text="@string/Gender_label"
-        android:textColor="@color/black"
-        android:typeface="serif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_label2" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/gender_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="@string/gender_hint"
-        android:typeface="serif"
-        app:layout_constraintStart_toEndOf="@+id/gender_label2"
-        app:layout_constraintTop_toBottomOf="@+id/name_text2" />
+        <TextView
+            android:id="@+id/name_label2"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/underline2"
+            android:gravity="center"
+            android:text="@string/name_label"
+            android:textColor="@color/black"
+            android:typeface="serif" />
 
-    <TextView
-        android:id="@+id/age_label2"
-        android:layout_width="40dp"
+        <TextView
+            android:id="@+id/name_text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/name_hint"
+            android:inputType="textPersonName"
+            android:typeface="serif" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/underline2"
+        android:layout_weight="0.3"
         android:gravity="center"
-        android:text="@string/Age_label"
-        android:textColor="@color/black"
-        android:typeface="serif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender_text2" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/age_text2"
-        android:layout_width="134dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="@string/age_hint"
-        android:typeface="serif"
-        app:layout_constraintBaseline_toBaselineOf="@+id/age_label2"
-        app:layout_constraintStart_toEndOf="@+id/age_label2" />
+        <TextView
+            android:id="@+id/gender_label2"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/underline2"
+            android:gravity="center"
+            android:text="@string/Gender_label"
+            android:textColor="@color/black"
+            android:typeface="serif" />
 
-    <TextView
-        android:id="@+id/height_label2"
-        android:layout_width="52dp"
+        <TextView
+            android:id="@+id/gender_text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/gender_hint"
+            android:typeface="serif" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/underline2"
+        android:layout_weight="0.3"
         android:gravity="center"
-        android:text="@string/height_label"
-        android:textColor="@color/black"
-        android:typeface="serif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/age_label2" />
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/age_label2"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/underline2"
+            android:gravity="center"
+            android:text="@string/Age_label"
+            android:textColor="@color/black"
+            android:typeface="serif" />
 
-    <TextView
-        android:id="@+id/height_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="@string/height_hint"
-        android:typeface="serif"
-        app:layout_constraintBaseline_toBaselineOf="@+id/height_label2"
-        app:layout_constraintStart_toEndOf="@+id/height_label2" />
+        <TextView
+            android:id="@+id/age_text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/age_hint"
+            android:inputType="number"
+            android:typeface="serif"/>
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/weight_label2"
-        android:layout_width="52dp"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/underline2"
+        android:layout_weight="0.3"
         android:gravity="center"
-        android:text="@string/weight_label"
-        android:textColor="@color/black"
-        android:typeface="serif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/height_label2" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/weight_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="@string/weight_hint"
-        android:typeface="serif"
-        app:layout_constraintBaseline_toBaselineOf="@+id/weight_label2"
-        app:layout_constraintStart_toEndOf="@+id/weight_label2" />
+        <TextView
+            android:id="@+id/height_label2"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/underline2"
+            android:gravity="center"
+            android:text="@string/height_label"
+            android:textColor="@color/black"
+            android:typeface="serif" />
 
-    <TextView
-        android:id="@+id/Preference2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/Themecolor5"
-        android:gravity="center_horizontal"
-        android:text="@string/Preference_info"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold|italic"
-        android:typeface="serif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weight_text2" />
+        <TextView
+            android:id="@+id/height_text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/height_hint"
+            android:inputType="number"
+            android:typeface="serif" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/favorite_label2"
-        android:layout_width="62dp"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/underline2"
+        android:layout_weight="0.3"
         android:gravity="center"
-        android:text="@string/favorite_label"
-        android:textColor="@color/black"
-        android:typeface="serif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Preference2" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/favorite_text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="@string/favorite_hint"
-        android:typeface="serif"
-        app:layout_constraintBaseline_toBaselineOf="@+id/favorite_label2"
-        app:layout_constraintStart_toEndOf="@+id/favorite_label2" />
+        <TextView
+            android:id="@+id/weight_label2"
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/underline2"
+            android:gravity="center"
+            android:text="@string/weight_label"
+            android:textColor="@color/black"
+            android:typeface="serif" />
 
-    <TextView
-        android:id="@+id/dislike_label2"
-        android:layout_width="55dp"
+        <TextView
+            android:id="@+id/weight_text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/weight_hint"
+            android:inputType="number"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/underline2"
+        android:layout_weight="0.3"
         android:gravity="center"
-        android:text="@string/dislike_label"
-        android:textColor="@color/black"
-        android:typeface="serif"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/favorite_label2" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/dislike_text2"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/Preference2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/Themecolor5"
+            android:gravity="center_horizontal"
+            android:text="@string/Preference_info"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold|italic"
+            android:typeface="serif" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:hint="@string/dislike_hint"
-        app:layout_constraintStart_toEndOf="@+id/dislike_label2"
-        app:layout_constraintTop_toBottomOf="@+id/favorite_text2" />
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/favorite_label2"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/underline2"
+            android:gravity="center"
+            android:text="@string/favorite_label"
+            android:textColor="@color/black"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/favorite_text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:typeface="serif"
+            android:hint="@string/favorite_hint"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center|center_horizontal"
-        android:onClick="GotoSetting2"
-        android:text="Cancle"
-        android:textStyle="bold"
-        android:typeface="serif"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.752"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dislike_label2"
-        app:layout_constraintVertical_bias="0.45" />
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/dislike_label2"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/underline2"
+            android:gravity="center"
+            android:text="@string/dislike_label"
+            android:textColor="@color/black"
+            android:typeface="serif" />
+
+        <TextView
+            android:id="@+id/dislike_text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:typeface="serif"
+            android:hint="@string/dislike_hint" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonUpdate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:text="Update"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:text="Cancel"
+            android:layout_marginStart="50dp"
+            android:onClick="GotoSetting2"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+    </LinearLayout>
+</LinearLayout>
