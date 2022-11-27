@@ -27,7 +27,6 @@
             android:indeterminate="false"
             android:indeterminateOnly="false"
 
-
             android:outlineProvider="paddedBounds"
 
             android:progress="100"

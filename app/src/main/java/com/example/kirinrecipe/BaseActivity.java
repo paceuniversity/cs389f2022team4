@@ -38,6 +38,7 @@ public class BaseActivity extends AppCompatActivity {
         progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);
 
         Log.d("", "CalorieCreate"+Calorie+" "+AnimateTempCalorie+" "+progressbar.getMax());
+
     }
     //Set Weight
     public void setWeight(float type,int weight){
