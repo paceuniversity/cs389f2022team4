@@ -26,7 +26,6 @@
             android:backgroundTintMode="add"
             android:indeterminate="false"
             android:indeterminateOnly="false"
-            android:max="1000"
 
             android:outlineProvider="paddedBounds"
 

@@ -44,9 +44,9 @@ public class BaseActivity extends AppCompatActivity {
     public  void CreateProgress(){
         layout = findViewById(R.id.layout);
         progressbar=findViewById(R.id.progressBar2);
+        progressbar.setMax(MaxCalorie);
         progressbar.setProgress(AnimateCalorie);
         progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);
-        progressbar.setMax(MaxCalorie);
     }
     //Set Weight
     public void setWeight(float type,int weight){
