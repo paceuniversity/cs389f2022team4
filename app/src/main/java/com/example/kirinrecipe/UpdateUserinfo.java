@@ -25,7 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Userinfo extends AppCompatActivity {
+public class UpdateUserinfo extends AppCompatActivity {
     private EditText editName, editID, editAge, editHeight, editWeight;
     private Spinner editGender, editFavorite, editDislike;
     private Button btnSubmit;
@@ -34,19 +34,19 @@ public class Userinfo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_userinfo);
+        setContentView(R.layout.activity_update_userinfo);
         //Link to EditText
-        editName = (EditText) findViewById(R.id.name_text);
-        editGender = (Spinner) findViewById(R.id.gender_text);
-        editAge = (EditText) findViewById(R.id.age_text);
-        editHeight = (EditText) findViewById(R.id.height_text);
-        editWeight = (EditText) findViewById(R.id.weight_text);
-        editFavorite = (Spinner) findViewById(R.id.favorite_text);
-        editDislike = (Spinner) findViewById(R.id.dislike_text);
+        editName = (EditText) findViewById(R.id.name_text3);
+        editGender = (Spinner) findViewById(R.id.gender_text3);
+        editAge = (EditText) findViewById(R.id.age_text3);
+        editHeight = (EditText) findViewById(R.id.height_text3);
+        editWeight = (EditText) findViewById(R.id.weight_text3);
+        editFavorite = (Spinner) findViewById(R.id.favorite_text3);
+        editDislike = (Spinner) findViewById(R.id.dislike_text3);
         btnSubmit = (Button) findViewById(R.id.buttonSubmit);
 
         //Add a listener to the submit button to get the EditText text content and jump to the Homepage.
-        btnSubmit.setOnClickListener(new View.OnClickListener(){
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -66,23 +66,44 @@ public class Userinfo extends AppCompatActivity {
                 //new User(strName,strGender,strFavorite,strDislike,uid,18,18,18,true);
                 DatabaseReference myRef = db.getReference();
                 //myRef.child("users").child(uid).setValue(us);
-                myRef.child("users").child(uid).child("Name").setValue(strName);
-                myRef.child("users").child(uid).child("Gender").setValue(strGender);
-                myRef.child("users").child(uid).child("Age").setValue(strAge);
-                myRef.child("users").child(uid).child("Height").setValue(strHeight);
-                myRef.child("users").child(uid).child("Weight").setValue(strWeight);
-                myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
-                myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
-
-
-                if(strName.length()>0){
-                    Intent intent = new Intent(Userinfo.this, HomePage.class);
-                    startActivity(intent);
+                if (strName.length() > 0) {
+                    myRef.child("users").child(uid).child("Name").setValue(strName);
                 }
-                else{
+                if (!strGender.equals("Choose your Gender here") ) {
+                    myRef.child("users").child(uid).child("Gender").setValue(strGender);
+                }
+
+                if (strAge.length() > 0) {
+                    myRef.child("users").child(uid).child("Age").setValue(strAge);
+                }
+
+                if (strHeight.length() > 0) {
+                    myRef.child("users").child(uid).child("Height").setValue(strHeight);
+                }
+
+                if (strWeight.length() > 0) {
+                    myRef.child("users").child(uid).child("Weight").setValue(strWeight);
+                }
+
+                if (!strFavorite.equals("Choose your favorite type here")) {
+                    myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
+                }
+
+                if (!strDislike.equals("Choose your dislike type here")) {
+                    myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
+                }
+
+
+                if (strName.length() <= 0 && strGender.equals("Choose your Gender here") && strAge.length() <= 0 &&
+                        strHeight.length() <= 0 && strWeight.length() <= 0 &&
+                        strFavorite.equals("Choose your favorite type here") &&
+                        strDislike.equals("Choose your dislike type here")) {
                     Toast toast;
-                    toast = Toast.makeText(Userinfo.this,"You must input name!",Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(UpdateUserinfo.this, "You must change at least 1 info", Toast.LENGTH_SHORT);
                     toast.show();
+                } else {
+                    Intent intent = new Intent(UpdateUserinfo.this, HomePage.class);
+                    startActivity(intent);
                 }
                 /*Wrong code, need to fix.
                 //create a data packet
@@ -108,27 +129,13 @@ public class Userinfo extends AppCompatActivity {
                 user.setDislike(strDislike);*/
 
 
-
-
             }
         });
 
 
-
     }
-
-
-    /*public void SaveandNext(View view) {
-        user.setName(String.valueOf(editName.getText()));
-        user.setGender(String.valueOf(editGender.getText()));
-        user.setFavorite(String.valueOf(editFavorite.getText()));
-        user.setDislike(String.valueOf(editDislike.getText()));
-        user.setAge(Integer.parseInt(String.valueOf(editAge.getText())));
-        user.setHeight(Double.parseDouble(String.valueOf(editHeight.getText())));
-        user.setWeight(Double.parseDouble(String.valueOf(editWeight.getText())));
-        Intent intent = new Intent(Userinfo.this, HomePage.class);
+    public void GotoSetting3(View view) {
+        Intent intent=new Intent(UpdateUserinfo.this,Settingpage.class);
         startActivity(intent);
-    }*/
-
+    }
 }
-

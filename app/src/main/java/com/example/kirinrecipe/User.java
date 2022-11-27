@@ -5,7 +5,6 @@ public class User {
     private String Name,Gender,Favorite,Dislike,ID;
     private double Weight,Height;
     private int Age;
-    private boolean firstUse;
 
     public User(){
         Name = null;
@@ -13,11 +12,10 @@ public class User {
         Favorite = null;
         Dislike = null;
         ID= null;
-        firstUse = false;
     }
 
     public User(String Name, String Gender, String Favorite, String Dislike,String ID,
-                double Weight, double Height, int Age, boolean firstUse){
+                double Weight, double Height, int Age){
         this.Name = Name;
         this.Gender = Gender;
         this.Favorite = Favorite;
@@ -26,15 +24,6 @@ public class User {
         this.Weight = Weight;
         this.Height = Height;
         this.Age = Age;
-        this.firstUse = firstUse;
-    }
-
-    public boolean getFirstUse(){
-        return firstUse;
-    }
-
-    public void setFirstUse(){
-        firstUse = false;
     }
 
     public String getID(){

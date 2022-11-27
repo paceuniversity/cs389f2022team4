@@ -16,34 +16,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.1"
-        android:background="#F6C256"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/search_bar_diy"
-            android:layout_width="fill_parent"
-            android:layout_height="24dp"
-            android:layout_marginStart="20dp"
+        <Spinner
+            android:id="@+id/recipe_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/text_border"
-            android:backgroundTint="#FEFEFE"
-            android:hint="@string/searchbar_diy"
-            android:inputType="textPersonName"
-            android:textSize="15sp"
-            android:typeface="serif" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="92dp"
-            android:layout_height="55dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="0.5"
-            android:background="#F5C156"
-            app:layout_constraintBaseline_toBaselineOf="@+id/search_bar_diy"
-            app:layout_constraintStart_toEndOf="@+id/search_bar_diy"
-            app:srcCompat="@drawable/search_icon" />
+            android:entries="@array/recipe_type"
+            android:spinnerMode="dropdown" />
 
 
     </LinearLayout>
@@ -58,7 +43,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#6FF5C156">
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"

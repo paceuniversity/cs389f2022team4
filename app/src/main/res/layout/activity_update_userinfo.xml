@@ -8,7 +8,7 @@
     android:layout_gravity="center"
     android:typeface="serif"
     android:background="@drawable/underline"
-    tools:context=".Userinfo">
+    tools:context=".UpdateUserinfo">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -18,7 +18,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/Basicinfo"
+            android:id="@+id/Basicinfo3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -41,7 +41,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/name_label"
+            android:id="@+id/name_label3"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -52,7 +52,7 @@
             android:typeface="serif" />
 
         <EditText
-            android:id="@+id/name_text"
+            android:id="@+id/name_text3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -71,7 +71,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/gender_label"
+            android:id="@+id/gender_label3"
             android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -82,7 +82,7 @@
             android:typeface="serif" />
 
         <Spinner
-            android:id="@+id/gender_text"
+            android:id="@+id/gender_text3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -101,7 +101,7 @@
         android:gravity="center"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/age_label"
+            android:id="@+id/age_label3"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -112,7 +112,7 @@
             android:typeface="serif" />
 
         <EditText
-            android:id="@+id/age_text"
+            android:id="@+id/age_text3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -130,7 +130,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/height_label"
+            android:id="@+id/height_label3"
             android:layout_width="52dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -141,7 +141,7 @@
             android:typeface="serif" />
 
         <EditText
-            android:id="@+id/height_text"
+            android:id="@+id/height_text3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -159,7 +159,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/weight_label"
+            android:id="@+id/weight_label3"
             android:layout_width="52dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -170,7 +170,7 @@
             android:typeface="serif" />
 
         <EditText
-            android:id="@+id/weight_text"
+            android:id="@+id/weight_text3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -188,7 +188,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/Preference"
+            android:id="@+id/Preference3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -210,7 +210,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/favorite_label"
+            android:id="@+id/favorite_label3"
             android:layout_width="62dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -221,7 +221,7 @@
             android:typeface="serif" />
 
         <Spinner
-            android:id="@+id/favorite_text"
+            android:id="@+id/favorite_text3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -240,7 +240,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/dislike_label"
+            android:id="@+id/dislike_label3"
             android:layout_width="55dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -251,7 +251,7 @@
             android:typeface="serif" />
 
         <Spinner
-            android:id="@+id/dislike_text"
+            android:id="@+id/dislike_text3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -274,7 +274,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center|center_horizontal"
-            android:text="Submit"
+            android:text="Update"
+            android:textStyle="bold"
+            android:typeface="serif" />
+
+        <Button
+            android:id="@+id/buttonCancel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal"
+            android:text="Cancel"
+            android:layout_marginStart="50dp"
+            android:onClick="GotoSetting3"
             android:textStyle="bold"
             android:typeface="serif" />
 
