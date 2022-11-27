@@ -7,19 +7,12 @@
     android:orientation="vertical"
     tools:context=".diyrecipes_2">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:gravity="center"
-        android:onClick="GotoAbout"
-        android:orientation="horizontal">
-        <include
-            android:id="@+id/include"
-            layout="@layout/caloreis_v2_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/caloreis_v2_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="fill_parent"
