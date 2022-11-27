@@ -31,22 +31,13 @@ public class BaseActivity extends AppCompatActivity {
     static int AnimateCalorie=100;
     static int AnimateTempCalorie=50;
 
-
-    public void findViewText() {
-        layout = findViewById(R.id.layout);
-    }
-
-    public void clear(int weight1,int weight2,int weight3){
-        if(layout != null){
-            layout.removeAllViews();
-        }
-    }
     public  void CreateProgress(){
-        layout = findViewById(R.id.layout);
         progressbar=findViewById(R.id.progressBar2);
+        progressbar.setMax(MaxCalorie);
         progressbar.setProgress(AnimateCalorie);
         progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);
-        progressbar.setMax(MaxCalorie);
+
+        Log.d("", "CalorieCreate"+Calorie+" "+AnimateTempCalorie+" "+progressbar.getMax());
     }
     //Set Weight
     public void setWeight(float type,int weight){
@@ -77,17 +68,18 @@ public class BaseActivity extends AppCompatActivity {
                     });
                     try {
                         Thread.sleep(duration());
-                        Log.d("", "duration"+duration());
+                        //Log.d("", "duration"+duration());
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }
                 }
-                Log.d("", "CalorieCurrent"+Calorie);
+                //Log.d("", "CalorieCurrent"+Calorie);
             }
         }.start();
     }
     public void ModifyTempCalorie(int prog){
         TempCalorie=prog;
+        //Log.d("", "StartRandom"+TempCalorie+" "+AnimateTempCalorie);
         new Thread(){
             public void run(){
                 super.run();
@@ -102,12 +94,12 @@ public class BaseActivity extends AppCompatActivity {
                     });
                     try {
                         Thread.sleep(duration2());
-                        Log.d("", "duration"+duration2());
+                        //Log.d("", "duration"+duration2());
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }
                 }
-                Log.d("", "CalorieTempCurrent"+TempCalorie);
+                //Log.d("", "CalorieTempCurrent"+TempCalorie);
             }
         }.start();
     }

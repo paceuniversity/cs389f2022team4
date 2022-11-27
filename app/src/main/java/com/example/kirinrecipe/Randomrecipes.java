@@ -38,7 +38,7 @@ public class Randomrecipes extends BaseActivity {
         LeftImage = findViewById(R.id.RandomImageLeft);
         MiddleImage = findViewById(R.id.RandomImageMiddle);
         RightImage = findViewById(R.id.RandomImageRight);
-        Log.d("", "Calorie2"+Calorie);
+        //Log.d("", "Calorie2"+Calorie);
     }
     @Override
     protected void onStart() {
