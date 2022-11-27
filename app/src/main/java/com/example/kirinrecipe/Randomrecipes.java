@@ -27,7 +27,7 @@ public class Randomrecipes extends BaseActivity {
     ImageView LeftImage;
     ImageView MiddleImage;
     ImageView RightImage;
-
+    float animetime=0;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
@@ -47,16 +47,45 @@ public class Randomrecipes extends BaseActivity {
     }
 
     public void Random(View view) {
-        recipe r1 = MyrecipeList.GetRandomRecipe();
-        recipe r2 = MyrecipeList.GetRandomRecipe();
-        recipe r3 = MyrecipeList.GetRandomRecipe();
-        LeftImage.setImageResource(r1.ImageId);
-        MiddleImage.setImageResource(r2.ImageId);
-        RightImage.setImageResource(r3.ImageId);
-        ModifyTempCalorie(r1.perCalorie+r2.perCalorie+r3.perCalorie);
+        if(animetime<=0){
+            animetime=3000;
+            new Thread(){
+                public void run(){
+                    super.run();
+
+                    while (animetime>0){
+                        int duration = RandomAnimeduration(animetime);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                recipe r1 = MyrecipeList.GetRandomRecipe();
+                                recipe r2 = MyrecipeList.GetRandomRecipe();
+                                recipe r3 = MyrecipeList.GetRandomRecipe();
+                                LeftImage.setImageResource(r1.ImageId);
+                                MiddleImage.setImageResource(r2.ImageId);
+                                RightImage.setImageResource(r3.ImageId);
+                            }
+                        });
+                        try {
+                            Thread.sleep(duration);
+                            //Log.d("", "duration"+duration2());
+                        }catch (InterruptedException e){
+                            e.printStackTrace();
+                        }
+                        animetime-=duration;
+                        //if(animetime<=0)ModifyTempCalorie(r1.perCalorie+r2.perCalorie+r3.perCalorie);
+                        Log.d("", "animetime"+animetime);
+                    }
+                    //Log.d("", "CalorieTempCurrent"+TempCalorie);
+                }
+            }.start();
+        }
 
 
+        //ModifyTempCalorie(r1.perCalorie+r2.perCalorie+r3.perCalorie);
         //Log.d("", "RecipeList"+MyrecipeList.GetImageId(0));
     }
+
 
 }
