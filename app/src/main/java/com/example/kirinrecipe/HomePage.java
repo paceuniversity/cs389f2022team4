@@ -37,7 +37,6 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     private VelocityTracker mVelocityTracker = null;
     private static final String LOG_TAG = "";
 
-    ProgressBar progressBar2;
 
     @Override
     protected void onStart() {
@@ -63,8 +62,8 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
 
         //CreateProgress();
 
-        Log.d(LOG_TAG, "onStart"+centerX+" "+centerY);
-        Log.d("", "Calorie"+Calorie);
+        //Log.d(LOG_TAG, "onStart"+centerX+" "+centerY);
+        //Log.d("", "Calorie"+Calorie);
     }
 
     /*@Override
@@ -231,7 +230,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         toast = Toast.makeText(this, hint,
                 Toast.LENGTH_SHORT);
         toast.show();
-        AddCalorie(300);
+        //AddCalorie(300);
 
     }
 

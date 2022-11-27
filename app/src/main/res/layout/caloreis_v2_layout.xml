@@ -26,6 +26,10 @@
             android:backgroundTintMode="add"
             android:indeterminate="false"
             android:indeterminateOnly="false"
+<<<<<<< HEAD
+=======
+
+>>>>>>> c0dd00e2be6659f03b1d39b8818a40976225b2c7
 
             android:outlineProvider="paddedBounds"
 
