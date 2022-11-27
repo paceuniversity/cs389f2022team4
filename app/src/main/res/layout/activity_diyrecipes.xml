@@ -9,7 +9,9 @@
     app:layout_constraintTop_toTopOf="parent"
     android:typeface="serif"
     tools:context=".DIYrecipes">
+
     <include
+        android:id="@+id/include3"
         layout="@layout/caloreis_v2_layout"/>
 
     <LinearLayout
@@ -26,7 +28,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
-            android:background="@drawable/text_border"
+            android:backgroundTint="@color/Themecolor5"
+            android:popupBackground="@color/org"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
             android:entries="@array/recipe_type"
             android:spinnerMode="dropdown" />
 
