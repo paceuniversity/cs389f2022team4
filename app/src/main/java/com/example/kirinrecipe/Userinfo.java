@@ -75,13 +75,13 @@ public class Userinfo extends AppCompatActivity {
                 myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
 
 
-                if(strName.length()>0){
+                if(strName.length()>0 && strAge.length()>0 && strHeight.length()>0 && strWeight.length()>0){
                     Intent intent = new Intent(Userinfo.this, HomePage.class);
                     startActivity(intent);
                 }
                 else{
                     Toast toast;
-                    toast = Toast.makeText(Userinfo.this,"You must input name!",Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(Userinfo.this,"You must input name, Age, Height & Weight!",Toast.LENGTH_SHORT);
                     toast.show();
                 }
                 /*Wrong code, need to fix.
