@@ -47,9 +47,15 @@ public class Randomrecipes extends BaseActivity {
     }
 
     public void Random(View view) {
-        recipe r = MyrecipeList.GetRandomRecipe();
-        LeftImage.setImageResource(r.ImageId);
-        ModifyTempCalorie(r.perCalorie);
+        recipe r1 = MyrecipeList.GetRandomRecipe();
+        recipe r2 = MyrecipeList.GetRandomRecipe();
+        recipe r3 = MyrecipeList.GetRandomRecipe();
+        LeftImage.setImageResource(r1.ImageId);
+        MiddleImage.setImageResource(r2.ImageId);
+        RightImage.setImageResource(r3.ImageId);
+        ModifyTempCalorie(r1.perCalorie+r2.perCalorie+r3.perCalorie);
+
+
         //Log.d("", "RecipeList"+MyrecipeList.GetImageId(0));
     }
 

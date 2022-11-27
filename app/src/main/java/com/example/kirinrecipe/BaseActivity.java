@@ -18,12 +18,12 @@ public class BaseActivity extends AppCompatActivity {
     static RecipeList MyrecipeList=new RecipeList();
 
     static ProgressBar progressbar;
-    double sum = 1000;
+
     private  LinearLayout layout;
 
     static  int Calorie=100;
     static  int TempCalorie=50;
-    static  int MaxCalorie=1000;
+    static  int MaxCalorie=2000;
 
     //static FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
     FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -31,10 +31,6 @@ public class BaseActivity extends AppCompatActivity {
     static int AnimateCalorie=100;
     static int AnimateTempCalorie=50;
 
-    public void findViewProg(int id) {
-        progressbar = findViewById(id);
-        setMax((int) sum);
-    }
 
     public void findViewText() {
         layout = findViewById(R.id.layout);
@@ -50,6 +46,7 @@ public class BaseActivity extends AppCompatActivity {
         progressbar=findViewById(R.id.progressBar2);
         progressbar.setProgress(AnimateCalorie);
         progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);
+        progressbar.setMax(MaxCalorie);
     }
     //Set Weight
     public void setWeight(float type,int weight){

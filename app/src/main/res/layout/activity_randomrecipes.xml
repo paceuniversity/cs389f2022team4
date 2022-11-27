@@ -65,14 +65,11 @@
             android:layout_weight="1"
             android:src="@drawable/rr_icon"
             android:onClick="Random" />
-
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_weight="1"
             android:src="@drawable/rr_right_icon"/>
     </LinearLayout>
-
 
 </LinearLayout>
