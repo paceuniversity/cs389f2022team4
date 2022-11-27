@@ -114,6 +114,11 @@ public class BaseActivity extends AppCompatActivity {
         //if(time>15)time = 15;
         return time;
     }
+    int RandomAnimeduration(float time){
+        int result = (int)lerp(300,50,time/3000);
+        if(result<50)result=50;
+        return result;
+    }
     float lerp (float x,float y,float weight){
         return (x+(y-x)*weight);
     }
