@@ -61,7 +61,6 @@ public class Basicinformation extends AppCompatActivity {
                         infoWeight.setText(String.valueOf(task.getResult().child("Weight").getValue()));
                         infoFavorite.setText(String.valueOf(task.getResult().child("Favorite").getValue()));
                         infoDislike.setText(String.valueOf(task.getResult().child("Dislike").getValue()));
-
                  }
                 }
             });
