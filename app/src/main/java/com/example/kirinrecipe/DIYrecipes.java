@@ -9,6 +9,7 @@ import android.icu.text.UnicodeSetSpanner;
 import android.media.Image;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.telephony.ims.ImsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -115,11 +116,11 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
             if (count != 0){
                 DIYL.removeAllViews();
             }
-            Log.d("", "selectItem1" + Type);
+            //Log.d("", "selectItem1" + Type);
             Type = Splash.Myuser.getFavorite();
             changeLayout();
         } else {
-            Log.d("", "selectItem2"+ Type);
+            //Log.d("", "selectItem2"+ Type);
             DIYL.removeAllViews();
             count++;
             changeLayout();
@@ -137,39 +138,39 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
             recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
             while (recipeSTypeList.size() > 0) {
                 if (recipeSTypeList.size() >= 2) {
-                    ImageView I1 = getImage(recipeSTypeList.get(0));
-                    I1.setOnClickListener(new View.OnClickListener(){
+                    ImageView Image1 = getImage(recipeSTypeList.get(0));
+                    Image1.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-                            GotoLinking(I1, recipeSTypeList.get(0));
+                            GotoLinking(Image1, recipeSTypeList.get(0));
                         }
                     });
                     recipeSTypeList.remove(0);
-                    ImageView I2 = getImage(recipeSTypeList.get(0));
-                    LinearLayout.LayoutParams i2 = new LinearLayout.LayoutParams(imageSize, imageSize);
-                    i2.setMarginStart(marginSE);
-                    i2.setMarginEnd(marginSE);
-                    I2.setLayoutParams(i2);
-                    I2.setOnClickListener(new View.OnClickListener(){
+                    ImageView Image2 = getImage(recipeSTypeList.get(0));
+                    LinearLayout.LayoutParams ImageParams2 = new LinearLayout.LayoutParams(imageSize, imageSize);
+                    ImageParams2.setMarginStart(marginSE);
+                    ImageParams2.setMarginEnd(marginSE);
+                    Image2.setLayoutParams(ImageParams2);
+                    Image2.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
 
-                            GotoLinking(I2, recipeSTypeList.get(0));
+                            GotoLinking(Image2, recipeSTypeList.get(0));
                             //Log.d("","getimage"+ I2.);
                         }
                     });
                     recipeSTypeList.remove(0);
-                    LinearLayout L1 = getLayout(I1, I2);
+                    LinearLayout L1 = getLayout(Image1, Image2);
                     DIYL.addView(L1);
                 } else {
-                    ImageView I1 = getImage(recipeSTypeList.get(0));
-                    I1.setOnClickListener(new View.OnClickListener(){
+                    ImageView Image1 = getImage(recipeSTypeList.get(0));
+                    Image1.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-                            GotoLinking(I1, recipeSTypeList.get(0));
+                            GotoLinking(Image1, recipeSTypeList.get(0));
                         }
                     });
-                    LinearLayout L1 = getLayout(I1);
+                    LinearLayout L1 = getLayout(Image1);
                     DIYL.addView(L1);
                     break;
                 }
