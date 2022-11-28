@@ -41,6 +41,16 @@ public class Basicinformation extends AppCompatActivity {
         infoFavorite=(TextView) findViewById(R.id.favorite_text2);
         infoDislike=(TextView) findViewById(R.id.dislike_text2);
         Button button3 = (Button)findViewById(R.id.buttonUpdate1);
+        String A = String.valueOf(Splash.Myuser.getAge());
+        String W = String.valueOf(Splash.Myuser.getWeight());
+        String H = String.valueOf(Splash.Myuser.getHeight());
+        infoName.setText(Splash.Myuser.getName());
+        infoGender.setText(Splash.Myuser.getGender());
+        infoAge.setText(A);
+        infoHeight.setText(H + " cm");
+        infoWeight.setText(W + " kg");
+        infoFavorite.setText(Splash.Myuser.getFavorite());
+        infoDislike.setText(Splash.Myuser.getDislike());
 
         button3.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -50,29 +60,6 @@ public class Basicinformation extends AppCompatActivity {
 
             }
         });
-
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            String uid = user.getUid();
-            DatabaseReference myRef = db.getReference();
-
-
-            myRef.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (!task.isSuccessful()) {
-                        Log.e("firebase", "Error getting data", task.getException());
-                    }
-                    else {
-                        infoName.setText(String.valueOf(task.getResult().child("Name").getValue()));
-                        infoGender.setText(String.valueOf(task.getResult().child("Gender").getValue()));
-                        infoAge.setText(String.valueOf(task.getResult().child("Age").getValue()));
-                        infoHeight.setText(String.valueOf(task.getResult().child("Height").getValue()) + " cm");
-                        infoWeight.setText(String.valueOf(task.getResult().child("Weight").getValue()) + " kg");
-                        infoFavorite.setText(String.valueOf(task.getResult().child("Favorite").getValue()));
-                        infoDislike.setText(String.valueOf(task.getResult().child("Dislike").getValue()));
-                 }
-                }
-            });
 
 
 

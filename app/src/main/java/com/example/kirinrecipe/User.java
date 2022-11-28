@@ -104,12 +104,8 @@ public class User {
     }
 
     public void updateInfo(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
         DatabaseReference myRef = db.getReference();
-
-
-        myRef.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        myRef.child("users").child(ID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (!task.isSuccessful()) {
@@ -118,9 +114,9 @@ public class User {
                 else {
                     setName(String.valueOf(task.getResult().child("Name").getValue()));
                     setGender(String.valueOf(task.getResult().child("Gender").getValue()));
-                    setAge(Integer.valueOf(String.valueOf(task.getResult().child("Age").getValue())));
-                    setHeight(Double.valueOf(String.valueOf(task.getResult().child("Height").getValue()) + " cm"));
-                    setWeight(Double.valueOf(String.valueOf(task.getResult().child("Weight").getValue()) + " kg"));
+                    setAge(Integer.parseInt(String.valueOf(task.getResult().child("Age").getValue())));
+                    setHeight(Double.parseDouble((String) task.getResult().child("Height").getValue()));
+                    setWeight(Double.parseDouble((String) task.getResult().child("Weight").getValue()));
                     setFavorite(String.valueOf(task.getResult().child("Favorite").getValue()));
                     setDislike(String.valueOf(task.getResult().child("Dislike").getValue()));
                 }
