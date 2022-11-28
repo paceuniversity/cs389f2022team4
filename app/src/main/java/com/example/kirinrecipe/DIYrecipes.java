@@ -38,6 +38,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diyrecipes);
+
         imageSize = (int) getResources().getDimension(R.dimen.about_image_size);
         marginSE = (int) getResources().getDimension(R.dimen.margin_se);
         marginTB = (int) getResources().getDimension(R.dimen.margin_tb);
@@ -51,6 +52,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         recpTypeSpanner = (Spinner) super.findViewById(R.id.recipe_type);
         recpTypeSpanner.setOnItemSelectedListener(this);
         Log.d("", "selectItem0"+ Type);
+
     }
 
     @Override
@@ -175,8 +177,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     public void GotoLinking(ImageView I2,recipe r){
 
         ImageList[0] = I2.getDrawable();
-        int maxcalorie = GetMaxCalorie();
-        ModifyTempCalorie(r.GetRecipeCalorie(maxcalorie));
+        ModifyTempCalorie(r.GetRecipeCalorie(MaxCalorie));
         Intent intent=new Intent(DIYrecipes.this,diyrecipes_2.class);
         startActivity(intent);
     }
