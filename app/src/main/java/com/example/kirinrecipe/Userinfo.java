@@ -84,31 +84,6 @@ public class Userinfo extends AppCompatActivity {
                     toast = Toast.makeText(Userinfo.this,"You must input name, Age, Height & Weight!",Toast.LENGTH_SHORT);
                     toast.show();
                 }
-                /*Wrong code, need to fix.
-                //create a data packet
-                Bundle data=new Bundle();
-                //Put text data into packets
-                data.putString("Name",strName);
-                data.putString("Gender",strGender);
-                data.putString("age",strAge);
-                data.putString("height",strHeight);
-                data.putString("weight",strWeight);
-                data.putString("favorite",strFavorite);
-                data.putString("dislike",strDislike);
-                //Carry packets through intent
-                intent.putExtras(data);
-
-                //Update the user content, but the database has not been established, and it is not yet possible to achieve.
-                user.setName(strName);
-                user.setGender(strGender);
-                user.setHeight(Double.parseDouble(strHeight));
-                user.setWeight(Double.parseDouble(strWeight));
-                user.setAge(Integer.parseInt(strAge));
-                user.setFavorite(strFavorite);
-                user.setDislike(strDislike);*/
-
-
-
 
             }
         });
