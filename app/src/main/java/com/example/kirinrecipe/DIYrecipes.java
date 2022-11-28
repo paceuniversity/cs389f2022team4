@@ -43,9 +43,9 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         marginSE = (int) getResources().getDimension(R.dimen.margin_se);
         marginTB = (int) getResources().getDimension(R.dimen.margin_tb);
 
-        LinearLayout DIYL_1 = new LinearLayout(DIYrecipes.this);
+        /*LinearLayout DIYL_1 = new LinearLayout(DIYrecipes.this);
         ImageView Image1 = new ImageView(DIYrecipes.this);
-        ImageView Image2 = new ImageView(DIYrecipes.this);
+        ImageView Image2 = new ImageView(DIYrecipes.this);*/
         DIY = (ScrollView) super.findViewById(R.id.DIYScroll);
         DIYL = (LinearLayout) super.findViewById(R.id.DIYLayout);
         recipeSTypeList = new ArrayList<>();
@@ -59,8 +59,11 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     protected void onStart(){
         //The system progress bar has a relatively large limit and can only set 2 colors
         CreateProgress();
+        if(Type!=null){
+            DIYL.removeAllViews();
+            changeLayout();
+        }
         super.onStart();
-
     }
 
     public ImageView getImage(recipe r){
@@ -122,7 +125,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
             changeLayout();
         }
 
-        }
+    }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
