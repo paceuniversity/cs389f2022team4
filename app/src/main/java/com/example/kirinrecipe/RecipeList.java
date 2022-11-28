@@ -18,8 +18,8 @@ public class RecipeList {
     RecipeList(){
         list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood,false);
         list[1]=new recipe(R.drawable.char_siu,200,RecipeType.Pork,true);
-        list[2]=new recipe(R.drawable.braised_pork_balls_in_gravy,300,RecipeType.Pork,true);
-        list[3]=new recipe(R.drawable.stir_fried_pork_with_scallions,143,RecipeType.Pork,true);
+        list[2]=new recipe(R.drawable.braised_pork_balls_in_gravy,300,RecipeType.Seafood,true);
+        list[3]=new recipe(R.drawable.stir_fried_pork_with_scallions,143,RecipeType.Seafood,true);
         list[4]=new recipe(R.drawable.shredded_pork_in_beijing_sauce,162,RecipeType.Pork,true);
         list[5]=new recipe(R.drawable.grilled_eggplant,65,RecipeType.Vegetables,false);
         list[6]=new recipe(R.drawable.fish_head_with_minced_pepper,113,RecipeType.Vegetables,true);
@@ -27,11 +27,11 @@ public class RecipeList {
         list[8]=new recipe(R.drawable.roast_duck,269,RecipeType.Poultry,true);
         list[9]=new recipe(R.drawable.braised_pork_ball_in_brown_sauce,261,RecipeType.Pork,true);
     }
-    public ArrayList GetAllSeaFood(){
+    public ArrayList GetAllSpecific(RecipeType R){
         int Amount = 0;
         ArrayList <recipe> result = new ArrayList<>();
         for(recipe r : list){
-            if(r.type==RecipeType.Seafood){
+            if(r.type==R){
                 Amount++;
                 result.add(r);
             }
@@ -39,6 +39,8 @@ public class RecipeList {
         if(Amount>0)return result;
         return null;
     }
+
+
     public int GetImageId(int index){
         return list[index].ImageId;
     }
@@ -60,6 +62,19 @@ public class RecipeList {
         }
         return  result;
     }
+
+    public RecipeType translate(String s){
+        switch (s){
+            case "Beef": return RecipeType.Beef;
+            case "Pork": return RecipeType.Pork;
+            case "Mutton": return RecipeType.Mutton;
+            case "Seafood": return RecipeType.Seafood;
+            case "Poultry": return RecipeType.Poultry;
+            case "Vegetables": return RecipeType.Vegetables;
+            default: return RecipeType.Beef;
+        }
+    }
+
 }
 class recipe{
     int ImageId;
