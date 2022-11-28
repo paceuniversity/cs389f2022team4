@@ -1,4 +1,7 @@
 package com.example.kirinrecipe;
+
+import java.util.Calendar;
+
 enum RecipeType
 {
     Seafood,
@@ -7,21 +10,21 @@ enum RecipeType
     Mutton,
     Vegetables,
     Poultry,
+    Soup,
 }
 public class RecipeList {
     recipe[] list = new recipe[10];
     RecipeList(){
-        list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood);
-        list[1]=new recipe(R.drawable.char_siu,200,RecipeType.Pork);
-        list[2]=new recipe(R.drawable.braised_pork_balls_in_gravy,300,RecipeType.Pork);
-        list[3]=new recipe(R.drawable.stir_fried_pork_with_scallions,143,RecipeType.Pork);
-        list[4]=new recipe(R.drawable.shredded_pork_in_beijing_sauce,162,RecipeType.Pork);
-        list[5]=new recipe(R.drawable.grilled_eggplant,65,RecipeType.Vegetables);
-        list[6]=new recipe(R.drawable.fish_head_with_minced_pepper,113,RecipeType.Vegetables);
-        list[7]=new recipe(R.drawable.granny_smith,89,RecipeType.Vegetables);
-        list[8]=new recipe(R.drawable.roast_duck,269,RecipeType.Poultry);
-        list[9]=new recipe(R.drawable.braised_pork_ball_in_brown_sauce,261,RecipeType.Pork);
-
+        list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood,false);
+        list[1]=new recipe(R.drawable.char_siu,200,RecipeType.Pork,true);
+        list[2]=new recipe(R.drawable.braised_pork_balls_in_gravy,300,RecipeType.Pork,true);
+        list[3]=new recipe(R.drawable.stir_fried_pork_with_scallions,143,RecipeType.Pork,true);
+        list[4]=new recipe(R.drawable.shredded_pork_in_beijing_sauce,162,RecipeType.Pork,true);
+        list[5]=new recipe(R.drawable.grilled_eggplant,65,RecipeType.Vegetables,false);
+        list[6]=new recipe(R.drawable.fish_head_with_minced_pepper,113,RecipeType.Vegetables,true);
+        list[7]=new recipe(R.drawable.granny_smith,89,RecipeType.Vegetables,false);
+        list[8]=new recipe(R.drawable.roast_duck,269,RecipeType.Poultry,true);
+        list[9]=new recipe(R.drawable.braised_pork_ball_in_brown_sauce,261,RecipeType.Pork,true);
     }
     public int GetImageId(int index){
         return list[index].ImageId;
@@ -30,15 +33,60 @@ public class RecipeList {
         int random = (int)(Math.random()*10);
         return list[random];
     }
+    public recipe GetRandomMainDish(){
+        recipe result=GetRandomRecipe();
+        while (!result.MainDish){
+            result=GetRandomRecipe();
+        }
+        return result;
+    }
+    public recipe GetRandomSubDish(){
+        recipe result = GetRandomRecipe();
+        while (result.MainDish){
+            result=GetRandomRecipe();
+        }
+        return  result;
+    }
 }
 class recipe{
     int ImageId;
     int perCalorie;
     RecipeType type;
-
-    recipe(int ImageId, int perCalorie,RecipeType type){
+    boolean MainDish;
+    recipe(int ImageId, int perCalorie,RecipeType type,boolean mainDish){
         this.ImageId=ImageId;
         this.perCalorie = perCalorie;
         this.type=type;
+        this.MainDish= mainDish;
+    }
+    int GetRecipeCalorie(int MaxCalorie){
+        double PerDishMaxCalorie=0;
+        double result=0;
+        double RecipeNeedCalorie=0;
+        //Calendar.getInstance().get(Calendar.HOUR_OF_DAY)>10&&Calendar.getInstance().get(Calendar.HOUR_OF_DAY)<14
+        if(true){
+            PerDishMaxCalorie=MaxCalorie*0.6f;
+        }
+        else{
+            PerDishMaxCalorie=MaxCalorie*0.4f;
+        }
+        if(MainDish){
+            RecipeNeedCalorie = PerDishMaxCalorie*0.7f;
+        }
+        else{
+            if(type==RecipeType.Soup){
+                RecipeNeedCalorie = PerDishMaxCalorie*0.1f;
+            }
+            else{
+                RecipeNeedCalorie = PerDishMaxCalorie*0.15f;
+            }
+        }
+        while(result<RecipeNeedCalorie-perCalorie){
+            result+=perCalorie;
+        }
+        return (int) result;
+    }
+    int GetRecipeAmount(int MaxCalorie){
+        return GetRecipeCalorie(MaxCalorie)/perCalorie;
     }
 }
