@@ -59,6 +59,12 @@ public class UpdateUserinfo extends AppCompatActivity {
                 String strFavorite = editFavorite.getSelectedItem().toString().trim();
                 String strDislike = editDislike.getSelectedItem().toString().trim();
 
+                editName.setText(Splash.Myuser.getName());
+                editAge.setText(Splash.Myuser.getAge());
+                editHeight.setText(Splash.Myuser.getHeight() + " cm");
+                editWeight.setText(Splash.Myuser.getHeight() + " kg");
+
+
                 FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String uid = user.getUid();
@@ -67,35 +73,38 @@ public class UpdateUserinfo extends AppCompatActivity {
                 DatabaseReference myRef = db.getReference();
                 //myRef.child("users").child(uid).setValue(us);
                 if (strName.length() > 0) {
-                    myRef.child("users").child(uid).child("Name").setValue(strName);
+                    Splash.Myuser.setName(strName);
                 }
                 if (!strGender.equals("Choose your Gender here") ) {
-                    myRef.child("users").child(uid).child("Gender").setValue(strGender);
+                    Splash.Myuser.setGender(strGender);
                 }
 
                 if (strAge.length() > 0) {
-                    myRef.child("users").child(uid).child("Age").setValue(strAge);
+                    int A = Integer.parseInt(strAge);
+                    Splash.Myuser.setAge(A);
                 }
 
                 if (strHeight.length() > 0) {
-                    myRef.child("users").child(uid).child("Height").setValue(strHeight);
+                    double H = Double.parseDouble(strHeight);
+                    Splash.Myuser.setHeight(H);
                 }
 
                 if (strWeight.length() > 0) {
-                    myRef.child("users").child(uid).child("Weight").setValue(strWeight);
+                    double W = Double.parseDouble(strWeight);
+                    Splash.Myuser.setWeight(W);
                 }
 
                 if (!strFavorite.equals("Choose your favorite type here")) {
-                    myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
+                    Splash.Myuser.setFavorite(strFavorite);
                 }
 
                 if (!strDislike.equals("Choose your dislike type here")) {
-                    myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
+                    Splash.Myuser.setDislike(strDislike);
                 }
 
 
-                if (strName.length() <= 0 && strGender.equals("Choose your Gender here") && strAge.length() <= 0 &&
-                        strHeight.length() <= 0 && strWeight.length() <= 0 &&
+                if (strName.equals(strName) && strGender.equals("Choose your Gender here") && strAge.equals(strAge) &&
+                        strHeight.equals(strHeight)&& strWeight.equals(strWeight) &&
                         strFavorite.equals("Choose your favorite type here") &&
                         strDislike.equals("Choose your dislike type here")) {
                     Toast toast;
@@ -103,8 +112,10 @@ public class UpdateUserinfo extends AppCompatActivity {
                     toast.show();
                 } else {
                     Intent intent = new Intent(UpdateUserinfo.this, HomePage.class);
+                    Splash.Myuser.updateInfo();
                     startActivity(intent);
                 }
+
                 /*Wrong code, need to fix.
                 //create a data packet
                 Bundle data=new Bundle();
