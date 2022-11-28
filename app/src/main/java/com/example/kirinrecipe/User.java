@@ -105,24 +105,14 @@ public class User {
 
     public void updateInfo(){
         DatabaseReference myRef = db.getReference();
-        myRef.child("users").child(ID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                }
-                else {
-                    setName(String.valueOf(task.getResult().child("Name").getValue()));
-                    setGender(String.valueOf(task.getResult().child("Gender").getValue()));
-                    setAge(Integer.parseInt(String.valueOf(task.getResult().child("Age").getValue())));
-                    setHeight(Double.parseDouble((String) task.getResult().child("Height").getValue()));
-                    setWeight(Double.parseDouble((String) task.getResult().child("Weight").getValue()));
-                    setFavorite(String.valueOf(task.getResult().child("Favorite").getValue()));
-                    setDislike(String.valueOf(task.getResult().child("Dislike").getValue()));
-                }
-            }
-        });
-
+        //myRef.child("users").child(uid).setValue(us);
+        myRef.child("users").child(ID).child("Name").setValue(Name);
+        myRef.child("users").child(ID).child("Gender").setValue(Gender);
+        myRef.child("users").child(ID).child("Age").setValue(Age);
+        myRef.child("users").child(ID).child("Height").setValue(Height);
+        myRef.child("users").child(ID).child("Weight").setValue(Weight);
+        myRef.child("users").child(ID).child("Favorite").setValue(Favorite);
+        myRef.child("users").child(ID).child("Dislike").setValue(Dislike);
     }
 
 

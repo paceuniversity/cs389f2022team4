@@ -45,6 +45,11 @@ public class UpdateUserinfo extends AppCompatActivity {
         editDislike = (Spinner) findViewById(R.id.dislike_text3);
         btnSubmit = (Button) findViewById(R.id.buttonSubmit);
 
+        editName.setText(Splash.Myuser.getName());
+        editAge.setText(String.valueOf(Splash.Myuser.getAge()));
+        editHeight.setText(Splash.Myuser.getHeight()+"" );
+        editWeight.setText(Splash.Myuser.getWeight()+""  );
+
         //Add a listener to the submit button to get the EditText text content and jump to the Homepage.
         btnSubmit.setOnClickListener(new View.OnClickListener() {
 
@@ -59,10 +64,6 @@ public class UpdateUserinfo extends AppCompatActivity {
                 String strFavorite = editFavorite.getSelectedItem().toString().trim();
                 String strDislike = editDislike.getSelectedItem().toString().trim();
 
-                editName.setText(Splash.Myuser.getName());
-                editAge.setText(Splash.Myuser.getAge());
-                editHeight.setText(Splash.Myuser.getHeight() + " cm");
-                editWeight.setText(Splash.Myuser.getHeight() + " kg");
 
 
                 FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
@@ -80,28 +81,24 @@ public class UpdateUserinfo extends AppCompatActivity {
                 }
 
                 if (strAge.length() > 0) {
-                    int A = Integer.parseInt(strAge);
-                    Splash.Myuser.setAge(A);
+                    Splash.Myuser.setAge(Integer.valueOf(strAge));
                 }
 
                 if (strHeight.length() > 0) {
-                    double H = Double.parseDouble(strHeight);
-                    Splash.Myuser.setHeight(H);
+                    Splash.Myuser.setHeight(Double.valueOf(strHeight));
                 }
 
                 if (strWeight.length() > 0) {
-                    double W = Double.parseDouble(strWeight);
-                    Splash.Myuser.setWeight(W);
+                    Splash.Myuser.setWeight(Double.valueOf(strWeight));
                 }
 
-                if (!strFavorite.equals("Choose your favorite type here")) {
+                if (strFavorite!=("Choose your favorite type here")) {
                     Splash.Myuser.setFavorite(strFavorite);
                 }
 
-                if (!strDislike.equals("Choose your dislike type here")) {
+                if (strDislike!=("Choose your dislike type here")) {
                     Splash.Myuser.setDislike(strDislike);
                 }
-
 
                 if (strName.equals(Splash.Myuser.getName()) && strGender.equals("Choose your Gender here") && strAge.equals(String.valueOf(Splash.Myuser.getAge())) &&
                         strHeight.equals(String.valueOf(Splash.Myuser.getHeight()))&& strWeight.equals(String.valueOf(Splash.Myuser.getWeight())) &&
