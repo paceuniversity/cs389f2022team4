@@ -132,7 +132,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
             }
         } else {
             Log.d("", "selectItem2"+ Type);
-
+            DIYL.removeAllViews();
             if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
                 recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
                 while (recipeSTypeList.size() > 0) {
