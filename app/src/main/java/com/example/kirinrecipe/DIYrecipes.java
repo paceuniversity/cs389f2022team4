@@ -16,12 +16,13 @@ import android.widget.Spinner;
 
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class DIYrecipes extends BaseActivity {
     FirebaseDatabase db = FirebaseDatabase.getInstance();
     private Spinner recpTypeSpanner;
     private ScrollView DIY;
     private LinearLayout DIYL;
-    private ImageView LeftImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +35,15 @@ public class DIYrecipes extends BaseActivity {
         ImageView Image2 = new ImageView(DIYrecipes.this);
         DIY = (ScrollView) super.findViewById(R.id.DIYScroll);
 
-
         int imageSize = (int) getResources().getDimension(R.dimen.about_image_size);
         int marginSE = (int) getResources().getDimension(R.dimen.margin_se);
         int marginTB = (int) getResources().getDimension(R.dimen.margin_tb);
         DIYL = (LinearLayout) super.findViewById(R.id.DIYLayout);
-        LeftImage = findViewById(R.id.RandomImageLeft);
+        ArrayList<recipe> recipeSType= new ArrayList<>();
 
+        if (RecipeType.equals("Choose your main recipe type here")){
 
-
+        }
        /* recpTypeSpanner.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {*/
@@ -86,6 +87,10 @@ public class DIYrecipes extends BaseActivity {
 
 
 
+    }
+
+    public void onClick(){
+        
     }
 
 }
