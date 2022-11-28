@@ -132,7 +132,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Type = recpTypeSpanner.getSelectedItem().toString();
+        /*Type = recpTypeSpanner.getSelectedItem().toString();
         if (!Type.equals("Choose your main recipe type here")) {
             {
                 if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
@@ -151,7 +151,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                     }
                 }
             }
-        }
+        }*/
     }
 
     @Override
