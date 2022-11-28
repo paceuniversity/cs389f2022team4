@@ -103,8 +103,8 @@ public class UpdateUserinfo extends AppCompatActivity {
                 }
 
 
-                if (strName.equals(strName) && strGender.equals("Choose your Gender here") && strAge.equals(strAge) &&
-                        strHeight.equals(strHeight)&& strWeight.equals(strWeight) &&
+                if (strName.equals(Splash.Myuser.getName()) && strGender.equals("Choose your Gender here") && strAge.equals(String.valueOf(Splash.Myuser.getAge())) &&
+                        strHeight.equals(String.valueOf(Splash.Myuser.getHeight()))&& strWeight.equals(String.valueOf(Splash.Myuser.getWeight())) &&
                         strFavorite.equals("Choose your favorite type here") &&
                         strDislike.equals("Choose your dislike type here")) {
                     Toast toast;

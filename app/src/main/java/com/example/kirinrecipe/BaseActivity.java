@@ -14,9 +14,12 @@ import androidx.core.math.MathUtils;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.example.kirinrecipe.Splash;
+
+import java.util.ArrayList;
+
 public class BaseActivity extends AppCompatActivity {
     static RecipeList MyrecipeList=new RecipeList();
-
+    static int[] ImageList = new int[3];
     static ProgressBar progressbar;
 
     private  LinearLayout layout;

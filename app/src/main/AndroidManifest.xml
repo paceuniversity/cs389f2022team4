@@ -34,13 +34,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".recipe_linking"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".DIYrecipes"
             android:exported="false">
             <meta-data
