@@ -59,6 +59,15 @@ public class UpdateUserinfo extends AppCompatActivity {
                 String strFavorite = editFavorite.getSelectedItem().toString().trim();
                 String strDislike = editDislike.getSelectedItem().toString().trim();
 
+                /*editName.setText(Splash.Myuser.getName());
+                editGender.set(Splash.Myuser.getGender());
+                editAge.setText(Splash.Myuser.getAge());
+                editHeight.setText(Splash.Myuser.getHeight() + " cm");
+                editWeight.setText(Splash.Myuser.getHeight() + " kg");
+                editFavorite.setText(Splash.Myuser.getFavorite());
+                editDislike.setText(Splash.Myuser.getDislike());*/
+
+
                 FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 String uid = user.getUid();

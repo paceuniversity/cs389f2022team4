@@ -1,10 +1,23 @@
 package com.example.kirinrecipe;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class User {
     //Create a user class to store user information.
     private String Name,Gender,Favorite,Dislike,ID;
     private double Weight,Height;
     private int Age;
+    FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     public User(){
         Name = null;
@@ -88,6 +101,32 @@ public class User {
 
     public void setDislike(String dislike){
         this.Dislike = dislike;
+    }
+
+    public void updateInfo(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        DatabaseReference myRef = db.getReference();
+
+
+        myRef.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    setName(String.valueOf(task.getResult().child("Name").getValue()));
+                    setGender(String.valueOf(task.getResult().child("Gender").getValue()));
+                    setAge(Integer.valueOf(String.valueOf(task.getResult().child("Age").getValue())));
+                    setHeight(Double.valueOf(String.valueOf(task.getResult().child("Height").getValue()) + " cm"));
+                    setWeight(Double.valueOf(String.valueOf(task.getResult().child("Weight").getValue()) + " kg"));
+                    setFavorite(String.valueOf(task.getResult().child("Favorite").getValue()));
+                    setDislike(String.valueOf(task.getResult().child("Dislike").getValue()));
+                }
+            }
+        });
+
     }
 
 
