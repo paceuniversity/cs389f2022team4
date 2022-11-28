@@ -118,6 +118,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                             @Override
                             public void onClick(View v) {
                                 Intent intent=new Intent(DIYrecipes.this,diyrecipes_2.class);
+                                ImageList[0] = recipeSTypeList.get(1).ImageId;
                                 startActivity(intent);
                             }
                         });
