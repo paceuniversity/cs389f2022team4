@@ -36,9 +36,9 @@ public class BaseActivity extends AppCompatActivity {
 
     public  void CreateProgress(){
         progressbar=findViewById(R.id.progressBar2);
-        if(MaxCalorie==114514){
+        //if(MaxCalorie==114514){
             MaxCalorie=GetMaxCalorie();
-        }
+        //}
         progressbar.setMax(MaxCalorie);
         progressbar.setProgress(AnimateCalorie);
         progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);

@@ -31,6 +31,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     private String Type;
     private ArrayList<recipe> recipeSTypeList;
     private int imageSize, marginSE, marginTB;
+    public int count;
 
 
     @Override
@@ -102,59 +103,21 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         return DIYL_1;
     }
 
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Type = recpTypeSpanner.getSelectedItem().toString();
-        if (Type.equals("Choose your main recipe type here")) {
+        if (Type.equals("Choose your main recipe type here") ) {
+            if (count != 0){
+                DIYL.removeAllViews();
+            }
             Log.d("", "selectItem1" + Type);
             Type = Splash.Myuser.getFavorite();
-            if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
-                recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
-                while (recipeSTypeList.size() > 0) {
-                    if (recipeSTypeList.size() >= 2) {
-                        ImageView I2 = getImage(recipeSTypeList.get(1));
-                        I2.setOnClickListener(new View.OnClickListener(){
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent=new Intent(DIYrecipes.this,diyrecipes_2.class);
-                                ImageList[0] = recipeSTypeList.get(1).ImageId;
-                                startActivity(intent);
-                            }
-                        });
-                        LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams(imageSize, imageSize);
-                        i1.setMarginStart(marginSE);
-                        i1.setMarginEnd(marginSE);
-                        I2.setLayoutParams(i1);
-                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)), I2);
-                        recipeSTypeList.remove(0);
-                        recipeSTypeList.remove(0);
-                        DIYL.addView(L1);
-                    } else {
-                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)));
-                        DIYL.addView(L1);
-                        break;
-                    }
-                }
-            }
+            changeLayout();
         } else {
             Log.d("", "selectItem2"+ Type);
             DIYL.removeAllViews();
-            if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
-                recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
-                while (recipeSTypeList.size() > 0) {
-                    if (recipeSTypeList.size() >= 2) {
-                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)), getImage(recipeSTypeList.get(1)));
-                        recipeSTypeList.remove(0);
-                        recipeSTypeList.remove(0);
-                        DIYL.addView(L1);
-                    } else {
-                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)));
-                        DIYL.addView(L1);
-                        break;
-                    }
-                }
-            }
+            count++;
+            changeLayout();
         }
 
         }
@@ -163,4 +126,57 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    public void changeLayout(){
+        if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
+            recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
+            while (recipeSTypeList.size() > 0) {
+                if (recipeSTypeList.size() >= 2) {
+                    ImageView I1 = getImage(recipeSTypeList.get(0));
+                    I1.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            GotoLinking();
+                        }
+                    });
+                    ImageView I2 = getImage(recipeSTypeList.get(1));
+                    LinearLayout.LayoutParams i2 = new LinearLayout.LayoutParams(imageSize, imageSize);
+                    i2.setMarginStart(marginSE);
+                    i2.setMarginEnd(marginSE);
+                    I2.setLayoutParams(i2);
+                    I2.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            GotoLinking();
+                        }
+                    });
+                    LinearLayout L1 = getLayout(I1, I2);
+                    recipeSTypeList.remove(0);
+                    recipeSTypeList.remove(0);
+                    DIYL.addView(L1);
+                } else {
+                    ImageView I1 = getImage(recipeSTypeList.get(0));
+                    I1.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            GotoLinking();
+                        }
+                    });
+                    LinearLayout L1 = getLayout(I1);
+                    DIYL.addView(L1);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void GotoLinking(){
+        /*int ImageId = recipeSTypeList.get(1).ImageId;
+        ImageList[0] = ImageId;
+        int maxcalorie = GetMaxCalorie();//==1866
+        ModifyTempCalorie(recipeSTypeList.get(1).GetRecipeCalorie(maxcalorie));*/
+        Intent intent=new Intent(DIYrecipes.this,diyrecipes_2.class);
+        startActivity(intent);
+    }
+
 }
