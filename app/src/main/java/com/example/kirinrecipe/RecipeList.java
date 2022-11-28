@@ -1,5 +1,6 @@
 package com.example.kirinrecipe;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 enum RecipeType
@@ -25,6 +26,18 @@ public class RecipeList {
         list[7]=new recipe(R.drawable.granny_smith,89,RecipeType.Vegetables,false);
         list[8]=new recipe(R.drawable.roast_duck,269,RecipeType.Poultry,true);
         list[9]=new recipe(R.drawable.braised_pork_ball_in_brown_sauce,261,RecipeType.Pork,true);
+    }
+    public ArrayList GetAllSeaFood(){
+        int Amount = 0;
+        ArrayList <recipe> result = new ArrayList<>();
+        for(recipe r : list){
+            if(r.type==RecipeType.Seafood){
+                Amount++;
+                result.add(r);
+            }
+        }
+        if(Amount>0)return result;
+        return null;
     }
     public int GetImageId(int index){
         return list[index].ImageId;
@@ -53,6 +66,8 @@ class recipe{
     int perCalorie;
     RecipeType type;
     boolean MainDish;
+    recipe(){}
+
     recipe(int ImageId, int perCalorie,RecipeType type,boolean mainDish){
         this.ImageId=ImageId;
         this.perCalorie = perCalorie;
