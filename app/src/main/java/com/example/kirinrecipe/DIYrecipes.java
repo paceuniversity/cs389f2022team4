@@ -6,6 +6,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.icu.text.UnicodeSetSpanner;
 import android.media.Image;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -43,30 +44,8 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         DIYL = (LinearLayout) super.findViewById(R.id.DIYLayout);
         recipeSTypeList = new ArrayList<>();
         recpTypeSpanner = (Spinner) super.findViewById(R.id.recipe_type);
-        Type = recpTypeSpanner.getSelectedItem().toString();
-        if (Type.equals("Choose your main recipe type here")){
-            Type = Splash.Myuser.getFavorite();
-            if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null){
-                recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
-                while (recipeSTypeList.size() > 0){
-                    if (recipeSTypeList.size() >= 2){
-                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)), getImage(recipeSTypeList.get(1)));
-                        recipeSTypeList.remove(0);
-                        recipeSTypeList.remove(0);
-                        DIYL.addView(L1);
-                    }
-                    else{
-                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)));
-                        DIYL.addView(L1);
-                        break;
-                    }
-                }
-            }
-        }
-
-
-        recpTypeSpanner.setAdapter(myAdadpter);
         recpTypeSpanner.setOnItemSelectedListener(this);
+        Log.d("", "selectItem0"+ Type);
     }
 
     @Override
@@ -133,26 +112,46 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Type = recpTypeSpanner.getSelectedItem().toString();
-        if (!Type.equals("Choose your main recipe type here")) {
-            {
-                if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
-                    recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
-                    while (recipeSTypeList.size() > 0) {
-                        if (recipeSTypeList.size() >= 2) {
-                            LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)), getImage(recipeSTypeList.get(1)));
-                            recipeSTypeList.remove(0);
-                            recipeSTypeList.remove(0);
-                            DIYL.addView(L1);
-                        } else {
-                            LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)));
-                            DIYL.addView(L1);
-                            break;
-                        }
+        if (Type.equals("Choose your main recipe type here")) {
+            Log.d("", "selectItem1" + Type);
+            Type = Splash.Myuser.getFavorite();
+            if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
+                recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
+                while (recipeSTypeList.size() > 0) {
+                    if (recipeSTypeList.size() >= 2) {
+                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)), getImage(recipeSTypeList.get(1)));
+                        recipeSTypeList.remove(0);
+                        recipeSTypeList.remove(0);
+                        DIYL.addView(L1);
+                    } else {
+                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)));
+                        DIYL.addView(L1);
+                        break;
+                    }
+                }
+            }
+        } else {
+            Log.d("", "selectItem2"+ Type);
+
+            if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
+                recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
+                while (recipeSTypeList.size() > 0) {
+                    if (recipeSTypeList.size() >= 2) {
+                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)), getImage(recipeSTypeList.get(1)));
+                        recipeSTypeList.remove(0);
+                        recipeSTypeList.remove(0);
+                        DIYL.addView(L1);
+                    } else {
+                        LinearLayout L1 = getLayout(getImage(recipeSTypeList.get(0)));
+                        DIYL.addView(L1);
+                        break;
                     }
                 }
             }
         }
-    }
+
+        }
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
