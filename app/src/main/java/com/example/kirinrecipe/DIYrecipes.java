@@ -152,7 +152,6 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
 
         }
 
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
