@@ -66,8 +66,8 @@ public class Basicinformation extends AppCompatActivity {
                         infoName.setText(String.valueOf(task.getResult().child("Name").getValue()));
                         infoGender.setText(String.valueOf(task.getResult().child("Gender").getValue()));
                         infoAge.setText(String.valueOf(task.getResult().child("Age").getValue()));
-                        infoHeight.setText(String.valueOf(task.getResult().child("Height").getValue()));
-                        infoWeight.setText(String.valueOf(task.getResult().child("Weight").getValue()));
+                        infoHeight.setText(String.valueOf(task.getResult().child("Height").getValue()) + " cm");
+                        infoWeight.setText(String.valueOf(task.getResult().child("Weight").getValue()) + " kg");
                         infoFavorite.setText(String.valueOf(task.getResult().child("Favorite").getValue()));
                         infoDislike.setText(String.valueOf(task.getResult().child("Dislike").getValue()));
                  }

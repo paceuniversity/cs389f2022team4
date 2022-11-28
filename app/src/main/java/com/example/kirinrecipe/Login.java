@@ -64,6 +64,7 @@ public class Login extends AppCompatActivity {
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
                         .setLogo(R.drawable.kirin_icon)
+
                         .setTheme(R.style.Theme_KirinRecipe)
                         .build();
         signInLauncher.launch(signInIntent);
