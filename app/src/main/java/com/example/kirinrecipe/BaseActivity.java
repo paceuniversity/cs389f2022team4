@@ -1,5 +1,6 @@
 package com.example.kirinrecipe;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 
 public class BaseActivity extends AppCompatActivity {
     static RecipeList MyrecipeList=new RecipeList();
-    static int[] ImageList = new int[3];
+    static Drawable[] ImageList = new Drawable[3];
     static ProgressBar progressbar;
 
     private  LinearLayout layout;
@@ -36,9 +37,9 @@ public class BaseActivity extends AppCompatActivity {
 
     public  void CreateProgress(){
         progressbar=findViewById(R.id.progressBar2);
-        //if(MaxCalorie==114514){
+        if(MaxCalorie!= GetMaxCalorie()){
             MaxCalorie=GetMaxCalorie();
-        //}
+        }
         progressbar.setMax(MaxCalorie);
         progressbar.setProgress(AnimateCalorie);
         progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);
