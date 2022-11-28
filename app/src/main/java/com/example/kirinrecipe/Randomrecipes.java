@@ -28,6 +28,9 @@ public class Randomrecipes extends BaseActivity {
     ImageView MiddleImage;
     ImageView RightImage;
     float animetime=0;
+    recipe r1 = MyrecipeList.GetRandomMainDish();
+    recipe r2 = MyrecipeList.GetRandomSubDish();
+    recipe r3 = MyrecipeList.GetRandomSubDish();
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
@@ -59,9 +62,10 @@ public class Randomrecipes extends BaseActivity {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                recipe r1 = MyrecipeList.GetRandomRecipe();
-                                recipe r2 = MyrecipeList.GetRandomRecipe();
-                                recipe r3 = MyrecipeList.GetRandomRecipe();
+                                 r1 = MyrecipeList.GetRandomMainDish();
+                                 r2 = MyrecipeList.GetRandomSubDish();
+                                 r3 = MyrecipeList.GetRandomSubDish();
+                                while (r3.ImageId==r2.ImageId)r3=MyrecipeList.GetRandomSubDish();
                                 LeftImage.setImageResource(r1.ImageId);
                                 MiddleImage.setImageResource(r2.ImageId);
                                 RightImage.setImageResource(r3.ImageId);
@@ -75,9 +79,11 @@ public class Randomrecipes extends BaseActivity {
                         }
                         animetime-=duration;
                         //if(animetime<=0)ModifyTempCalorie(r1.perCalorie+r2.perCalorie+r3.perCalorie);
-                        Log.d("", "animetime"+animetime);
+                        //Log.d("", "animetime"+animetime);
                     }
-                    //Log.d("", "CalorieTempCurrent"+TempCalorie);
+                    int maxcalorie = GetMaxCalorie();//==1866
+                    Log.d("", "CalorieTempCurrentEnd"+r1.GetRecipeCalorie(maxcalorie)+" "+r2.GetRecipeCalorie(maxcalorie)+" "+r3.GetRecipeCalorie(maxcalorie));
+                    ModifyTempCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
                 }
             }.start();
         }

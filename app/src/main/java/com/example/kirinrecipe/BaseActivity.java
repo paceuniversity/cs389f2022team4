@@ -13,32 +13,47 @@ import androidx.core.math.MathUtils;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-
+import com.example.kirinrecipe.Splash;
 public class BaseActivity extends AppCompatActivity {
     static RecipeList MyrecipeList=new RecipeList();
 
     static ProgressBar progressbar;
 
     private  LinearLayout layout;
-
-    static  int Calorie=100;
-    static  int TempCalorie=50;
-    static  int MaxCalorie=2000;
+    static TextView textView;
+    static  int Calorie=0;
+    static  int TempCalorie=0;
+    static  int MaxCalorie=114514;
 
     //static FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
     FirebaseStorage storage = FirebaseStorage.getInstance();
 
-    static int AnimateCalorie=100;
-    static int AnimateTempCalorie=50;
+    static int AnimateCalorie=0;
+    static int AnimateTempCalorie=0;
 
     public  void CreateProgress(){
         progressbar=findViewById(R.id.progressBar2);
+        if(MaxCalorie==114514){
+            MaxCalorie=GetMaxCalorie();
+        }
         progressbar.setMax(MaxCalorie);
         progressbar.setProgress(AnimateCalorie);
         progressbar.setSecondaryProgress(Calorie+AnimateTempCalorie);
-
+        textView=findViewById(R.id.ProgressBarText);
+        int currentC=Calorie+TempCalorie;
+        textView.setText("Toady's Calories: "+currentC+" / "+ MaxCalorie);
         Log.d("", "CalorieCreate"+Calorie+" "+AnimateTempCalorie+" "+progressbar.getMax());
 
+    }
+    int GetMaxCalorie(){
+        double result=0;
+        if(Splash.Myuser.getGender()=="Female"){
+            result = 655+(9.563*Splash.Myuser.getWeight())+(1.85*Splash.Myuser.getHeight())-(4.676*Splash.Myuser.getAge());
+        }
+        else{
+            result = 66.47+(13.75*Splash.Myuser.getWeight())+(5.003*Splash.Myuser.getHeight())-(6.755*Splash.Myuser.getAge());
+        }
+        return (int)result;
     }
     //Set Weight
     public void setWeight(float type,int weight){
@@ -55,6 +70,8 @@ public class BaseActivity extends AppCompatActivity {
 
     public void AddCalorie(int prog) {
         Calorie+=prog;
+        int currentC=Calorie+TempCalorie;
+        textView.setText("Toady's Calories: "+currentC+" / "+ MaxCalorie);
         //progressbar.incrementProgressBy(prog);
         new Thread(){
             public void run(){
@@ -80,6 +97,8 @@ public class BaseActivity extends AppCompatActivity {
     }
     public void ModifyTempCalorie(int prog){
         TempCalorie=prog;
+        int currentC=Calorie+TempCalorie;
+        textView.setText("Toady's Calories: "+currentC+" / "+ MaxCalorie);
         //Log.d("", "StartRandom"+TempCalorie+" "+AnimateTempCalorie);
         new Thread(){
             public void run(){

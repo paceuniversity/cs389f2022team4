@@ -16,12 +16,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
 // welcome page by Kuan
 public class Splash extends AppCompatActivity {
     boolean firstin=true;
+    public static User Myuser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,18 +33,34 @@ public class Splash extends AppCompatActivity {
         Timer();
         FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        //Log.e("firebase", "time"+ Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
         if(user!=null){
             String uid = user.getUid();
 
             DatabaseReference myRef = db.getReference();
-            myRef.child("users").child(uid).child("Name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            myRef.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     if (!task.isSuccessful()) {
                         Log.e("firebase", "Error getting data", task.getException());
                     }
                     else {
-                        if(String.valueOf(task.getResult().getValue())!="null")firstin=false;
+                        if(String.valueOf(task.getResult().child("Name").getValue())!="null"){
+                            firstin=false;
+                            String Name,  Gender,  Favorite,  Dislike, ID;
+                            double Weight,  Height;
+                            int Age;
+                            Name = String.valueOf(task.getResult().child("Name").getValue());
+                            Gender = String.valueOf(task.getResult().child("Gender").getValue());
+                            Favorite = String.valueOf(task.getResult().child("Favorite").getValue());
+                            Dislike = String.valueOf(task.getResult().child("Dislike").getValue());
+                            ID = uid;
+                            Weight = Double.valueOf(task.getResult().child("Weight").getValue().toString());
+                            Height = Double.valueOf(task.getResult().child("Height").getValue().toString());
+                            Age = Integer.valueOf(task.getResult().child("Age").getValue().toString());
+                            Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age);
+                        }
                     }
                 }
             });
