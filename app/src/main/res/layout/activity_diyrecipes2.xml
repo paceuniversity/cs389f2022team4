@@ -72,13 +72,15 @@
         android:layout_height="wrap_content"
         android:layout_weight="0"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="horizontal">
+
 
         <ImageView
             android:id="@+id/Confirmbutton"
             android:layout_width="108dp"
             android:layout_height="113dp"
             android:src="@drawable/rr_right_icon" />
+
 
     </LinearLayout>
 

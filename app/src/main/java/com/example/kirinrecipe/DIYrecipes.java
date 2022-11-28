@@ -180,8 +180,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     public void GotoLinking(ImageView I2,recipe r){
 
         ImageList[0] = I2.getDrawable();
-        int maxcalorie = GetMaxCalorie();
-        ModifyTempCalorie(r.GetRecipeCalorie(maxcalorie));
+        ModifyTempCalorie(r.GetRecipeCalorie(MaxCalorie));
         Intent intent=new Intent(DIYrecipes.this,diyrecipes_2.class);
         startActivity(intent);
     }

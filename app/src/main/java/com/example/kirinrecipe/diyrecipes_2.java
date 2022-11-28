@@ -2,7 +2,9 @@ package com.example.kirinrecipe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -17,6 +19,7 @@ public class diyrecipes_2 extends BaseActivity {
         setContentView(R.layout.activity_diyrecipes2);
         MainRecipe = (ImageView) findViewById(R.id.MainImage);
         MainRecipe.setImageDrawable(ImageList[0]);
+
     }
 
     @Override
