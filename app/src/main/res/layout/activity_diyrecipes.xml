@@ -18,7 +18,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -28,7 +27,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_weight="1"
             android:backgroundTint="@color/Themecolor5"
             android:popupBackground="@color/org"
             style="@style/Widget.AppCompat.Spinner.Underlined"
@@ -39,28 +37,29 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
         android:background="@drawable/underline"
         android:orientation="vertical">
 
         <ScrollView
             android:id="@+id/DIYScroll"
-            android:layout_width="fill_parent"
-            android:layout_height="350dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             >
 
             <LinearLayout
                 android:id="@+id/DIYLayout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:layout_gravity="center"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
 
 

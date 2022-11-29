@@ -86,8 +86,9 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         LinearLayout DIYL_1 = new LinearLayout(DIYrecipes.this);
 
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
-        l1.setMargins(0,marginTB,0,0);
+        //l1.setMargins(0,marginTB,0,0);
         DIYL_1.setLayoutParams(l1);
+        DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
         DIYL_1.addView(image1);
         DIYL_1.addView(image2);
@@ -100,8 +101,9 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         LinearLayout DIYL_1 = new LinearLayout(DIYrecipes.this);
 
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
-        l1.setMargins(0,marginTB,0,0);
+        //l1.setMargins(0,marginTB,0,0);
         DIYL_1.setLayoutParams(l1);
+        DIYL_1.setPadding(0,marginTB,0,marginTB);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
         DIYL_1.addView(image1);
 
