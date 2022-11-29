@@ -18,8 +18,7 @@ public class diyrecipes_2 extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diyrecipes2);
         MainRecipe = (ImageView) findViewById(R.id.MainImage);
-        MainRecipe.setImageDrawable(ImageList[0]);
-
+        MainRecipe.setImageResource(LinkRecipeList[0].ImageId);
     }
 
     @Override

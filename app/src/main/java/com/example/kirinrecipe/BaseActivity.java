@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class BaseActivity extends AppCompatActivity {
     static RecipeList MyrecipeList=new RecipeList();
-    static Drawable[] ImageList = new Drawable[3];
+    static recipe[] LinkRecipeList = new recipe[3];
     static ProgressBar progressbar;
 
     private  LinearLayout layout;

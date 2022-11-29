@@ -134,11 +134,12 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     }
 
     public void changeLayout(){
-        if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type)) != null) {
-            recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type));
+        if (MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type),true) != null) {
+            recipeSTypeList = MyrecipeList.GetAllSpecific(MyrecipeList.translate(Type),true);
             while (recipeSTypeList.size() > 0) {
                 if (recipeSTypeList.size() >= 2) {
                     ImageView Image1 = getImage(recipeSTypeList.get(0));
+                    Image1.setId(recipeSTypeList.get(0).ImageId);
                     Image1.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
@@ -147,6 +148,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                     });
                     recipeSTypeList.remove(0);
                     ImageView Image2 = getImage(recipeSTypeList.get(0));
+                    Image2.setId(recipeSTypeList.get(0).ImageId);
                     LinearLayout.LayoutParams ImageParams2 = new LinearLayout.LayoutParams(imageSize, imageSize);
                     ImageParams2.setMarginStart(marginSE);
                     ImageParams2.setMarginEnd(marginSE);
@@ -154,9 +156,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                     Image2.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-
                             GotoLinking(Image2, recipeSTypeList.get(0));
-                            //Log.d("","getimage"+ I2.);
                         }
                     });
                     recipeSTypeList.remove(0);
@@ -164,6 +164,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                     DIYL.addView(L1);
                 } else {
                     ImageView Image1 = getImage(recipeSTypeList.get(0));
+                    Image1.setId(recipeSTypeList.get(0).ImageId);
                     Image1.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
@@ -178,10 +179,10 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         }
     }
 
-    public void GotoLinking(ImageView I2,recipe r){
-
-        ImageList[0] = I2.getDrawable();
-        ModifyTempCalorie(r.GetRecipeCalorie(MaxCalorie));
+    public void GotoLinking(ImageView I2){
+        LinkRecipeList[0] = MyrecipeList.FindRecipeByID(I2.getId());
+        //Log.d("","getrecipe"+ MyrecipeList.FindRecipeByDrawable(I2.getDrawable()).type);
+        ModifyTempCalorie(MyrecipeList.FindRecipeByID(I2.getId()).GetRecipeCalorie(MaxCalorie));
         Intent intent=new Intent(DIYrecipes.this,diyrecipes_2.class);
         startActivity(intent);
     }

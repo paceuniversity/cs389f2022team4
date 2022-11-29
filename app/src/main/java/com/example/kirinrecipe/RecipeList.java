@@ -1,5 +1,9 @@
 package com.example.kirinrecipe;
 
+import android.graphics.drawable.Drawable;
+import android.util.Log;
+import android.widget.ImageView;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -27,19 +31,38 @@ public class RecipeList {
         list[8]=new recipe(R.drawable.roast_duck,269,RecipeType.Poultry,true);
         list[9]=new recipe(R.drawable.braised_pork_ball_in_brown_sauce,261,RecipeType.Pork,true);
     }
-    public ArrayList GetAllSpecific(RecipeType R){
+    public ArrayList GetAllSpecific(RecipeType R,boolean maindish){
+
         int Amount = 0;
         ArrayList <recipe> result = new ArrayList<>();
         for(recipe r : list){
+
             if(r.type==R){
-                Amount++;
-                result.add(r);
+                if(maindish){
+                    if(r.MainDish){
+                        Amount++;
+                        result.add(r);
+                    }
+                }
+                else{
+                    if(!r.MainDish){
+                        Amount++;
+                        result.add(r);
+                    }
+                }
             }
         }
         if(Amount>0)return result;
         return null;
     }
-
+    public recipe FindRecipeByID(int ImageId){
+        for(recipe temp : list){
+            if(temp.ImageId==ImageId){
+                return temp;
+            }
+        }
+        return null;
+    }
 
     public int GetImageId(int index){
         return list[index].ImageId;
