@@ -89,8 +89,35 @@ public class RecipeList {
         }
         return result;
     }
+    public ArrayList GetAllSubDish(recipe except){
+        ArrayList <recipe> result = new ArrayList<>();
+        RecipeList cloneRecipe = new RecipeList();
+        for(recipe r : cloneRecipe.list){
+            if(!r.MainDish&&r.ImageId!= except.ImageId)result.add(r);
+        }
+        return result;
+    }
     public ArrayList GetAllRecommendSubDish(recipe maindish){
         ArrayList <recipe> result = GetAllSubDish();
+        for(recipe subdish: result){
+            subdish.Pivot+=AddPivotToRecipeBaseOnOil(maindish,subdish);
+            //Log.d("", "percalorie"+subdish.perCalorie+"type"+subdish.type+"SubDishPivot"+ subdish.Pivot);
+            if(subdish.type!=maindish.type&& (subdish.type==RecipeType.Vegetables|maindish.type==RecipeType.Vegetables)){
+                //have one and only one vegetables
+                //Log.d("", "percalorie"+subdish.perCalorie+"type"+subdish.type+"SubDishPivot"+ subdish.Pivot);
+                subdish.Pivot*=(1.5f+ 0.3f*(1f-2*Math.random()));
+                //Log.d("","pivot*="+(1.5f+ 0.3f*(1f-2*Math.random())));//-1 - 1
+                //Log.d("", "percalorie"+subdish.perCalorie+"type"+subdish.type+"SubDishPivot"+ subdish.Pivot);
+
+            }
+        }
+        for(recipe r : result){
+            //Log.d("", "RecipeNoSort"+ r.Pivot);
+        }
+        return result;
+    }
+    public ArrayList GetAllRecommendSubDish(recipe maindish,recipe except){
+        ArrayList <recipe> result = GetAllSubDish(except);
         for(recipe subdish: result){
             subdish.Pivot+=AddPivotToRecipeBaseOnOil(maindish,subdish);
             //Log.d("", "percalorie"+subdish.perCalorie+"type"+subdish.type+"SubDishPivot"+ subdish.Pivot);
@@ -120,12 +147,20 @@ public class RecipeList {
                 }
             }
         }
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Collections.sort(Temp,Comparator.comparingInt(recipe::getPivot));
-        }*/
-        /*for(recipe r : Temp){
-            Log.d("", "percalorie"+r.perCalorie+"type"+r.type+"SubDishPivot"+ r.Pivot);
-        }*/
+        return Temp;
+    }
+    public ArrayList GetSortedRecommendSubDish(recipe maindish,recipe except){
+        Log.d("", "Startsort");
+        ArrayList <recipe> Temp = GetAllRecommendSubDish(maindish,except);
+        for(int i =0;i<Temp.size();i++){
+            for(int j=0;j<Temp.size()-i-1;j++){
+                if(Temp.get(j).Pivot<Temp.get(j+1).Pivot){
+                    recipe r = Temp.get(j);
+                    Temp.set(j,Temp.get(j+1));
+                    Temp.set(j+1,r);
+                }
+            }
+        }
         return Temp;
     }
 
