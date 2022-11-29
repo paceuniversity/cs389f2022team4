@@ -22,14 +22,14 @@ public class RecipeList {
     RecipeList(){
         list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood,false);
         list[1]=new recipe(R.drawable.char_siu,200,RecipeType.Pork,true);
-        list[2]=new recipe(R.drawable.braised_pork_balls_in_gravy,300,RecipeType.Seafood,true);
+        list[2]=new recipe(R.drawable.braised_pork_balls_in_gravy,261,RecipeType.Pork,true);
         list[3]=new recipe(R.drawable.stir_fried_pork_with_scallions,143,RecipeType.Seafood,true);
-        list[4]=new recipe(R.drawable.shredded_pork_in_beijing_sauce,162,RecipeType.Pork,true);
+        list[4]=new recipe(R.drawable.sauted_meat_shreds_with_soy_bean_paste,162,RecipeType.Pork,true);
         list[5]=new recipe(R.drawable.grilled_eggplant,65,RecipeType.Vegetables,false);
         list[6]=new recipe(R.drawable.fish_head_with_minced_pepper,113,RecipeType.Vegetables,true);
         list[7]=new recipe(R.drawable.granny_smith,89,RecipeType.Vegetables,false);
         list[8]=new recipe(R.drawable.roast_duck,269,RecipeType.Poultry,true);
-        list[9]=new recipe(R.drawable.braised_pork_ball_in_brown_sauce,261,RecipeType.Pork,true);
+        list[9]=new recipe(R.drawable.lamb_soup,62,RecipeType.Soup,false);
     }
     public ArrayList GetAllSpecific(RecipeType R,boolean maindish){
 
