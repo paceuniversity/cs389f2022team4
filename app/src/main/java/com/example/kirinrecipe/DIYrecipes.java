@@ -68,7 +68,6 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     }
 
     public ImageView getImage(recipe r){
-
         ImageView Image = new ImageView(DIYrecipes.this);
         LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams(imageSize, imageSize);
         i1.setMarginStart(marginSE);
@@ -143,7 +142,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                     Image1.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-                            GotoLinking(Image1, recipeSTypeList.get(0));
+                            GotoLinking(Image1);
                         }
                     });
                     recipeSTypeList.remove(0);
@@ -156,7 +155,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                     Image2.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-                            GotoLinking(Image2, recipeSTypeList.get(0));
+                            GotoLinking(Image2);
                         }
                     });
                     recipeSTypeList.remove(0);
@@ -168,7 +167,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                     Image1.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-                            GotoLinking(Image1, recipeSTypeList.get(0));
+                            GotoLinking(Image1);
                         }
                     });
                     LinearLayout L1 = getLayout(Image1);

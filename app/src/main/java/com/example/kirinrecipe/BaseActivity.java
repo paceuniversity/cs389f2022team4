@@ -149,4 +149,6 @@ public class BaseActivity extends AppCompatActivity {
     public void AddTempCalorie(int prog) {
 
     }
+
+
 }
