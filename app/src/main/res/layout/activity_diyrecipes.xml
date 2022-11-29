@@ -42,7 +42,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="350dp"
         android:gravity="center"
         android:background="@drawable/underline"
         android:orientation="vertical">
