@@ -50,7 +50,6 @@ Our app is designed to help people who are not residents of China learn about he
 * [Scrums](https://docs.google.com/document/d/1M-FMHCsk7zuKysaJSMtahtJ7QSaa2aDBtYYs96I-o8c/edit?usp=sharing)
 * [Sprint demo video]() | [APK]()
 * [Sprint retrospective]()
-* [Sprint PPT]()
 ### Sprint 3
 
 * [Sprint planning]()
