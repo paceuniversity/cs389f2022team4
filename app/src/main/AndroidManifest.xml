@@ -8,7 +8,7 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/kirin_icon"
         android:label="Kirin Recipe"
-        android:roundIcon="@drawable/kirin_icon"
+        android:roundIcon="@drawable/kirin_icon2"
         android:supportsRtl="true"
         android:theme="@style/Theme.KirinRecipe"
         tools:targetApi="31">
