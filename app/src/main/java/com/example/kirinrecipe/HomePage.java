@@ -41,6 +41,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     @Override
     protected void onStart() {
         CreateProgress();
+        ModifyTempCalorie( 0);
         super.onStart();
     }
 
