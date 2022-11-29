@@ -181,6 +181,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     public void GotoLinking(ImageView I2){
         LinkRecipeList[0] = MyrecipeList.FindRecipeByID(I2.getId());
         //Log.d("","getrecipe"+ MyrecipeList.FindRecipeByDrawable(I2.getDrawable()).type);
+        MyrecipeList.GetSortedRecommendSubDish(MyrecipeList.FindRecipeByID(I2.getId()));
         ModifyTempCalorie(MyrecipeList.FindRecipeByID(I2.getId()).GetRecipeCalorie(MaxCalorie));
         Intent intent=new Intent(DIYrecipes.this,diyrecipes_2.class);
         startActivity(intent);
