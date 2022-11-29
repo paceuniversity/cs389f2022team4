@@ -1,11 +1,15 @@
 package com.example.kirinrecipe;
 
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Random;
 
 enum RecipeType
 {
@@ -77,6 +81,53 @@ public class RecipeList {
         if(Amount>0)return result;
         return null;
     }
+    public ArrayList GetAllSubDish(){
+        ArrayList <recipe> result = new ArrayList<>();
+        for(recipe r : list){
+            if(!r.MainDish)result.add(r);
+        }
+        return result;
+    }
+    public ArrayList GetAllRecommendSubDish(recipe maindish){
+        ArrayList <recipe> result = GetAllSubDish();
+        for(recipe subdish: result){
+            subdish.Pivot+=AddPivotToRecipeBaseOnOil(maindish,subdish);
+            //Log.d("", "SubDishPivot"+ subdish.Pivot);
+            if(subdish.type!=maindish.type&& (subdish.type==RecipeType.Vegetables|maindish.type==RecipeType.Vegetables)){
+                //have one and only one vegetables
+                subdish.Pivot*=(1.5+ 3*(1-2*Math.random()));
+            }
+        }
+        for(recipe r : result){
+            //Log.d("", "RecipeNoSort"+ r.Pivot);
+        }
+        return result;
+    }
+    public ArrayList GetSortedRecommendSubDish(recipe maindish){
+        ArrayList <recipe> Temp = GetAllRecommendSubDish(maindish);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Collections.sort(Temp,Comparator.comparingInt(recipe::getPivot));
+        }
+        for(recipe r : Temp){
+            Log.d("", "Recipe"+ r.Pivot);
+        }
+        return Temp;
+    }
+
+    public float AddPivotToRecipeBaseOnOil(recipe maindish,recipe subdish){
+        float result=0;
+        int totaloil=maindish.oil+subdish.oil;//0 10 20 || 0 100 -100
+        if(totaloil<=10){
+            result= lerp(100,0,(10-totaloil)/10f);
+        }
+        else result = lerp(400,100,(totaloil)/10f);
+        return result;
+
+    }
+    float lerp (float x,float y,float weight){
+        return (x+(y-x)*weight);
+    }
+
     public recipe FindRecipeByID(int ImageId){
         for(recipe temp : list){
             if(temp.ImageId==ImageId){
@@ -126,13 +177,17 @@ class recipe{
     int perCalorie;
     RecipeType type;
     boolean MainDish;
+    float Pivot=0;
+    int oil;
     recipe(){}
 
+    public int getPivot(){return (int)Pivot;}
     recipe(int ImageId, int perCalorie,RecipeType type,boolean mainDish){
         this.ImageId=ImageId;
         this.perCalorie = perCalorie;
         this.type=type;
         this.MainDish= mainDish;
+        this.oil = oil;
     }
     int GetRecipeCalorie(int MaxCalorie){
         double PerDishMaxCalorie=0;
@@ -146,14 +201,20 @@ class recipe{
             PerDishMaxCalorie=MaxCalorie*0.4f;
         }
         if(MainDish){
-            RecipeNeedCalorie = PerDishMaxCalorie*0.7f;
+            if(type==RecipeType.Vegetables){
+                RecipeNeedCalorie = PerDishMaxCalorie*0.4f;
+            }
+            else RecipeNeedCalorie = PerDishMaxCalorie*0.7f;
         }
         else{
             if(type==RecipeType.Soup){
                 RecipeNeedCalorie = PerDishMaxCalorie*0.1f;
             }
-            else{
+            else if (type==RecipeType.Vegetables){
                 RecipeNeedCalorie = PerDishMaxCalorie*0.15f;
+            }
+            else{
+                RecipeNeedCalorie = PerDishMaxCalorie*0.35f;
             }
         }
         while(result<RecipeNeedCalorie-perCalorie){
