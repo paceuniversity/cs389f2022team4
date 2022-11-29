@@ -83,7 +83,8 @@ public class RecipeList {
     }
     public ArrayList GetAllSubDish(){
         ArrayList <recipe> result = new ArrayList<>();
-        for(recipe r : list){
+        RecipeList cloneRecipe = new RecipeList();
+        for(recipe r : cloneRecipe.list){
             if(!r.MainDish)result.add(r);
         }
         return result;
@@ -110,12 +111,21 @@ public class RecipeList {
     public ArrayList GetSortedRecommendSubDish(recipe maindish){
         Log.d("", "Startsort");
         ArrayList <recipe> Temp = GetAllRecommendSubDish(maindish);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        for(int i =0;i<Temp.size();i++){
+            for(int j=0;j<Temp.size()-i-1;j++){
+                if(Temp.get(j).Pivot<Temp.get(j+1).Pivot){
+                    recipe r = Temp.get(j);
+                    Temp.set(j,Temp.get(j+1));
+                    Temp.set(j+1,r);
+                }
+            }
+        }
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Collections.sort(Temp,Comparator.comparingInt(recipe::getPivot));
-        }
-        for(recipe r : Temp){
-            //Log.d("", "percalorie"+r.perCalorie+"type"+r.type+"SubDishPivot"+ r.Pivot);
-        }
+        }*/
+        /*for(recipe r : Temp){
+            Log.d("", "percalorie"+r.perCalorie+"type"+r.type+"SubDishPivot"+ r.Pivot);
+        }*/
         return Temp;
     }
 
