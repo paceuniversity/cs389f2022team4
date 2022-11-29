@@ -79,7 +79,7 @@ public class diyrecipes_2 extends BaseActivity {
         DIYLinkLayout =  super.findViewById(R.id.DIYLayout2);
         ArrayList<recipe> recommendList = MyrecipeList.GetSortedRecommendSubDish(MyrecipeList.FindRecipeByID(LinkRecipeList[0].ImageId));
         for(recipe subdish : recommendList){
-            //Log.d("", "subdish"+subdish.Pivot+" oil"+subdish.oil+"calorie"+subdish.perCalorie);
+            Log.d("", "subdish"+subdish.Pivot+" oil"+subdish.oil+"calorie"+subdish.perCalorie);
             DIYLinkLayout.addView(getImage(subdish));
         }
 
