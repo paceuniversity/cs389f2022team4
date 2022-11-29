@@ -63,8 +63,7 @@ public class Login extends AppCompatActivity {
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
                         .setAvailableProviders(providers)
-                        .setLogo(R.drawable.kirin_icon)
-
+                        .setLogo(R.drawable.kirin_icon2)
                         .setTheme(R.style.Theme_KirinRecipe)
                         .build();
         signInLauncher.launch(signInIntent);
