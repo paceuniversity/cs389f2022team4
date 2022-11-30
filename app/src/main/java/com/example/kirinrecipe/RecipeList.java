@@ -55,7 +55,6 @@ public class RecipeList {
         list[28]=new recipe(R.drawable.egg_seaweed_soup,36,RecipeType.Soup,false,0);
         list[29]=new recipe(R.drawable.lamb_stew_with_carrots,144,RecipeType.Mutton,true,6);
         list[30]=new recipe(R.drawable.beef_brisket_with_tomatoes_in_casserole_beef,141,RecipeType.Beef,true,4);
-
     }
     public ArrayList GetAllSpecific(RecipeType R,boolean maindish){
 
