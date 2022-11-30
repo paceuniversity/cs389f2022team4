@@ -48,8 +48,8 @@ Our app is designed to help people who are not residents of China learn about he
 
 * [Sprint planning](https://docs.google.com/document/d/1kRnkbGOzWPMmot_jiexY2iI43Z3wWRArN3hkCnRHLqw/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
 * [Scrums](https://docs.google.com/document/d/1M-FMHCsk7zuKysaJSMtahtJ7QSaa2aDBtYYs96I-o8c/edit?usp=sharing)
-* [Sprint demo video]() | [APK]()
-* [Sprint retrospective]()
+* [Sprint demo video](https://docs.google.com/document/d/1EA-KKxECrTjk1DcP1YqqPxAIqL6VkkHjG4L-sTCnKpc/edit?usp=sharing) | [APK](https://drive.google.com/file/d/1JZf6olcwsbj3Te_lP57rxTv6Exo9p0g_/view?usp=share_link)
+* [Sprint retrospective](https://docs.google.com/document/d/1JbuhUmiyHQtuWVol1Meab-jmP6EIfOD1DMHLfeQXbCw/edit?usp=sharing)
 ### Sprint 3
 
 * [Sprint planning]()
