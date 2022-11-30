@@ -66,35 +66,38 @@ public class Userinfo extends AppCompatActivity {
                 //new User(strName,strGender,strFavorite,strDislike,uid,18,18,18,true);
                 DatabaseReference myRef = db.getReference();
                 //myRef.child("users").child(uid).setValue(us);
-                myRef.child("users").child(uid).child("Name").setValue(strName);
-                myRef.child("users").child(uid).child("Gender").setValue(strGender);
-                myRef.child("users").child(uid).child("Age").setValue(strAge);
-                myRef.child("users").child(uid).child("Height").setValue(strHeight);
-                myRef.child("users").child(uid).child("Weight").setValue(strWeight);
-                myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
-                myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
 
 
-                String Name,  Gender,  Favorite,  Dislike, ID;
-                double Weight,  Height;
-                int Age;
-                Name = strName;
-                Gender = strGender;
-                Favorite = strFavorite;
-                Dislike = strDislike;
-                ID = uid;
-                Weight = Double.valueOf(strWeight);
-                Height = Double.valueOf(strHeight);
-                Age = Integer.valueOf(strAge);
-                Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age);
+                if(strName.length()>0 && strAge.length()>0 && strHeight.length()>0 && strWeight.length()>0
+                        && !strGender.equals("Choose your Gender here") && !strFavorite.equals("Choose your favorite type here") &&
+                        !strDislike.equals("Choose your dislike type here")){
+                    myRef.child("users").child(uid).child("Name").setValue(strName);
+                    myRef.child("users").child(uid).child("Gender").setValue(strGender);
+                    myRef.child("users").child(uid).child("Age").setValue(strAge);
+                    myRef.child("users").child(uid).child("Height").setValue(strHeight);
+                    myRef.child("users").child(uid).child("Weight").setValue(strWeight);
+                    myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
+                    myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
 
-                if(strName.length()>0 && strAge.length()>0 && strHeight.length()>0 && strWeight.length()>0){
+                    String Name,  Gender,  Favorite,  Dislike, ID;
+                    double Weight,  Height;
+                    int Age;
+                    Name = strName;
+                    Gender = strGender;
+                    Favorite = strFavorite;
+                    Dislike = strDislike;
+                    ID = uid;
+                    Weight = Double.valueOf(strWeight);
+                    Height = Double.valueOf(strHeight);
+                    Age = Integer.valueOf(strAge);
+                    Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age);
+
                     Intent intent = new Intent(Userinfo.this, HomePage.class);
                     startActivity(intent);
                 }
                 else{
                     Toast toast;
-                    toast = Toast.makeText(Userinfo.this,"You must input name, Age, Height & Weight!",Toast.LENGTH_SHORT);
+                    toast = Toast.makeText(Userinfo.this,"You must input all information here!",Toast.LENGTH_SHORT);
                     toast.show();
                 }
 
