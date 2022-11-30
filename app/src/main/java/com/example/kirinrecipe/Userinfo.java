@@ -75,6 +75,19 @@ public class Userinfo extends AppCompatActivity {
                 myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
 
 
+                String Name,  Gender,  Favorite,  Dislike, ID;
+                double Weight,  Height;
+                int Age;
+                Name = strName;
+                Gender = strGender;
+                Favorite = strFavorite;
+                Dislike = strDislike;
+                ID = uid;
+                Weight = Double.valueOf(strWeight);
+                Height = Double.valueOf(strHeight);
+                Age = Integer.valueOf(strAge);
+                Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age);
+
                 if(strName.length()>0 && strAge.length()>0 && strHeight.length()>0 && strWeight.length()>0){
                     Intent intent = new Intent(Userinfo.this, HomePage.class);
                     startActivity(intent);

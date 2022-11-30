@@ -56,8 +56,8 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mDatabase = FirebaseDatabase.getInstance().getReference();
         List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build());
+                new AuthUI.IdpConfig.EmailBuilder().build()
+                ,new AuthUI.IdpConfig.GoogleBuilder().build());//new AuthUI.IdpConfig.GoogleBuilder().build()
 
         Intent signInIntent =
                 AuthUI.getInstance()
@@ -83,14 +83,26 @@ public class Login extends AppCompatActivity {
             String uid = user.getUid();
             FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
             DatabaseReference myRef = db.getReference();
-            myRef.child("users").child(uid).child("Name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            myRef.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     if (!task.isSuccessful()) {
                         Log.e("firebase", "Error getting data", task.getException());
                     }
                     else {
-                        if(String.valueOf(task.getResult().getValue())!="null"){
+                        if(String.valueOf(task.getResult().child("Name").getValue())!="null"){
+                            String Name,  Gender,  Favorite,  Dislike, ID;
+                            double Weight,  Height;
+                            int Age;
+                            Name = String.valueOf(task.getResult().child("Name").getValue());
+                            Gender = String.valueOf(task.getResult().child("Gender").getValue());
+                            Favorite = String.valueOf(task.getResult().child("Favorite").getValue());
+                            Dislike = String.valueOf(task.getResult().child("Dislike").getValue());
+                            ID = uid;
+                            Weight = Double.valueOf(task.getResult().child("Weight").getValue().toString());
+                            Height = Double.valueOf(task.getResult().child("Height").getValue().toString());
+                            Age = Integer.valueOf(task.getResult().child("Age").getValue().toString());
+                            Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age);
                             Intent intent=new Intent(Login.this,HomePage.class);
                             startActivity(intent);
                         }
