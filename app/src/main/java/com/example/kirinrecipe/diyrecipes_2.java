@@ -48,7 +48,7 @@ public class diyrecipes_2 extends BaseActivity {
     protected void onStart(){
         //The system progress bar has a relatively large limit and can only set 2 colors
         CreateProgress();
-        addAllRecomandRecipe();
+
         if(stage==1){
             //DIYMainDishLayout.addView(MainRecipe);
             if(ChangePageByButton){
@@ -69,6 +69,7 @@ public class diyrecipes_2 extends BaseActivity {
             }
             else {
                 stage=0;
+                LinkRecipeList[1]=null;
                 ModifyTempCalorie( LinkRecipeList[0].GetRecipeCalorie(MaxCalorie));
             }
 
@@ -102,11 +103,12 @@ public class diyrecipes_2 extends BaseActivity {
             }
             else {
                 stage=1;
+                LinkRecipeList[2]=null;
                 ModifyTempCalorie( LinkRecipeList[0].GetRecipeCalorie(MaxCalorie)+ LinkRecipeList[1].GetRecipeCalorie(MaxCalorie));
             }
 
         }
-
+        addAllRecomandRecipe();
         super.onStart();
     }
 
@@ -131,12 +133,22 @@ public class diyrecipes_2 extends BaseActivity {
     }
     public void addAllRecomandRecipe(){
         DIYLinkLayout =  super.findViewById(R.id.DIYLayout2);
-
+        DIYLinkLayout.removeAllViews();
         ArrayList<recipe> recommendList = MyrecipeList.GetSortedRecommendSubDish(MyrecipeList.FindRecipeByID(LinkRecipeList[0].ImageId));
-        if(stage==1)recommendList = MyrecipeList.GetSortedRecommendSubDish(MyrecipeList.FindRecipeByID(LinkRecipeList[0].ImageId),LinkRecipeList[1]);
+        //recommendList = MyrecipeList.GetSortedRecommendSubDish(MyrecipeList.FindRecipeByID(LinkRecipeList[0].ImageId),Splash.Myuser.getDislike());
         for(recipe subdish : recommendList){
             //Log.d("", "subdish"+subdish.Pivot+" oil"+subdish.oil+"calorie"+subdish.perCalorie);
-            DIYLinkLayout.addView(getImage(subdish));
+            if(subdish.type!=Splash.Myuser.getDislikeRecipeType()){
+                boolean AlreadyHaveRecipe=false;
+                for(recipe id : LinkRecipeList){
+                    if(id!=null&& subdish.ImageId==id.ImageId){
+                        AlreadyHaveRecipe=true;
+                    }
+                }
+                if(!AlreadyHaveRecipe)DIYLinkLayout.addView(getImage(subdish));
+
+            }
+
         }
     }
     public void SelectSubDish(ImageView Image){
@@ -155,6 +167,7 @@ public class diyrecipes_2 extends BaseActivity {
             Intent intent=new Intent(diyrecipes_2.this,diyrecipes_2.class);
             startActivity(intent);
         }
+        else ChangePageByButton=false;
     }
 
 

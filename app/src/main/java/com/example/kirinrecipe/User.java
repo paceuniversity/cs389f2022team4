@@ -103,6 +103,24 @@ public class User {
         this.Dislike = dislike;
     }
 
+    public RecipeType getDislikeRecipeType(){
+        switch (getDislike()){
+            case "Seafood":
+                return RecipeType.Seafood;
+            case "Pork":
+                return RecipeType.Pork;
+            case "Mutton":
+                return RecipeType.Mutton;
+            case "Beef":
+                return RecipeType.Beef;
+            case "Poultry":
+                return RecipeType.Poultry;
+            case "Vegetables":
+                return RecipeType.Vegetables;
+            default:
+                return null;
+        }
+    }
     public void updateInfo(){
         DatabaseReference myRef = db.getReference();
         //myRef.child("users").child(uid).setValue(us);
