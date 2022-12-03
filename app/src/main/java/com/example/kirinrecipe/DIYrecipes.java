@@ -32,7 +32,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     private String Type;
     private ArrayList<recipe> recipeSTypeList;
     private int imageSize, marginSE, marginTB;
-    public int count;
+    public int count,count2;
 
 
     @Override
@@ -60,6 +60,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     protected void onStart(){
         //The system progress bar has a relatively large limit and can only set 2 colors
         CreateProgress();
+        count2 = 0;
         if(Type!=null){
             DIYL.removeAllViews();
             changeLayout();
@@ -103,7 +104,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
         //l1.setMargins(0,marginTB,0,0);
         DIYL_1.setLayoutParams(l1);
-        DIYL_1.setPadding(0,marginTB,0,marginTB);
+        DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
         DIYL_1.addView(image1);
 
@@ -119,11 +120,13 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
             }
             //Log.d("", "selectItem1" + Type);
             Type = Splash.Myuser.getFavorite();
+            count2 = 0;
             changeLayout();
         } else {
             //Log.d("", "selectItem2"+ Type);
             DIYL.removeAllViews();
             count++;
+            count2 = 0;
             changeLayout();
         }
 
@@ -162,6 +165,10 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                     });
                     recipeSTypeList.remove(0);
                     LinearLayout L1 = getLayout(Image1, Image2);
+                    if (count2 == 0){
+                        L1.setPadding(0,0,0,0);
+                        count2++;
+                    }
                     DIYL.addView(L1);
                 } else {
                     ImageView Image1 = getImage(recipeSTypeList.get(0));
