@@ -52,7 +52,6 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         setContentView(R.layout.activity_home_page);
         DisplayMetrics dm = getResources().getDisplayMetrics();
 
-        t=findViewById(R.id.HomepagetestText);
         //t.setText(MyrecipeList.list[17].FullTextId);
 
         centerX=dm.widthPixels/2;
