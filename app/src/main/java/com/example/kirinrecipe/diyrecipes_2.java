@@ -29,6 +29,8 @@ public class diyrecipes_2 extends BaseActivity {
     private LinearLayout DIYMainDishLayout;
     private static int stage=0;
     private static boolean ChangePageByButton=false;
+    private ImageView Confirm;
+    private boolean ReturnfromSteps = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,25 @@ public class diyrecipes_2 extends BaseActivity {
         MainRecipe = (ImageView) findViewById(R.id.MainImage);
         MainRecipe.setPadding(10,10,10,10);
         MainRecipe.setImageResource(LinkRecipeList[0].ImageId);
+        Confirm = (ImageView)  findViewById(R.id.Confirmbutton);
+
+        Confirm.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                int totalCalorie = 0;
+                for (int i = 0; i < LinkRecipeList.length; i++){
+                    if (LinkRecipeList[i]!=null){
+                        totalCalorie += LinkRecipeList[i].GetRecipeCalorie(GetMaxCalorie());
+                    }
+                }
+                AddCalorie(totalCalorie);
+                progressbar.setSecondaryProgress(0);
+                Intent intent=new Intent(diyrecipes_2.this,Step_by_step.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
@@ -48,66 +69,69 @@ public class diyrecipes_2 extends BaseActivity {
     protected void onStart(){
         //The system progress bar has a relatively large limit and can only set 2 colors
         CreateProgress();
+        if (ReturnfromSteps == false){
+            //ReturnfromSteps = true;
+            if(stage==1){
+                //DIYMainDishLayout.addView(MainRecipe);
+                if(ChangePageByButton){
+                    DIYMainDishLayout=findViewById(R.id.MainDishLayout);
+                    Log.d("","stage11111");
+                    ImageView SubImage = new ImageView(diyrecipes_2.this);
 
-        if(stage==1){
-            //DIYMainDishLayout.addView(MainRecipe);
-            if(ChangePageByButton){
-                DIYMainDishLayout=findViewById(R.id.MainDishLayout);
-                Log.d("","stage11111");
-                ImageView SubImage = new ImageView(diyrecipes_2.this);
+                    LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.8), (int)(imageSize*0.8));
+                    //i1.setMarginStart(marginSE);
+                    i1.setMargins(0,marginTB,0,0);
+                    SubImage.setLayoutParams(i1);
+                    SubImage.setImageResource(LinkRecipeList[1].ImageId);
+                    SubImage.setBackgroundResource(R.drawable.image_border);
+                    SubImage.setScaleType(ImageView.ScaleType.FIT_XY);
+                    SubImage.setPadding(10,10,10,10);
+                    DIYMainDishLayout.addView(SubImage);
+                    ChangePageByButton=false;
+                }
+                else {
+                    stage=0;
+                    LinkRecipeList[1]=null;
+                    ModifyTempCalorie( LinkRecipeList[0].GetRecipeCalorie(MaxCalorie));
+                }
 
-                LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.8), (int)(imageSize*0.8));
-                //i1.setMarginStart(marginSE);
-                i1.setMargins(0,marginTB,0,0);
-                SubImage.setLayoutParams(i1);
-                SubImage.setImageResource(LinkRecipeList[1].ImageId);
-                SubImage.setBackgroundResource(R.drawable.image_border);
-                SubImage.setScaleType(ImageView.ScaleType.FIT_XY);
-                SubImage.setPadding(10,10,10,10);
-                DIYMainDishLayout.addView(SubImage);
-                ChangePageByButton=false;
             }
-            else {
-                stage=0;
-                LinkRecipeList[1]=null;
-                ModifyTempCalorie( LinkRecipeList[0].GetRecipeCalorie(MaxCalorie));
+            else if(stage==2){
+                if(ChangePageByButton) {
+                    DIYMainDishLayout=findViewById(R.id.MainDishLayout);
+                    Log.d("","stage2222");
+                    ImageView SubImage = new ImageView(diyrecipes_2.this);
+
+                    LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.8), (int)(imageSize*0.8));
+                    //i1.setMarginStart(marginSE);
+                    i1.setMargins(0,marginTB,0,0);
+                    SubImage.setLayoutParams(i1);
+                    SubImage.setImageResource(LinkRecipeList[1].ImageId);
+                    SubImage.setBackgroundResource(R.drawable.image_border);
+                    SubImage.setScaleType(ImageView.ScaleType.FIT_XY);
+                    SubImage.setPadding(10,10,10,10);
+                    DIYMainDishLayout.addView(SubImage);
+
+                    ImageView SubImage2 = new ImageView(diyrecipes_2.this);
+                    //i1.setMarginStart(marginSE);
+                    i1.setMargins(0,marginTB,0,0);
+                    SubImage2.setLayoutParams(i1);
+                    SubImage2.setImageResource(LinkRecipeList[2].ImageId);
+                    SubImage2.setBackgroundResource(R.drawable.image_border);
+                    SubImage2.setScaleType(ImageView.ScaleType.FIT_XY);
+                    SubImage2.setPadding(10,10,10,10);
+                    DIYMainDishLayout.addView(SubImage2);
+                    ChangePageByButton=false;
+                }
+                else {
+                    stage=1;
+                    LinkRecipeList[2]=null;
+                    ModifyTempCalorie( LinkRecipeList[0].GetRecipeCalorie(MaxCalorie)+ LinkRecipeList[1].GetRecipeCalorie(MaxCalorie));
+                }
+
             }
+        }else ReturnfromSteps = true;
 
-        }
-        else if(stage==2){
-            if(ChangePageByButton) {
-                DIYMainDishLayout=findViewById(R.id.MainDishLayout);
-                Log.d("","stage2222");
-                ImageView SubImage = new ImageView(diyrecipes_2.this);
-
-                LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.8), (int)(imageSize*0.8));
-                //i1.setMarginStart(marginSE);
-                i1.setMargins(0,marginTB,0,0);
-                SubImage.setLayoutParams(i1);
-                SubImage.setImageResource(LinkRecipeList[1].ImageId);
-                SubImage.setBackgroundResource(R.drawable.image_border);
-                SubImage.setScaleType(ImageView.ScaleType.FIT_XY);
-                SubImage.setPadding(10,10,10,10);
-                DIYMainDishLayout.addView(SubImage);
-
-                ImageView SubImage2 = new ImageView(diyrecipes_2.this);
-                //i1.setMarginStart(marginSE);
-                i1.setMargins(0,marginTB,0,0);
-                SubImage2.setLayoutParams(i1);
-                SubImage2.setImageResource(LinkRecipeList[2].ImageId);
-                SubImage2.setBackgroundResource(R.drawable.image_border);
-                SubImage2.setScaleType(ImageView.ScaleType.FIT_XY);
-                SubImage2.setPadding(10,10,10,10);
-                DIYMainDishLayout.addView(SubImage2);
-                ChangePageByButton=false;
-            }
-            else {
-                stage=1;
-                LinkRecipeList[2]=null;
-                ModifyTempCalorie( LinkRecipeList[0].GetRecipeCalorie(MaxCalorie)+ LinkRecipeList[1].GetRecipeCalorie(MaxCalorie));
-            }
-
-        }
         addAllRecomandRecipe();
         super.onStart();
     }
@@ -127,6 +151,7 @@ public class diyrecipes_2 extends BaseActivity {
             @Override
             public void onClick(View v) {
                 SelectSubDish(Image);
+                ReturnfromSteps = true;
             }
         });
         return Image;
