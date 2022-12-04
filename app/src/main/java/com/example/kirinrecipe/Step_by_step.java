@@ -57,7 +57,7 @@ public class Step_by_step extends BaseActivity {
     public ImageView getImage(recipe r){
         ImageView Image = new ImageView(Step_by_step.this);
         LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.7), (int)(imageSize*0.7));
-        i1.setMargins(marginSE/2,marginTB/2,0,marginTB/2);
+        i1.setMargins(marginSE,marginTB/2,0,marginTB/2);
         Image.setLayoutParams(i1);
         Image.setImageResource(r.ImageId);
         Image.setBackgroundResource(R.drawable.image_border);
