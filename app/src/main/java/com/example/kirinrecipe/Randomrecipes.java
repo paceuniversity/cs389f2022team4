@@ -4,11 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.SearchManager;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +33,8 @@ public class Randomrecipes extends BaseActivity {
     recipe r1 = MyrecipeList.GetRandomMainDish();
     recipe r2 = MyrecipeList.GetRandomSubDish();
     recipe r3 = MyrecipeList.GetRandomSubDish();
+    private ImageView Confirm;
+    int maxcalorie = GetMaxCalorie();
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
@@ -42,7 +46,32 @@ public class Randomrecipes extends BaseActivity {
         MiddleImage = findViewById(R.id.RandomImageMiddle);
         RightImage = findViewById(R.id.RandomImageRight);
         //Log.d("", "Calorie2"+Calorie);
+        Confirm = (ImageView) findViewById(R.id.RandomConfirmButton);
+
+        while (r3.ImageId==r2.ImageId)r3=MyrecipeList.GetRandomSubDish();
+        LeftImage.setImageResource(r1.ImageId);
+        MiddleImage.setImageResource(r2.ImageId);
+        RightImage.setImageResource(r3.ImageId);
+        ModifyTempCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
+
+        Confirm.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                LinkRecipeList[0] = r1;
+                LinkRecipeList[1] = r2;
+                LinkRecipeList[2] = r3;
+
+                progressbar.setSecondaryProgress(0);
+                AddCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
+
+                Intent intent = new Intent(Randomrecipes.this, Step_by_step.class);
+                startActivity(intent);
+            }
+        });
+
     }
+
     @Override
     protected void onStart() {
         CreateProgress();
@@ -81,7 +110,7 @@ public class Randomrecipes extends BaseActivity {
                         //if(animetime<=0)ModifyTempCalorie(r1.perCalorie+r2.perCalorie+r3.perCalorie);
                         //Log.d("", "animetime"+animetime);
                     }
-                    int maxcalorie = GetMaxCalorie();//==1866
+                    //==1866
                     Log.d("", "CalorieTempCurrentEnd"+r1.GetRecipeCalorie(maxcalorie)+" "+r2.GetRecipeCalorie(maxcalorie)+" "+r3.GetRecipeCalorie(maxcalorie));
                     ModifyTempCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
                 }

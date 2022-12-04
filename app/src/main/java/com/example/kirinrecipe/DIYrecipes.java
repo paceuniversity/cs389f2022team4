@@ -61,6 +61,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         //The system progress bar has a relatively large limit and can only set 2 colors
         CreateProgress();
         count2 = 0;
+        LinkRecipeList = new recipe[3];
         if(Type!=null){
             DIYL.removeAllViews();
             changeLayout();
