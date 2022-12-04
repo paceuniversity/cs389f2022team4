@@ -62,6 +62,8 @@ public class Randomrecipes extends BaseActivity {
                 LinkRecipeList[1] = r2;
                 LinkRecipeList[2] = r3;
 
+                TempCalorie=0;
+                AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
                 AddCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
 
