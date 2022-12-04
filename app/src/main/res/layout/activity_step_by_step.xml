@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center"
+    android:gravity="center"
     tools:context=".Step_by_step">
 
     <include
@@ -65,10 +65,9 @@
             >
 
             <LinearLayout
-                android:id="@+id/DIYLayout2"
+                android:id="@+id/StepsLayout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:layout_gravity="center_horizontal"
@@ -91,6 +90,12 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/HomeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_icon1"
+        />
 
 
 

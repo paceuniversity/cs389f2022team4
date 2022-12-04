@@ -2,13 +2,16 @@ package com.example.kirinrecipe;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 public class Step_by_step extends BaseActivity {
     private int imageSize, marginSE, marginTB;
     private LinearLayout Recipes,Steps;
+    private ImageView BackToHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +23,15 @@ public class Step_by_step extends BaseActivity {
 
         Recipes = (LinearLayout) findViewById(R.id.Recipes_layout);
         Steps = (LinearLayout) findViewById(R.id.Steps_layout);
+        BackToHome = (ImageView) findViewById(R.id.HomeButton);
+        BackToHome.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Step_by_step.this,HomePage.class);
+                startActivity(intent);
+            }
+        });
+
         for (int i = 0; i < LinkRecipeList.length; i++){
             if (i != 0 && LinkRecipeList[i]!=null){
                 Recipes.addView(getImage(LinkRecipeList[i]));
