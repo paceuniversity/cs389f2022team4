@@ -40,8 +40,6 @@ public class diyrecipes_2 extends BaseActivity {
         MainRecipe = (ImageView) findViewById(R.id.MainImage);
         MainRecipe.setPadding(10,10,10,10);
         MainRecipe.setImageResource(LinkRecipeList[0].ImageId);
-
-
     }
 
     @Override

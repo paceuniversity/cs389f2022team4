@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -42,6 +43,7 @@ public class RecipeList {
         list[15]=new recipe(R.drawable.wenchang_coconut_chicken,144,RecipeType.Poultry,false,2);
         list[16]=new recipe(R.drawable.dongpo_pork,463,RecipeType.Pork,true,10);
         list[17]=new recipe(R.drawable.stir_fried_pork_with_green_peppers,101,RecipeType.Pork,false,5);
+        list[17].FullTextId=R.string.stir_fried_pork_with_scallions;
         list[18]=new recipe(R.drawable.poached_young_chinese_cabbage,11,RecipeType.Vegetables,false,0);
         list[19]=new recipe(R.drawable.steamed_yellow_croaker,209,RecipeType.Seafood,true,4);
         list[20]=new recipe(R.drawable.hakka_stuffed_tofu,89,RecipeType.Vegetables,true,5);
@@ -228,6 +230,7 @@ class recipe{
     boolean MainDish;
     float Pivot=0;
     int oil;
+    int FullTextId;
     recipe(){}
 
     public int getPivot(){return (int)Pivot;}

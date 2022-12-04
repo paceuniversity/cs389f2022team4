@@ -17,6 +17,7 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kirinrecipe.BaseActivity;
@@ -36,7 +37,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     GestureDetector detector;
     private VelocityTracker mVelocityTracker = null;
     private static final String LOG_TAG = "";
-
+    TextView t;
 
     @Override
     protected void onStart() {
@@ -50,6 +51,9 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
         DisplayMetrics dm = getResources().getDisplayMetrics();
+
+        t=findViewById(R.id.HomepagetestText);
+        //t.setText(MyrecipeList.list[17].FullTextId);
 
         centerX=dm.widthPixels/2;
         centerY=dm.heightPixels/2;
