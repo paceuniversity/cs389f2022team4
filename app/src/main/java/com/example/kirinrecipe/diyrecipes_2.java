@@ -42,6 +42,7 @@ public class diyrecipes_2 extends BaseActivity {
         MainRecipe = (ImageView) findViewById(R.id.MainImage);
         MainRecipe.setPadding(10,10,10,10);
         MainRecipe.setImageResource(LinkRecipeList[0].ImageId);
+
         Confirm = (ImageView)  findViewById(R.id.Confirmbutton);
 
         Confirm.setOnClickListener(new View.OnClickListener(){
@@ -60,8 +61,6 @@ public class diyrecipes_2 extends BaseActivity {
                 startActivity(intent);
             }
         });
-
-
 
     }
 
