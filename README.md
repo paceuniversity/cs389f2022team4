@@ -53,7 +53,7 @@ Our app is designed to help people who are not residents of China learn about he
 ### Sprint 3
 
 * [Sprint planning](https://docs.google.com/document/d/1t0GMUZ_tSQteTmeu55MHhd4c5QyO1TpB5GusxCyuT1M/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
-* [Scrums]()
+* [Scrums](https://docs.google.com/document/d/16HiNd7_p2Wo3FNkDyQvHOi_f4UEbpV8S_v_5RkEmsjQ/edit?usp=sharing)
 * [Sprint demo video]()
 * [Sprint retrospective]()
 
