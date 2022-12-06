@@ -49,14 +49,17 @@ public class diyrecipes_2 extends BaseActivity {
 
             @Override
             public void onClick(View v) {
+                if(stage>=1) ReturnfromSteps=true;
                 int totalCalorie = 0;
                 for (int i = 0; i < LinkRecipeList.length; i++){
                     if (LinkRecipeList[i]!=null){
                         totalCalorie += LinkRecipeList[i].GetRecipeCalorie(GetMaxCalorie());
                     }
                 }
-                AddCalorie(totalCalorie);
+                TempCalorie=0;
+                AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
+                AddCalorie(totalCalorie);
                 Intent intent=new Intent(diyrecipes_2.this,Step_by_step.class);
                 startActivity(intent);
             }
@@ -67,8 +70,16 @@ public class diyrecipes_2 extends BaseActivity {
     @Override
     protected void onStart(){
         //The system progress bar has a relatively large limit and can only set 2 colors
-        CreateProgress();
-        if (ReturnfromSteps == false){
+        if(ReturnfromSteps){
+            ReturnfromSteps=false;
+            stage=0;
+            Log.d("","hihihihi");
+            Intent intent = new Intent(diyrecipes_2.this, HomePage.class);
+            startActivity(intent);
+
+        }
+        else{
+            CreateProgress();
             //ReturnfromSteps = true;
             if(stage==1){
                 //DIYMainDishLayout.addView(MainRecipe);
@@ -129,9 +140,9 @@ public class diyrecipes_2 extends BaseActivity {
                 }
 
             }
-        }else ReturnfromSteps = true;
 
-        addAllRecomandRecipe();
+            addAllRecomandRecipe();
+        }
         super.onStart();
     }
 
@@ -150,7 +161,6 @@ public class diyrecipes_2 extends BaseActivity {
             @Override
             public void onClick(View v) {
                 SelectSubDish(Image);
-                ReturnfromSteps = true;
             }
         });
         return Image;
