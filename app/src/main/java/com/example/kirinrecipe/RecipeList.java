@@ -23,7 +23,7 @@ enum RecipeType
     Soup,
 }
 public class RecipeList {
-    recipe[] list = new recipe[31];
+    recipe[] list = new recipe[51];
     RecipeList(){
         list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood,false,0);
         list[1]=new recipe(R.drawable.char_siu,206,RecipeType.Pork,true,8);
@@ -57,6 +57,27 @@ public class RecipeList {
         list[28]=new recipe(R.drawable.egg_seaweed_soup,36,RecipeType.Soup,false,0);
         list[29]=new recipe(R.drawable.lamb_stew_with_carrots,144,RecipeType.Mutton,true,6);
         list[30]=new recipe(R.drawable.beef_brisket_with_tomatoes_in_casserole_beef,141,RecipeType.Beef,true,4);
+        list[31]=new recipe(R.drawable.pineapple_with_shrimp_balls,128,RecipeType.Seafood,true,3);
+        list[32]=new recipe(R.drawable.steamed_egg_with_shrimp,152,RecipeType.Seafood,false,2);
+        list[33]=new recipe(R.drawable.roast_beef_with_potatoes,265,RecipeType.Beef,true,6);
+        list[34]=new recipe(R.drawable.cumin_beef,134,RecipeType.Beef,true,8);
+        list[35]=new recipe(R.drawable.stir_fried_beef_river_beef,148,RecipeType.Beef,true,8);
+        list[36]=new recipe(R.drawable.moroccan_lamb_stew,133,RecipeType.Mutton,true,7);
+        list[37]=new recipe(R.drawable.lamb_dumplings ,167,RecipeType.Mutton,true,4);
+        list[38]=new recipe(R.drawable.lamb_stew_with_white_radish,71,RecipeType.Mutton,true,3);
+        list[39]=new recipe(R.drawable.braised_lamb,156,RecipeType.Mutton,true,9);
+        list[40]=new recipe(R.drawable.mushrooms_mixes_in_the_hot_pot,41,RecipeType.Vegetables,true,2);
+        list[41]=new recipe(R.drawable.stewed_chicken_with_mushrooms,89,RecipeType.Poultry,true,3);
+        list[42]=new recipe(R.drawable.braised_chicken,120,RecipeType.Poultry,true,6);
+        list[43]=new recipe(R.drawable.pickle_chicken_legs,191,RecipeType.Poultry,false,2);
+        list[44]=new recipe(R.drawable.three_cups_chicken,175,RecipeType.Poultry,true,7);
+        list[45]=new recipe(R.drawable.coke_chicken_wings,134,RecipeType.Poultry,true,7);
+        list[46]=new recipe(R.drawable.lettuce_with_oyster_sauce,30,RecipeType.Vegetables,false,2);
+        list[47]=new recipe(R.drawable.steamed_chinese_cabbage_in_supreme_soup,20,RecipeType.Vegetables,false,1);
+        list[48]=new recipe(R.drawable.stir_fried_pea_shoots_with_garlic,24,RecipeType.Vegetables,false,1);
+        list[49]=new recipe(R.drawable.vinegar_pepper_shredded_potatoes,120,RecipeType.Vegetables,true,1);
+        list[50]=new recipe(R.drawable.sponge_gourd_with_eggs,99,RecipeType.Vegetables,false,2);
+
     }
     public ArrayList GetAllSpecific(RecipeType R,boolean maindish){
 
