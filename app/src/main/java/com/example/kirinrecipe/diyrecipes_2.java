@@ -49,7 +49,10 @@ public class diyrecipes_2 extends BaseActivity {
 
             @Override
             public void onClick(View v) {
-                if(stage>=1) ReturnfromSteps=true;
+                if(stage>=1) {
+                    ReturnfromSteps=true;
+                    stage=0;
+                }
                 int totalCalorie = 0;
                 for (int i = 0; i < LinkRecipeList.length; i++){
                     if (LinkRecipeList[i]!=null){
