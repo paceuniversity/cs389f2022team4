@@ -12,19 +12,87 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:background="@drawable/underline4"
+        android:layout_weight="0"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/StepByStep"
+            android:id="@+id/MoreInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:typeface="serif"
             android:gravity="center"
-            android:background="@drawable/underline4"
-            android:text="Step by Step"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:padding="10dp"
+            android:background="@drawable/underline2"
+            android:text="Recipe Information"
             android:textColor="@color/black"
             android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/DIYScroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            >
+            <LinearLayout
+                android:id="@+id/StepsLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/RecipeSteps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:typeface="serif"
+                    android:gravity="center_vertical"
+                    android:text="@string/stir_fried_pork_with_scallions"
+                    android:textColor="@color/RecipesText"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:layout_weight="2"
+        android:padding="10dp"
+        android:background="@drawable/underline4"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/RandomButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:src="@drawable/like_icon"
+            android:onClick="Random" />
+        <ImageView
+            android:id="@+id/RandomConfirmButton"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:src="@drawable/dislike_icon"/>
 
     </LinearLayout>
 
