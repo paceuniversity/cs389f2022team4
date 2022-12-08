@@ -23,7 +23,7 @@ enum RecipeType
     Soup,
 }
 public class RecipeList {
-    recipe[] list = new recipe[51];
+    recipe[] list = new recipe[55];
     RecipeList(){
         list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood,false,0);
         list[1]=new recipe(R.drawable.char_siu,206,RecipeType.Pork,true,8);
@@ -79,7 +79,7 @@ public class RecipeList {
         list[50]=new recipe(R.drawable.sponge_gourd_with_eggs,99,RecipeType.Vegetables,true,3);
         list[51]=new recipe(R.drawable.grilled_fresh_squid,92,RecipeType.Seafood,true,6);
         list[52]=new recipe(R.drawable.braised_sea_cucumber_with_scallion,112,RecipeType.Seafood,true,6);
-        list[53]=new recipe(R.drawable.steamed_scallop _with_garlic_and_vermicelli,127,RecipeType.Seafood,true,4);
+        list[53]=new recipe(R.drawable.steamed_scallop_with_garlic_and_vermicelli,127,RecipeType.Seafood,true,4);
         list[54]=new recipe(R.drawable.buddha_jumps_over_the_wall,175,RecipeType.Seafood,true,7);
 
     }
