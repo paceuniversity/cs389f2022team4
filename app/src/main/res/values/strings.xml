@@ -72,6 +72,7 @@
     <string name="stir_fried_pork_with_scallions">
 
 Stir fried pork with scallions
+        \nBeijing Cuisine
         \n
 \nPer 100g - calories: 143 kcal
 \nIngredients: 65g pork, 15g green Onions
@@ -84,6 +85,245 @@ Stir fried pork with scallions
 \n4: Cook until the ginger and garlic are fragrant.
 \n5: Add the onion and stir-fry for a few minutes.
 \n6: add the cooking wine, soy sauce, sugar, and salt, then the vinegar along the side of the pot, and finally the MSG.
+    </string>
+    <string name="lamb_soup">
+
+Lamb soup
+\n
+\nPer 100 g - Calories: 62 kcal
+\nIngredients: 90g lamb
+\nSeasoning: cooking wine, 5g green onion, 2g ginger, pepper, dried orange peel, hawthorn, 3g salt
+\n
+\nSteps:
+\n1: Soak the lamb in cool water for two hours, changing the water at intervals of one hour.
+\n2: Wash the lamb with water and cut it into small pieces.
+\n3: Pour enough water into the pot, put the cut lamb pieces into the pot.
+\n4: medium heat do open the pot and skim off the foam, pour in the cooking wine.
+\n5: then add peppercorns, onion and ginger, dried orange peel and hawthorn.
+\n6: cover the pot, turn low heat and slow stew 1-1.5 hours later.
+\n7: the orange peel and hawthorn out, then sprinkle the appropriate amount of salt.
+\n8: turn the medium heat and continue to stew for 15-20 minutes and then turn off the heat can be eaten.
+
+    </string>
+
+    <string name="cumin_lamb">
+Cumin lamb
+\n
+\nPer 100g - Calories: 142 kcal
+\nIngredients: 90g lamb
+\nSeasoning: 5g soy sauce, tahini powder, 3g cumin granules, salt to taste, 2g cumin powder, chili powder, pepper powder, cooked white sesame seeds
+\n
+\nSteps:
+\n1: Soak the lamb in cool water for two hours, changing the water at intervals of one hour.
+\n2: Wash the lamb with water and cut it into small pieces.
+\n3: Pour enough water into the pot and put the cut lamb pieces into the pot.
+\n4: medium heat do open the pot and skim off the foam, pour in the cooking wine.
+\n5: then add peppercorns, onion and ginger, dried orange peel and hawthorn.
+\n6: cover the pot, turn low heat and slow stew 1-1.5 hours later.
+\n7: the orange peel and hawthorn out, then sprinkle the appropriate amount of salt.
+\n8: turn the medium heat and continue to stew for 15-20 minutes and then turn off the heat can be eaten.
+    </string>
+
+    <string name="sauted_meat_shreds_with_soy_bean_paste">
+Sauted meat shreds with soy bean paste
+        \nBeijing Cuisine
+\n
+\nPer 100g - calories: 162 kcal
+\nIngredients: 50g pork tenderloin, 10g green Onions, 10g bean slices, 10g cucumber
+\nSeasoning: 5g sweet flour sauce, 3g white sugar, 2g sesame oil, 5g soy sauce, trace cooking wine, 5g egg white, trace starch, trace scallion ginger water
+\n
+\nSteps:
+        \n1: cut pork tenderloin into thin shreds.
+\n2: add salt, soy sauce, pepper, cooking wine, cooking oil, mix well and marinate for 20 minutes.
+\n3: Place the bean skin in boiling water for 3 minutes and set aside.
+\n4: cut the white onion into thin shreds and the cucumber into strips; set aside.
+\n5: pour the sweet noodle sauce into a mixing bowl and stir in the sugar, sesame oil, green onion, and ginger water.
+\n6: marinated shredded meat, egg white, starch, and thoroughly mixed.
+\n7: heat a small amount of oil in a pan over medium heat, pour in the marinated meat, quickly scraped, and stir-fried until the meat shreds brown Sheng.
+\n8: in the pan with the remaining oil, pour in the sweet noodle sauce and stir well.
+\n9: stir-fry thoroughly, then add the shredded meat stir-fry.
+\n10: to evenly coat all shredded meat with sauce.
+    </string>
+    <string name="grilled_eggplant">
+Grilled eggplant
+        \nBeijing Cuisine
+\n
+\nPer 100g - calories: 65 kcal
+Ingredients: 60g eggplant, 10g meat slices, 5g carrot slices, 5g green pepper segments
+\nSeasoning: 5g green Onions, 5g garlic
+\n
+\nSteps:
+        \n1: Peel the eggplant, cut it into hobble pieces, and wet the surface.
+\n2: sprinkle dry starch on top, then turn the eggplant pieces in the pot to distribute the starch evenly.
+\n3: Sprinkle dry starch on the eggplant pieces again, making the eggplant wet, turn the eggplant pieces in the pot, and make the starch hang evenly on the eggplant.
+\n4: pour the oil into the pot, and heat the oil to make bubbles around the eggplant block.
+\n5: cook all of the eggplant pieces over medium heat.
+\n6: if the surface of the eggplant block is hard, you can fish it out.
+\n7: frying pan , heat the oil to about 80% of its original temperature, then add all of the eggplant pieces and re-fry until the eggplant is cooked. Control the oil by removing it from it.
+\n8: Heat a small amount of oil in a separate pan and stir in the minced garlic. Stir in the sliced meat, carrots, and green pepper.
+\n9: Pour the sauce into the pan and stir until the gravy is transparent.
+\n10: Pour the fried eggplant pieces into the gravy, sprinkle with shredded green onion, quickly stir-fry, and allow the gravy to hang evenly on the eggplant.
+\n11: Remove from the pan and drizzle with oil.
+    </string>
+    <string name="fish_head_with_minced_pepper">
+Fish Head with Minced Pepper
+\nHunan Cuisine
+        \n
+\nPer 100g - calories: 113 kcal
+\nIngredients: 70g fish head, 5g green onion, 2g ginger, 3g garlic, 10g chopped chilli
+\nSeasoning: 5g salt, a little pepper, 5g chicken essence
+\n
+        \nSteps:
+\n1: Scrub fish head with salt, rinse off brine, and rub evenly with one teaspoon pepper, half tablespoon cooking oil, half teaspoon salt, and half teaspoon chicken seasoning.
+\n2: bottom onion, ginger, and garlic
+\n3: steam chopped pepper for 8 minutes on a false fire for 2 minutes.
+\n4: add minced onion, ginger, and garlic.
+\n5: heat the oil and pour it over the fish when it begins to smoke.
+    </string>
+
+    <string name="granny_smith">
+Granny smith
+\nHunan Cuisine
+        \n
+\nPer 100g - calories: 89 kcal
+\nIngredients: 50g dried plum vegetables, 10g pork belly, 5g peanuts, 5g rice, 10g red pepper, 5g green onion, 5g garlic shoots
+\nSeasoning: 3g light soy sauce, a little pepper, a little salt, 3g chicken essence, 4g green pepper
+\n
+        \nSteps:
+\n1: dried plum cabbage warm water soak half an hour.
+\n2: prepare the side dishes.
+\n3: chopped chili pepper, onion, and ginger are cut; garlic seedlings are chopped.
+\n4: Streaky Pork is frozen and cut into small dice.
+\n5: cook the peanut rice in the microwave oven, peel it, and then fry it in a frying pan to make it crisper.
+\n6: heat the oil in a pot, then brown the onion and ginger, then stir-fry the pancetta, add soy sauce and a little soy sauce for color, stir-fry the dried plum vegetables, add a small spoonful of water, stir-fry the chili peppers, then add garlic, salt, chicken essence, pepper, and pour in the peanut rice.
+    </string>
+
+    <string name="roast_duck">
+JinLin Roast Duck
+\nSu Cuisine
+        \n
+\nPer 100g - calories: 265 kcal
+\nIngredients: 80g duck, 10g potato
+\nSeasoning: 5g soy sauce, a little cayenne pepper, 2g ginger, 3g maltose, a little ground Chinese pepper, cinnamon, star anise, a little cooking wine, a little salt
+\n
+\nSteps:
+        \n1: Wash the duck, control the water, rub it all over with salt, then add soy sauce, cooking wine, star anise, cinnamon, pepper powder, chili powder, ginger, mix these seasonings well, marinate the duck in it, place it in a plastic bag, place it in the refrigerator, and marinate it overnight.
+\n2: The marinated duck will be removed the next day and placed in a cool place to dry naturally.
+\n3: Next, dilute the maltose with a little water and brush the duck all over with a brush, making sure to coat all of the duck
+\n4: Line a baking dish with tin foil and place the potato slices in it.
+\n5: bake for 1 hour on the lower middle layer in a preheated 160 degree oven, after 30 minutes remove and brush once with maltose water, and wrap the wings and joints in tinfoil, after 1 hour turn the oven down to 200 degrees and bake for about 15 minutes.
+
+    </string>
+
+    <string name="braised_pork_balls_in_gravy">
+Braised pork balls in gravy
+\nSu Cuisine
+        \n
+\nPer 100g - calories: 261 kcal
+\nIngredients: 60g pork, 10g quail eggs, 10g horseshoe, 10g bread bran
+\nIngredients: 5g light soy sauce, 1g dark soy sauce, 3g rock sugar, 1g yellow rice wine, a dash of cinnamon, a dash of fragrant leaves
+\n
+\nSteps:
+        \n1: prepare the ingredients.
+\n2: quail eggs cleaned in water, cooked in a pot, over cold water shelled.
+\n3: beat the meat into puree.
+\n4: peel and chop the horse feet.
+\n5: put the meat in a basin, add the eggs, chopped green onion, ground horseshoe, bread crumbs, soy sauce, salt, yellow wine.
+\n6: along with the same side of the stirring on the strength.
+\n7: put on disposable gloves, put the right amount of meat filling in your hands, and then put quail eggs, make the shape of meatballs, and then left and right hands back and forth to beat the meatballs a few times, so that the air is discharged, a little stronger.
+\n8: pour the appropriate amount of oil into the pot, heat to 80% hot, add the meatballs.
+\n9: deep-fried until the appearance of golden brown (oil should be higher temperature, meatballs under the frying pan to quickly set, not easy to fall apart).
+\n10: pour out the oil in the pan, add fried meatballs, water, soy sauce, soy sauce, rock sugar, brown wine, cinnamon, allspice, chili, star anise, salt, high heat boil.
+\n11: turn the small fire for about 30 minutes.
+
+    </string>
+
+    <string name="chinese_yam_in_hot_toffee">
+Chinese Yam in Hot Toffee
+\nShandong Cuisine
+\n
+\nPer 100g - calories: 321 kcal
+\nIngredients: 60g yam, 15g soft white sugar, 10g cornstarch, vegetable oil
+\nSeasoning: 3g light soy sauce, 2g dark soy sauce, 10g rock sugar, a little rice wine, a little cinnamon, a little bay leaf
+\n
+\nSteps:
+\n1: Peel and cut yam into hobnail pieces. (It is best to bring disposable gloves to prevent mucus irritation skin allergies).
+\n2: soak yam pieces with clean water, drain.
+\n3: pat on a little raw flour.
+\n4: the pot on the fire with an appropriate amount of oil to 70% heat, one by one into the yam pieces.
+\n5: deep-fried until crisp and hard, drain the oil.
+\n6: grease the pan with a little oil to prevent sticking.
+\n7: use another pot to add vegetable oil, sugar, the ratio of 1:3.
+\n8: stirring constantly over low heat.
+\n9: wait for the sugar to dissolve, continue to stir.
+\n10: when the syrup becomes thin, light yellow color. (Must not be high temperature)
+\n11: quickly put the fried yam pieces.
+\n12: turn off the fire stirring evenly.
+
+    </string>
+
+    <string name="creamy_chinese_cabbage_in_soup">
+Creamy Chinese Cabbage in Soup
+\nShandong Cuisine
+\n
+\nPer 100g - calories: 97 kcal
+\nIngredients: 30g cabbage, 10g shrimp skin, 30g water tofu, 20g milk powder
+\nSeasoning: 3g garlic paste, 2g ginger slices, 5g cooked corn kernels, a little salt
+\n
+\nSteps:
+\n1: Soften the shrimp skin in warm water.
+\n2: softened shrimp skin cut into minced. To be used.
+\n3: cabbage cut into cubes, water tofu cut into cubes.
+\n4: garlic cloves and ginger cubes are cut into minced and sliced.
+\n5: milk powder melted with warm water, set aside.
+\n6: the appropriate amount of cooked corn kernels.
+\n7: Heat oil in a frying pan, add garlic and ginger, shrimp skin, stir-fry.
+\n8: put cabbage pieces stir-fried for 2 minutes.
+\n9: put in the seasoned powdered milk.
+\n10: boil and into the water tofu block.
+
+    </string>
+
+    <string name="braised_eggplant">
+Braised Eggplant
+\nShandong Cuisine
+\n
+\nPer 100g - calories: 69 kcal
+\nIngredients: 75g eggplant, 5g green pepper, 5g tomato
+\nSeasoning: 3g garlic, 2g salt, 5g sugar, 10g peanut oil
+\n
+\nSteps:
+\n1: wash and cut the eggplant into cubes and sprinkle some salt evenly and marinate for 10-20 minutes.
+\n2: peppers and tomatoes cleaned and cut into pieces.
+\n3: garlic some part sliced, part chopped.
+\n4: the marinated eggplant will be clenched hard water, so that the eggplant can absorb less oil.
+\n5: the pan is hot, put an appropriate amount of peanut oil, then put garlic cloves bursting.
+\n6: smell the garlic aroma and add the eggplant, stir-fry over medium heat until the eggplant is browned and soft.
+\n7: put the green pepper and tomatoes, add a spoonful of sugar and salt to taste, stir-fry evenly over high heat, add a little hot water halfway through the stir-fry to make the tomatoes soft and red soup.
+\n8: sprinkle with chopped garlic before serving.
+
+    </string>
+
+    <string name="braised_beef_brisket">
+Braised beef brisket
+\nSichuan Cuisine
+\n
+\nPer 100g - calories: 232 kcal
+\nIngredients: 50g sirloin, 5g ginger, 5g garlic, 20g potato, 10g carrot
+\nSeasoning: a little star anise, 5g rock sugar, 3g Haitian seafood sauce, 2g light soy sauce, a little rice wine
+\n
+\nSteps:
+\n1: Cut the beef brisket into 40mmX40mm square pieces.
+\n2: Boil water in a pot, add the brisket and cook until the water boils, remove and rinse.
+\n3: Heat 1 tbsp oil in a pot, add rock sugar and cook slowly over low heat until it melts and turns caramel color.
+\n4: Add ginger, green onion and star anise and stir-fry until fragrant.
+\n5: Add beef brisket and stir-fry until evenly colored.
+\n6: Add rice wine, seafood sauce, stir-fry until evenly colored.
+\n7: Inject of water, soy sauce, the water is higher than the meat, high heat boil and simmer for 90 minutes.
+\n8: Heat 1 tbsp oil in a separate pan and sauté the carrots and potatoes until light brown on the surface.
+\n9: Add the beef brisket and the stock to the pot. Bring to a boil and continue to simmer for about 60 minutes.
+
+
     </string>
 
 </resources>
