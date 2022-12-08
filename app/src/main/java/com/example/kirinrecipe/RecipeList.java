@@ -243,6 +243,7 @@ public class RecipeList {
         }
     }
 
+
 }
 class recipe{
     int ImageId;
@@ -298,5 +299,56 @@ class recipe{
     }
     int GetRecipeAmount(int MaxCalorie){
         return GetRecipeCalorie(MaxCalorie)/perCalorie;
+    }
+
+    public CharSequence GetRealRecipe(CharSequence text, int MaxCalorie){
+        CharSequence result="";
+        CharSequence amount="";
+        boolean PerWasSwitch=false;
+        boolean IfSteps=false;
+        for (int i = 0;i<text.length();i++){
+            if(!PerWasSwitch&&text.charAt(i)=='P'){
+                if(i+1<text.length()&&text.charAt(i+1)=='e')
+                    if(i+2<text.length()&&text.charAt(i+2)=='r'){
+                        result+="Total:";
+                        i+=2;
+                        PerWasSwitch=true;
+                        continue;
+                    }
+
+            }
+            else {
+                if(!IfSteps){
+                    if(text.charAt(i)=='S'){
+                        //if(i+5<text.length()) Log.d("checkStep",""+text.subSequence(i+1,i+6));
+                        if(i+5<text.length()&&text.subSequence(i+1,i+6).equals("teps:")){
+                            result+="Steps:";
+                            i+=5;
+                            IfSteps=true;
+                            continue;
+                        }
+                    }
+                    else if(text.charAt(i)<'9'&&text.charAt(i)>'0'){
+                        amount+=text.charAt(i)+"";
+                        while(++i<text.length()){
+                            if(text.charAt(i)<'9'&&text.charAt(i)>'0'){
+                                amount+=text.charAt(i)+"";
+                            }
+                            else{
+                                break;
+                            }
+                        }
+                        i--;
+                        int TempAmount=Integer.valueOf(amount.toString());
+                        TempAmount*=GetRecipeAmount(MaxCalorie);
+                        result+=String.valueOf(TempAmount);
+                        amount="";
+                        continue;
+                    }
+                }
+            }
+            result+=text.charAt(i)+"";
+        }
+        return result;
     }
 }
