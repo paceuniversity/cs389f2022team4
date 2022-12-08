@@ -4,19 +4,37 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class Step_by_step extends BaseActivity {
     private int imageSize, marginSE, marginTB;
     private LinearLayout Recipes,Steps;
     private ImageView BackToHome;
+    private TextView RecipeText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_by_step);
 
+        RecipeText = findViewById(R.id.RecipeSteps);
+
+        RecipeText.setText(R.string.stir_fried_pork_with_scallions);
+        CharSequence s = RecipeText.getText();
+
+        RecipeText.setText(MyrecipeList.list[17].GetRealRecipe(RecipeText.getText(),MaxCalorie));
+
+        /*CharSequence ss="";
+        for (int i = 0;i<s.length();i++){
+            ss+=s.charAt(i)+"";
+            if(s.charAt(i)=='\n'){
+                Log.d("check",ss+"");
+                ss="";
+            }
+        }*/
         imageSize = (int) getResources().getDimension(R.dimen.about_image_size);
         marginSE = (int) getResources().getDimension(R.dimen.margin_se);
         marginTB = (int) getResources().getDimension(R.dimen.margin_tb);

@@ -79,7 +79,6 @@
                     android:layout_height="wrap_content"
                     android:typeface="serif"
                     android:gravity="center_vertical"
-                    android:text="@string/stir_fried_pork_with_scallions"
                     android:textColor="@color/RecipesText"
                     android:textSize="20sp" />
 
