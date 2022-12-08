@@ -26,61 +26,159 @@ public class RecipeList {
     recipe[] list = new recipe[55];
     RecipeList(){
         list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood,false,0);
+        list[0].FullTextId= R.string.scalded_prawns;
         list[1]=new recipe(R.drawable.char_siu,206,RecipeType.Pork,true,8);
+        list[1].FullTextId= R.string.char_siu;
         list[2]=new recipe(R.drawable.braised_pork_balls_in_gravy,261,RecipeType.Pork,true,7);
+        list[2].FullTextId= R.string.braised_pork_balls_in_gravy;
         list[3]=new recipe(R.drawable.stir_fried_pork_with_scallions,143,RecipeType.Pork,true,5);
+        list[3].FullTextId=R.string.stir_fried_pork_with_scallions;
         list[4]=new recipe(R.drawable.sauted_meat_shreds_with_soy_bean_paste,162,RecipeType.Pork,true,6);
+        list[4].FullTextId=R.string.sauted_meat_shreds_with_soy_bean_paste;
         list[5]=new recipe(R.drawable.grilled_eggplant,65,RecipeType.Vegetables,false,9);
+        list[5].FullTextId=R.string.grilled_eggplant;
         list[6]=new recipe(R.drawable.fish_head_with_minced_pepper,113,RecipeType.Seafood,true,8);
+        list[6].FullTextId=R.string.fish_head_with_minced_pepper;
         list[7]=new recipe(R.drawable.granny_smith,89,RecipeType.Vegetables,false,2);
+        list[7].FullTextId= R.string.granny_smith;
         list[8]=new recipe(R.drawable.roast_duck,269,RecipeType.Poultry,true,7);
+        list[8].FullTextId=R.string.roast_duck;
         list[9]=new recipe(R.drawable.lamb_soup,62,RecipeType.Soup,false,3);
+        list[9].FullTextId=R.string.lamb_soup;
         list[10]=new recipe(R.drawable.cumin_lamb,142,RecipeType.Mutton,true,6);
+        list[10].FullTextId=R.string.
         list[11]=new recipe(R.drawable.chinese_yam_in_hot_toffee,321,RecipeType.Vegetables,false,6);
+        list[10].FullTextId=R.string.
+
         list[12]=new recipe(R.drawable.creamy_chinese_cabbage_in_soup,97,RecipeType.Vegetables,true,0);
+        list[12].FullTextId=R.string.creamy_chinese_cabbage_in_soup;
+
         list[13]=new recipe(R.drawable.braised_eggplant,69,RecipeType.Vegetables,true,6);
+        list[13].FullTextId=R.string.braised_eggplant;
+
         list[14]=new recipe(R.drawable.braised_beef_brisket,232,RecipeType.Beef,true,7);
+        list[14].FullTextId=R.string.braised_beef_brisket;
+
         list[15]=new recipe(R.drawable.wenchang_coconut_chicken,144,RecipeType.Poultry,false,2);
+        list[15].FullTextId=R.string.wenchang_coconut_chicken;
+
         list[16]=new recipe(R.drawable.dongpo_pork,463,RecipeType.Pork,true,10);
+        list[16].FullTextId=R.string.dongpo_pork;
+
         list[17]=new recipe(R.drawable.stir_fried_pork_with_green_peppers,101,RecipeType.Pork,false,5);
         list[17].FullTextId=R.string.stir_fried_pork_with_scallions;
+
         list[18]=new recipe(R.drawable.poached_young_chinese_cabbage,11,RecipeType.Vegetables,false,0);
+        list[18].FullTextId=R.string.poached_young_chinese_cabbage;
+
         list[19]=new recipe(R.drawable.steamed_yellow_croaker,209,RecipeType.Seafood,true,4);
+        list[19].FullTextId=R.string.steamed_yellow_croaker;
+
         list[20]=new recipe(R.drawable.hakka_stuffed_tofu,89,RecipeType.Vegetables,true,5);
+        list[20].FullTextId=R.string.hakka_stuffed_tofu;
+
         list[21]=new recipe(R.drawable.sweet_and_sour_pork_tenderloin,267,RecipeType.Pork,false,5);
+        list[21].FullTextId=R.string.sweet_and_sour_pork_tenderloin;
+
         list[22]=new recipe(R.drawable.ma_po_tofu,119,RecipeType.Vegetables,true,4);
+        list[22].FullTextId=R.string.ma_po_tofu;
+
         list[23]=new recipe(R.drawable.double_cooked_pork,315,RecipeType.Pork,true,8);
+        list[23].FullTextId=R.string.double_cooked_pork;
+
         list[24]=new recipe(R.drawable.kung_pao_chicken,268,RecipeType.Poultry,true,4);
+        list[24].FullTextId=R.string.kung_pao_chicken;
+
         list[25]=new recipe(R.drawable.sliced_beef_and_ox_tongue_in_chilli_sauce,138,RecipeType.Beef,false,8);
+        list[25].FullTextId=R.string.sliced_beef_and_ox_tongue_in_chilli_sauce;
+
         list[26]=new recipe(R.drawable.west_lake_fried_fish_in_vinegar,122,RecipeType.Seafood,true,6);
+        list[26].FullTextId=R.string.west_lake_fried_fish_in_vinegar;
+
         list[27]=new recipe(R.drawable.braised_chicken_with_scallion,145,RecipeType.Poultry,true,7);
+        list[27].FullTextId=R.string.braised_chicken_with_scallion;
+
         list[28]=new recipe(R.drawable.egg_seaweed_soup,36,RecipeType.Soup,false,0);
+        list[28].FullTextId=R.string.egg_seaweed_soup;
+
         list[29]=new recipe(R.drawable.lamb_stew_with_carrots,144,RecipeType.Mutton,true,6);
+        list[29].FullTextId=R.string.lamb_stew_with_carrots;
+
         list[30]=new recipe(R.drawable.beef_brisket_with_tomatoes_in_casserole_beef,141,RecipeType.Beef,true,4);
+        list[30].FullTextId=R.string.beef_brisket_with_tomatoes_in_casserole_beef;
+
         list[31]=new recipe(R.drawable.pineapple_with_shrimp_balls,128,RecipeType.Seafood,true,3);
+        list[31].FullTextId=R.string.pineapple_with_shrimp_balls;
+
         list[32]=new recipe(R.drawable.steamed_egg_with_shrimp,152,RecipeType.Seafood,false,2);
+        list[32].FullTextId=R.string.steamed_egg_with_shrimp;
+
         list[33]=new recipe(R.drawable.roast_beef_with_potatoes,265,RecipeType.Beef,true,6);
+        list[33].FullTextId=R.string.roast_beef_with_potatoes;
+
         list[34]=new recipe(R.drawable.cumin_beef,134,RecipeType.Beef,true,8);
+        list[34].FullTextId=R.string.cumin_beef;
+
         list[35]=new recipe(R.drawable.stir_fried_beef_river_beef,148,RecipeType.Beef,true,8);
+        list[35].FullTextId=R.string.stir_fried_beef_river_beef;
+
         list[36]=new recipe(R.drawable.moroccan_lamb_stew,133,RecipeType.Mutton,true,7);
+        list[36].FullTextId=R.string.moroccan_lamb_stew;
+
         list[37]=new recipe(R.drawable.lamb_dumplings ,167,RecipeType.Mutton,true,4);
+        list[37].FullTextId=R.string.lamb_dumplings;
+
         list[38]=new recipe(R.drawable.lamb_stew_with_white_radish,71,RecipeType.Mutton,true,3);
+        list[38].FullTextId=R.string.lamb_stew_with_white_radish;
+
         list[39]=new recipe(R.drawable.braised_lamb,156,RecipeType.Mutton,true,9);
+        list[39].FullTextId=R.string.braised_lamb;
+
         list[40]=new recipe(R.drawable.mushrooms_mixes_in_the_hot_pot,41,RecipeType.Vegetables,true,2);
+        list[40].FullTextId=R.string.mushrooms_mixes_in_the_hot_pot;
+
         list[41]=new recipe(R.drawable.stewed_chicken_with_mushrooms,89,RecipeType.Poultry,true,3);
+        list[41].FullTextId=R.string.stewed_chicken_with_mushrooms;
+
         list[42]=new recipe(R.drawable.braised_chicken,120,RecipeType.Poultry,true,6);
+        list[42].FullTextId=R.string.braised_chicken;
+
         list[43]=new recipe(R.drawable.pickle_chicken_legs,191,RecipeType.Poultry,false,2);
+        list[43].FullTextId=R.string.pickle_chicken_legs;
+
         list[44]=new recipe(R.drawable.three_cups_chicken,175,RecipeType.Poultry,true,7);
+        list[44].FullTextId=R.string.three_cups_chicken;
+
         list[45]=new recipe(R.drawable.coke_chicken_wings,134,RecipeType.Poultry,true,7);
+        list[45].FullTextId=R.string.coke_chicken_wings;
+
         list[46]=new recipe(R.drawable.lettuce_with_oyster_sauce,30,RecipeType.Vegetables,false,2);
+        list[46].FullTextId=R.string.lettuce_with_oyster_sauce;
+
         list[47]=new recipe(R.drawable.steamed_chinese_cabbage_in_supreme_soup,20,RecipeType.Vegetables,false,1);
+        list[47].FullTextId=R.string.steamed_chinese_cabbage_in_supreme_soup;
+
         list[48]=new recipe(R.drawable.stir_fried_pea_shoots_with_garlic,24,RecipeType.Vegetables,false,1);
+        list[48].FullTextId=R.string.stir_fried_pea_shoots_with_garlic;
+
         list[49]=new recipe(R.drawable.vinegar_pepper_shredded_potatoes,120,RecipeType.Vegetables,true,1);
+        list[49].FullTextId=R.string.vinegar_pepper_shredded_potatoes;
+
         list[50]=new recipe(R.drawable.sponge_gourd_with_eggs,99,RecipeType.Vegetables,true,3);
+        list[50].FullTextId=R.string.sponge_gourd_with_eggs;
+
         list[51]=new recipe(R.drawable.grilled_fresh_squid,92,RecipeType.Seafood,true,6);
+        list[51].FullTextId=R.string.grilled_fresh_squid;
+
         list[52]=new recipe(R.drawable.braised_sea_cucumber_with_scallion,112,RecipeType.Seafood,true,6);
+        list[52].FullTextId=R.string.braised_sea_cucumber_with_scallion;
+
         list[53]=new recipe(R.drawable.steamed_scallop_with_garlic_and_vermicelli,127,RecipeType.Seafood,true,4);
+        list[53].FullTextId=R.string.steamed_scallop_with_garlic_and_vermicelli;
+
         list[54]=new recipe(R.drawable.buddha_jumps_over_the_wall,175,RecipeType.Seafood,true,7);
+        list[54].FullTextId=R.string.buddha_jumps_over_the_wall;
+
 
     }
     public ArrayList GetAllSpecific(RecipeType R,boolean maindish){
