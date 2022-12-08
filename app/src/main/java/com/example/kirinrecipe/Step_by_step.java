@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class Step_by_step extends BaseActivity {
     private int imageSize, marginSE, marginTB;
     private LinearLayout Recipes,Steps;
     private ImageView BackToHome;
+    private TextView RecipesSteps;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class Step_by_step extends BaseActivity {
 
         Recipes = (LinearLayout) findViewById(R.id.Recipes_layout);
         Steps = (LinearLayout) findViewById(R.id.Steps_layout);
+        RecipesSteps = (TextView) findViewById(R.id.RecipeSteps);
         BackToHome = (ImageView) findViewById(R.id.HomeButton);
         BackToHome.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -34,15 +37,30 @@ public class Step_by_step extends BaseActivity {
 
         for (int i = 0; i < LinkRecipeList.length; i++){
             if (i != 0 && LinkRecipeList[i]!=null){
-                Recipes.addView(getImage(LinkRecipeList[i]));
+                recipe dish = LinkRecipeList[i];
+                ImageView Dishes = getImage(dish);
+                Recipes.addView(Dishes);
+                Dishes.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        RecipesSteps.setText(dish.FullTextId);
+                    }
+                });
             }
              else if (LinkRecipeList[i]!=null){
-                ImageView Subdish2 = getImage(LinkRecipeList[i]);
+                recipe dish = LinkRecipeList[i];
+                ImageView Dishes = getImage(dish);
                 LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.7), (int)(imageSize*0.7));
                 i1.setMargins(0,marginTB/2,0,marginTB/2);
                 //i1.setMarginEnd(marginSE/2);
-                Subdish2.setLayoutParams(i1);
-                Recipes.addView(Subdish2);
+                Dishes.setLayoutParams(i1);
+                Recipes.addView(Dishes);
+                Dishes.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        RecipesSteps.setText(dish.FullTextId);
+                    }
+                });
             }
         }
 
