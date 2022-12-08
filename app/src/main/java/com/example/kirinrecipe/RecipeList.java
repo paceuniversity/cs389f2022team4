@@ -46,9 +46,9 @@ public class RecipeList {
         list[9]=new recipe(R.drawable.lamb_soup,62,RecipeType.Soup,false,3);
         list[9].FullTextId=R.string.lamb_soup;
         list[10]=new recipe(R.drawable.cumin_lamb,142,RecipeType.Mutton,true,6);
-        list[10].FullTextId=R.string.
+        list[10].FullTextId=R.string.cumin_lamb;
         list[11]=new recipe(R.drawable.chinese_yam_in_hot_toffee,321,RecipeType.Vegetables,false,6);
-        list[10].FullTextId=R.string.
+        list[11].FullTextId=R.string.chinese_yam_in_hot_toffee;
 
         list[12]=new recipe(R.drawable.creamy_chinese_cabbage_in_soup,97,RecipeType.Vegetables,true,0);
         list[12].FullTextId=R.string.creamy_chinese_cabbage_in_soup;

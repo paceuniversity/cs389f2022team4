@@ -14,18 +14,19 @@ public class Step_by_step extends BaseActivity {
     private int imageSize, marginSE, marginTB;
     private LinearLayout Recipes,Steps;
     private ImageView BackToHome;
-    private TextView RecipeText;
+    private TextView RecipesSteps;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_by_step);
 
-        RecipeText = findViewById(R.id.RecipeSteps);
+        RecipesSteps = (TextView) findViewById(R.id.RecipeSteps);
 
-        RecipeText.setText(R.string.stir_fried_pork_with_scallions);
-        CharSequence s = RecipeText.getText();
+        RecipesSteps.setText(R.string.stir_fried_pork_with_scallions);
+        CharSequence s = RecipesSteps.getText();
 
-        RecipeText.setText(MyrecipeList.list[17].GetRealRecipe(RecipeText.getText(),MaxCalorie));
+        RecipesSteps.setText(MyrecipeList.list[17].GetRealRecipe(RecipesSteps.getText(),MaxCalorie));
 
         /*CharSequence ss="";
         for (int i = 0;i<s.length();i++){
@@ -52,15 +53,32 @@ public class Step_by_step extends BaseActivity {
 
         for (int i = 0; i < LinkRecipeList.length; i++){
             if (i != 0 && LinkRecipeList[i]!=null){
-                Recipes.addView(getImage(LinkRecipeList[i]));
+                recipe dish = LinkRecipeList[i];
+                ImageView Dishes = getImage(dish);
+                Recipes.addView(Dishes);
+                Dishes.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        RecipesSteps.setText(dish.FullTextId);
+                        RecipesSteps.setText(dish.GetRealRecipe(RecipesSteps.getText(),MaxCalorie));
+                    }
+                });
             }
              else if (LinkRecipeList[i]!=null){
-                ImageView Subdish2 = getImage(LinkRecipeList[i]);
+                recipe dish = LinkRecipeList[i];
+                ImageView Dishes = getImage(dish);
                 LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.7), (int)(imageSize*0.7));
                 i1.setMargins(0,marginTB/2,0,marginTB/2);
                 //i1.setMarginEnd(marginSE/2);
-                Subdish2.setLayoutParams(i1);
-                Recipes.addView(Subdish2);
+                Dishes.setLayoutParams(i1);
+                Recipes.addView(Dishes);
+                Dishes.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        RecipesSteps.setText(dish.FullTextId);
+                        RecipesSteps.setText(dish.GetRealRecipe(RecipesSteps.getText(),MaxCalorie));
+                    }
+                });
             }
         }
 
