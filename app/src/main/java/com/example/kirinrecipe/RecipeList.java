@@ -76,7 +76,11 @@ public class RecipeList {
         list[47]=new recipe(R.drawable.steamed_chinese_cabbage_in_supreme_soup,20,RecipeType.Vegetables,false,1);
         list[48]=new recipe(R.drawable.stir_fried_pea_shoots_with_garlic,24,RecipeType.Vegetables,false,1);
         list[49]=new recipe(R.drawable.vinegar_pepper_shredded_potatoes,120,RecipeType.Vegetables,true,1);
-        list[50]=new recipe(R.drawable.sponge_gourd_with_eggs,99,RecipeType.Vegetables,false,2);
+        list[50]=new recipe(R.drawable.sponge_gourd_with_eggs,99,RecipeType.Vegetables,true,3);
+        list[51]=new recipe(R.drawable.grilled_fresh_squid,92,RecipeType.Seafood,true,6);
+        list[52]=new recipe(R.drawable.braised_sea_cucumber_with_scallion,112,RecipeType.Seafood,true,6);
+        list[53]=new recipe(R.drawable.steamed_scallop _with_garlic_and_vermicelli,127,RecipeType.Seafood,true,4);
+        list[54]=new recipe(R.drawable.buddha_jumps_over_the_wall,175,RecipeType.Seafood,true,7);
 
     }
     public ArrayList GetAllSpecific(RecipeType R,boolean maindish){
