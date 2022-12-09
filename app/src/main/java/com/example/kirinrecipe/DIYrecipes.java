@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -92,6 +93,19 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         DIYL_1.setLayoutParams(l1);
         DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
+        DIYL_1.addView(image1);
+        DIYL_1.addView(image2);
+
+        return DIYL_1;
+    }
+
+    public FrameLayout getFrameLayout(ImageView image1, ImageView image2){
+        FrameLayout DIYL_1 = new FrameLayout(DIYrecipes.this);
+
+        FrameLayout.LayoutParams l1 = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        //l1.setMargins(0,marginTB,0,0);
+        DIYL_1.setLayoutParams(l1);
+        DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.addView(image1);
         DIYL_1.addView(image2);
 
