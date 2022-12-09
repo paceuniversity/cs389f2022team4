@@ -28,6 +28,7 @@ public class BaseActivity extends AppCompatActivity {
     static  int Calorie=0;
     static  int TempCalorie=0;
     static  int MaxCalorie=114514;
+    static recipe recipeInfo;
 
     //static FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
     FirebaseStorage storage = FirebaseStorage.getInstance();
