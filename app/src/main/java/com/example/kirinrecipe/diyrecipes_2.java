@@ -18,6 +18,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -32,6 +35,8 @@ public class diyrecipes_2 extends BaseActivity {
     private static boolean ChangePageByButton=false;
     private ImageView Confirm;
     private boolean ReturnfromSteps = false;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String uid = user.getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +69,9 @@ public class diyrecipes_2 extends BaseActivity {
                 AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
                 AddCalorie(totalCalorie);
+                Calorie = totalCalorie;
+                DatabaseReference myRef = db.getReference();
+                myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(Calorie));
                 Intent intent=new Intent(diyrecipes_2.this,Step_by_step.class);
                 startActivity(intent);
             }

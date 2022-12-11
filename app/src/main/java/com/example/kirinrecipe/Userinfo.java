@@ -78,10 +78,10 @@ public class Userinfo extends AppCompatActivity {
                     myRef.child("users").child(uid).child("Weight").setValue(strWeight);
                     myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
                     myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
-
+                    myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(BaseActivity.Calorie));
                     String Name,  Gender,  Favorite,  Dislike, ID;
                     double Weight,  Height;
-                    int Age;
+                    int Age, Calories;
                     Name = strName;
                     Gender = strGender;
                     Favorite = strFavorite;
@@ -90,7 +90,8 @@ public class Userinfo extends AppCompatActivity {
                     Weight = Double.valueOf(strWeight);
                     Height = Double.valueOf(strHeight);
                     Age = Integer.valueOf(strAge);
-                    Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age);
+                    Calories = BaseActivity.Calorie;
+                    Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age, Calories);
 
                     Intent intent = new Intent(Userinfo.this, HomePage.class);
                     startActivity(intent);
