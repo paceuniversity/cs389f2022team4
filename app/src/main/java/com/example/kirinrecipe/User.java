@@ -18,9 +18,10 @@ public class User {
     //Create a user class to store user information.
     private String Name,Gender,Favorite,Dislike,ID;
     private double Weight,Height;
-    private int Age;
-    boolean[] LikeRecipe=new boolean[55];
 
+    boolean[] LikeRecipe=new boolean[55];
+    private int Age, Calories;
+    private int HistoryAmount=0;
     public ArrayList <recipe[]> HistoryRecipe= new ArrayList<>();
     //private recipe [][] HistoryRecipe = new recipe;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
@@ -34,7 +35,7 @@ public class User {
     }
 
     public User(String Name, String Gender, String Favorite, String Dislike,String ID,
-                double Weight, double Height, int Age){
+                double Weight, double Height, int Age, int Calories){
         for(int i=0;i<55;i++)LikeRecipe[i]=false;
         this.Name = Name;
         this.Gender = Gender;
@@ -44,6 +45,7 @@ public class User {
         this.Weight = Weight;
         this.Height = Height;
         this.Age = Age;
+        this.Calories = Calories;
     }
     public void setHistoryRecipe(recipe[] recipelist){
         HistoryRecipe.add(recipelist);

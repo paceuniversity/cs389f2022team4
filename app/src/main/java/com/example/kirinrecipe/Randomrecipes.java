@@ -35,8 +35,9 @@ public class Randomrecipes extends BaseActivity {
     recipe r3 = MyrecipeList.GetRandomSubDish();
     private ImageView Confirm,LeftInfo,MiddleInfo,RightInfo;
     int maxcalorie = GetMaxCalorie();
-    FirebaseDatabase db = FirebaseDatabase.getInstance();
-
+    FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String uid = user.getUid();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,7 +89,9 @@ public class Randomrecipes extends BaseActivity {
                 AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
                 AddCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
-
+                Calorie = r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie);
+                DatabaseReference myRef = db.getReference();
+                myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(Calorie));
                 Intent intent = new Intent(Randomrecipes.this, Step_by_step.class);
                 startActivity(intent);
             }

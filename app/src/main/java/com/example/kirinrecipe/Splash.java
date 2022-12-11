@@ -50,7 +50,7 @@ public class Splash extends AppCompatActivity {
                             firstin=false;
                             String Name,  Gender,  Favorite,  Dislike, ID;
                             double Weight,  Height;
-                            int Age;
+                            int Age, Calories;
                             Name = String.valueOf(task.getResult().child("Name").getValue());
                             Gender = String.valueOf(task.getResult().child("Gender").getValue());
                             Favorite = String.valueOf(task.getResult().child("Favorite").getValue());
@@ -59,12 +59,15 @@ public class Splash extends AppCompatActivity {
                             Weight = Double.valueOf(task.getResult().child("Weight").getValue().toString());
                             Height = Double.valueOf(task.getResult().child("Height").getValue().toString());
                             Age = Integer.valueOf(task.getResult().child("Age").getValue().toString());
+         
+                            Calories = Integer.valueOf(task.getResult().child("Calories").getValue().toString());
                             Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age);
                             if(task.getResult().child("LikeRecipeList")!=null){
                                 for(int i=0;i<55;i++){
                                     Myuser.LikeRecipe[i]=Boolean.valueOf(task.getResult().child("LikeRecipeList").child("LikeRecipe?"+i).getValue().toString());
                                 }
                             }
+
                         }
                     }
                 }

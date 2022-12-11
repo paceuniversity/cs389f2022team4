@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
                         if(String.valueOf(task.getResult().child("Name").getValue())!="null"){
                             String Name,  Gender,  Favorite,  Dislike, ID;
                             double Weight,  Height;
-                            int Age;
+                            int Age, Calories;
                             Name = String.valueOf(task.getResult().child("Name").getValue());
                             Gender = String.valueOf(task.getResult().child("Gender").getValue());
                             Favorite = String.valueOf(task.getResult().child("Favorite").getValue());
@@ -102,7 +102,8 @@ public class Login extends AppCompatActivity {
                             Weight = Double.valueOf(task.getResult().child("Weight").getValue().toString());
                             Height = Double.valueOf(task.getResult().child("Height").getValue().toString());
                             Age = Integer.valueOf(task.getResult().child("Age").getValue().toString());
-                            Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age);
+                            Calories = Integer.valueOf(task.getResult().child("Calories").getValue().toString());
+                            Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age,Calories);
                             Intent intent=new Intent(Login.this,HomePage.class);
                             startActivity(intent);
                         }
