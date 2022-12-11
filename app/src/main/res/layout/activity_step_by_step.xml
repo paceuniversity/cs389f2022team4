@@ -8,12 +8,12 @@
     android:gravity="center"
     tools:context=".Step_by_step">
 
+
     <include
         android:id="@+id/include"
         layout="@layout/caloreis_v2_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
     <TextView

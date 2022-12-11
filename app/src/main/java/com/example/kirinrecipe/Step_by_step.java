@@ -23,10 +23,10 @@ public class Step_by_step extends BaseActivity {
 
         RecipesSteps = (TextView) findViewById(R.id.RecipeSteps);
 
-        RecipesSteps.setText(R.string.stir_fried_pork_with_scallions);
+        RecipesSteps.setText(LinkRecipeList[0].FullTextId);
         CharSequence s = RecipesSteps.getText();
 
-        RecipesSteps.setText(MyrecipeList.list[17].GetRealRecipe(RecipesSteps.getText(),MaxCalorie));
+        RecipesSteps.setText(LinkRecipeList[0].GetRealRecipe(RecipesSteps.getText(),MaxCalorie));
 
         /*CharSequence ss="";
         for (int i = 0;i<s.length();i++){
