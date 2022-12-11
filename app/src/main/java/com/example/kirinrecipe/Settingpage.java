@@ -43,6 +43,7 @@ public class Settingpage extends AppCompatActivity {
 
     public void GoBack(View view) {
         Intent intent=new Intent(Settingpage.this,HomePage.class);
+        HomePage.count = 1;
         startActivity(intent);
     }
     public void Gotobasicinformation(View view) {

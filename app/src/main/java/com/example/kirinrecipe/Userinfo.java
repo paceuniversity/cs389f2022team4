@@ -90,7 +90,7 @@ public class Userinfo extends AppCompatActivity {
                     Weight = Double.valueOf(strWeight);
                     Height = Double.valueOf(strHeight);
                     Age = Integer.valueOf(strAge);
-                    Calories = BaseActivity.Calorie;
+                    Calories = 0;
                     Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age, Calories);
 
                     Intent intent = new Intent(Userinfo.this, HomePage.class);

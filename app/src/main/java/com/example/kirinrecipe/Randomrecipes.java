@@ -89,9 +89,9 @@ public class Randomrecipes extends BaseActivity {
                 AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
                 AddCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
-                Calorie = r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie);
                 DatabaseReference myRef = db.getReference();
                 myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(Calorie));
+                Splash.Myuser.setCalories(Splash.Myuser.getCalories() + r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
                 Intent intent = new Intent(Randomrecipes.this, Step_by_step.class);
                 startActivity(intent);
             }

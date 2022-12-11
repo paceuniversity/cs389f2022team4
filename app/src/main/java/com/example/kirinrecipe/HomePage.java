@@ -33,6 +33,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     int centerX;
     int centerY;
     int distance=0;
+    static int count = 0;
     String hint="Choose Your Recipe";
     GestureDetector detector;
     private VelocityTracker mVelocityTracker = null;
@@ -43,6 +44,10 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     protected void onStart() {
         CreateProgress();
         ModifyTempCalorie( 0);
+        if (count == 0){
+            AddCalorie(Splash.Myuser.getCalories());
+            count++;
+        }
         super.onStart();
     }
 

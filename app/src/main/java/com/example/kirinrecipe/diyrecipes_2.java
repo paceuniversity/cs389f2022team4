@@ -70,9 +70,9 @@ public class diyrecipes_2 extends BaseActivity {
                 AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
                 AddCalorie(totalCalorie);
-                Calorie = totalCalorie;
                 DatabaseReference myRef = db.getReference();
                 myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(Calorie));
+                Splash.Myuser.setCalories(Splash.Myuser.getCalories() + totalCalorie);
                 Intent intent=new Intent(diyrecipes_2.this,Step_by_step.class);
                 startActivity(intent);
             }
