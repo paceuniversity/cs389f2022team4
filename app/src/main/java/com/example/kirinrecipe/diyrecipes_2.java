@@ -14,6 +14,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -168,6 +169,30 @@ public class diyrecipes_2 extends BaseActivity {
         });
         return Image;
     }
+
+    public FrameLayout getFrameLayout(ImageView image1, ImageView image2){
+        FrameLayout DIYL_1 = new FrameLayout(diyrecipes_2.this);
+
+        FrameLayout.LayoutParams l1 = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        //l1.setMargins(0,marginTB,0,0);
+        DIYL_1.setLayoutParams(l1);
+        DIYL_1.setPadding(0,marginTB,0,0);
+        DIYL_1.addView(image1);
+        DIYL_1.addView(image2);
+
+        return DIYL_1;
+    }
+
+    public ImageView getInfo(){
+        ImageView Image = new ImageView(diyrecipes_2.this);
+        LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.3), (int)(imageSize*0.3));
+        i1.setMargins(0,marginTB,0,0);
+        Image.setLayoutParams(i1);
+        Image.setImageResource(R.drawable.info_icon);
+        Image.setScaleType(ImageView.ScaleType.FIT_XY);
+        return Image;
+    }
+
     public void addAllRecomandRecipe(){
         DIYLinkLayout =  super.findViewById(R.id.DIYLayout2);
         DIYLinkLayout.removeAllViews();
@@ -182,7 +207,21 @@ public class diyrecipes_2 extends BaseActivity {
                         AlreadyHaveRecipe=true;
                     }
                 }
-                if(!AlreadyHaveRecipe)DIYLinkLayout.addView(getImage(subdish));
+                if(!AlreadyHaveRecipe) {
+                    ImageView info1 = getInfo();
+                    info1.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            //recipe r1 = recipeSTypeList.get(0);
+                            recipeInfo = MyrecipeList.FindRecipeByID(getImage(subdish).getId());
+                            //Log.d("recipeInfo", "recipeInfo"+ recipeInfo.type);
+                            Intent intent=new Intent(diyrecipes_2.this,MoreInfo.class);
+                            startActivity(intent);
+                        }
+                    });
+                    FrameLayout Frame1 = getFrameLayout(getImage(subdish),info1);
+                    DIYLinkLayout.addView(Frame1);
+                }
 
             }
 

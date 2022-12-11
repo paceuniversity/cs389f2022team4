@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -33,6 +34,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     private ArrayList<recipe> recipeSTypeList;
     private int imageSize, marginSE, marginTB;
     public int count,count2;
+
 
 
     @Override
@@ -59,6 +61,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
     @Override
     protected void onStart(){
         //The system progress bar has a relatively large limit and can only set 2 colors
+        recipeInfo = new recipe();
         CreateProgress();
         count2 = 0;
         LinkRecipeList = new recipe[3];
@@ -82,9 +85,19 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         return Image;
     }
 
+    public ImageView getInfo(){
+        ImageView Image = new ImageView(DIYrecipes.this);
+        LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams((int)(imageSize*0.3), (int)(imageSize*0.3));
+        i1.setMarginStart(marginSE);
+        Image.setLayoutParams(i1);
+        Image.setImageResource(R.drawable.info_icon);
+        Image.setScaleType(ImageView.ScaleType.FIT_XY);
+        return Image;
+    }
 
 
-    public LinearLayout getLayout(ImageView image1, ImageView image2){
+
+    public LinearLayout getLayout(FrameLayout frame1, FrameLayout frame2){
         LinearLayout DIYL_1 = new LinearLayout(DIYrecipes.this);
 
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
@@ -92,13 +105,26 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         DIYL_1.setLayoutParams(l1);
         DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
+        DIYL_1.addView(frame1);
+        DIYL_1.addView(frame2);
+
+        return DIYL_1;
+    }
+
+    public FrameLayout getFrameLayout(ImageView image1, ImageView image2){
+        FrameLayout DIYL_1 = new FrameLayout(DIYrecipes.this);
+
+        FrameLayout.LayoutParams l1 = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        //l1.setMargins(0,marginTB,0,0);
+        DIYL_1.setLayoutParams(l1);
+        DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.addView(image1);
         DIYL_1.addView(image2);
 
         return DIYL_1;
     }
 
-    public LinearLayout getLayout(ImageView image1){
+    public LinearLayout getLayout(FrameLayout frame1){
 
         LinearLayout DIYL_1 = new LinearLayout(DIYrecipes.this);
 
@@ -107,7 +133,7 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
         DIYL_1.setLayoutParams(l1);
         DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
-        DIYL_1.addView(image1);
+        DIYL_1.addView(frame1);
 
         return DIYL_1;
     }
@@ -151,7 +177,21 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                             GotoLinking(Image1);
                         }
                     });
+
+                    ImageView info1 = getInfo();
+                    info1.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            //recipe r1 = recipeSTypeList.get(0);
+                            recipeInfo = MyrecipeList.FindRecipeByID(Image1.getId());
+                            Log.d("recipeInfo", "recipeInfo"+ recipeInfo.type);
+                            Intent intent=new Intent(DIYrecipes.this,MoreInfo.class);
+                            startActivity(intent);
+                        }
+                    });
+                    FrameLayout Frame1 = getFrameLayout(Image1,info1);
                     recipeSTypeList.remove(0);
+
                     ImageView Image2 = getImage(recipeSTypeList.get(0));
                     Image2.setId(recipeSTypeList.get(0).ImageId);
                     LinearLayout.LayoutParams ImageParams2 = new LinearLayout.LayoutParams(imageSize, imageSize);
@@ -164,8 +204,23 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                             GotoLinking(Image2);
                         }
                     });
+                    ImageView info2 = getInfo();
+                    LinearLayout.LayoutParams InfoParams2 = new LinearLayout.LayoutParams((int)(imageSize*0.3), (int)(imageSize*0.3));
+                    InfoParams2.setMarginStart(marginSE);
+                    InfoParams2.setMarginEnd(marginSE);
+                    info2.setLayoutParams(InfoParams2);
+                    info2.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            recipeInfo = MyrecipeList.FindRecipeByID(Image2.getId());
+                            Intent intent=new Intent(DIYrecipes.this,MoreInfo.class);
+                            startActivity(intent);
+                        }
+                    });
+                    FrameLayout Frame2 = getFrameLayout(Image2,info2);
+
                     recipeSTypeList.remove(0);
-                    LinearLayout L1 = getLayout(Image1, Image2);
+                    LinearLayout L1 = getLayout(Frame1, Frame2);
                     if (count2 == 0){
                         L1.setPadding(0,0,0,0);
                         count2++;
@@ -180,7 +235,18 @@ public class DIYrecipes extends BaseActivity implements AdapterView.OnItemSelect
                             GotoLinking(Image1);
                         }
                     });
-                    LinearLayout L1 = getLayout(Image1);
+                    ImageView info1 = getInfo();
+                    info1.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            //recipe r1 = recipeSTypeList.get(0);
+                            recipeInfo = MyrecipeList.FindRecipeByID(Image1.getId());
+                            Intent intent=new Intent(DIYrecipes.this,MoreInfo.class);
+                            startActivity(intent);
+                        }
+                    });
+                    FrameLayout Frame1 = getFrameLayout(Image1,info1);
+                    LinearLayout L1 = getLayout(Frame1);
                     DIYL.addView(L1);
                     break;
                 }

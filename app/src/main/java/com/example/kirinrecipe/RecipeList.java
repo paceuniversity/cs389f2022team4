@@ -47,8 +47,9 @@ public class RecipeList {
         list[9].FullTextId=R.string.lamb_soup;
         list[10]=new recipe(R.drawable.cumin_lamb,142,RecipeType.Mutton,true,6);
         list[10].FullTextId=R.string.cumin_lamb;
+
         list[11]=new recipe(R.drawable.chinese_yam_in_hot_toffee,321,RecipeType.Vegetables,false,6);
-        list[10].FullTextId=R.string.chinese_yam_in_hot_toffee;
+        list[11].FullTextId=R.string.chinese_yam_in_hot_toffee;
 
         list[12]=new recipe(R.drawable.creamy_chinese_cabbage_in_soup,97,RecipeType.Vegetables,true,0);
         list[12].FullTextId=R.string.creamy_chinese_cabbage_in_soup;
@@ -370,32 +371,45 @@ class recipe{
         double PerDishMaxCalorie=0;
         double result=0;
         double RecipeNeedCalorie=0;
+        int maxamount=0;
         //Calendar.getInstance().get(Calendar.HOUR_OF_DAY)>10&&Calendar.getInstance().get(Calendar.HOUR_OF_DAY)<14
         if(true){
-            PerDishMaxCalorie=MaxCalorie*0.6f;
+            PerDishMaxCalorie=MaxCalorie*0.5f;
         }
         else{
             PerDishMaxCalorie=MaxCalorie*0.4f;
         }
+
         if(MainDish){
             if(type==RecipeType.Vegetables){
+                maxamount=3;
                 RecipeNeedCalorie = PerDishMaxCalorie*0.4f;
             }
-            else RecipeNeedCalorie = PerDishMaxCalorie*0.7f;
+            else {
+                maxamount=5;
+                RecipeNeedCalorie = PerDishMaxCalorie*0.7f;
+            }
         }
         else{
             if(type==RecipeType.Soup){
+                maxamount=5;
                 RecipeNeedCalorie = PerDishMaxCalorie*0.1f;
             }
             else if (type==RecipeType.Vegetables){
+                maxamount=2;
                 RecipeNeedCalorie = PerDishMaxCalorie*0.15f;
             }
             else{
+                maxamount=3;
                 RecipeNeedCalorie = PerDishMaxCalorie*0.35f;
             }
         }
+
+        int amount=0;
         while(result<RecipeNeedCalorie-perCalorie){
             result+=perCalorie;
+            amount++;
+            if(amount>=5)break;
         }
         return (int) result;
     }

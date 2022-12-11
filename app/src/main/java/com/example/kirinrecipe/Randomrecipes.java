@@ -33,7 +33,7 @@ public class Randomrecipes extends BaseActivity {
     recipe r1 = MyrecipeList.GetRandomMainDish();
     recipe r2 = MyrecipeList.GetRandomSubDish();
     recipe r3 = MyrecipeList.GetRandomSubDish();
-    private ImageView Confirm;
+    private ImageView Confirm,LeftInfo,MiddleInfo,RightInfo;
     int maxcalorie = GetMaxCalorie();
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
@@ -45,6 +45,9 @@ public class Randomrecipes extends BaseActivity {
         LeftImage = findViewById(R.id.RandomImageLeft);
         MiddleImage = findViewById(R.id.RandomImageMiddle);
         RightImage = findViewById(R.id.RandomImageRight);
+        LeftInfo = findViewById(R.id.RandomImageLeftInfo);
+        MiddleInfo = findViewById(R.id.RandomImageMiddleInfo);
+        RightInfo = findViewById(R.id.RandomImageRightInfo);
         //Log.d("", "Calorie2"+Calorie);
         Confirm = (ImageView) findViewById(R.id.RandomConfirmButton);
 
@@ -53,6 +56,25 @@ public class Randomrecipes extends BaseActivity {
         MiddleImage.setImageResource(r2.ImageId);
         RightImage.setImageResource(r3.ImageId);
         ModifyTempCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
+
+        LeftInfo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                GoToInfo(r1);
+            }
+        });
+        MiddleInfo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                GoToInfo(r2);
+            }
+        });
+        RightInfo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                GoToInfo(r3);
+            }
+        });
 
         Confirm.setOnClickListener(new View.OnClickListener() {
 
@@ -124,5 +146,11 @@ public class Randomrecipes extends BaseActivity {
         //Log.d("", "RecipeList"+MyrecipeList.GetImageId(0));
     }
 
+    public void GoToInfo(recipe r){
+        recipeInfo = r;
+        //Log.d("recipeInfo", "recipeInfo"+ recipeInfo.type);
+        Intent intent=new Intent(Randomrecipes.this,MoreInfo.class);
+        startActivity(intent);
+    }
 
 }
