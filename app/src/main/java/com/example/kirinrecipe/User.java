@@ -18,6 +18,8 @@ public class User {
     //Create a user class to store user information.
     private String Name,Gender,Favorite,Dislike,ID;
     private double Weight,Height;
+
+    boolean[] LikeRecipe=new boolean[55];
     private int Age, Calories;
     private int HistoryAmount=0;
     public ArrayList <recipe[]> HistoryRecipe= new ArrayList<>();
@@ -34,6 +36,7 @@ public class User {
 
     public User(String Name, String Gender, String Favorite, String Dislike,String ID,
                 double Weight, double Height, int Age, int Calories){
+        for(int i=0;i<55;i++)LikeRecipe[i]=false;
         this.Name = Name;
         this.Gender = Gender;
         this.Favorite = Favorite;
@@ -47,7 +50,7 @@ public class User {
     public void setHistoryRecipe(recipe[] recipelist){
         HistoryRecipe.add(recipelist);
     }
-    
+
 
     public String getID(){
         return ID;
@@ -149,6 +152,10 @@ public class User {
         myRef.child("users").child(ID).child("Weight").setValue(Weight);
         myRef.child("users").child(ID).child("Favorite").setValue(Favorite);
         myRef.child("users").child(ID).child("Dislike").setValue(Dislike);
+        for(int i=0;i<55;i++){
+            myRef.child("users").child(ID).child("LikeRecipeList").child("LikeRecipe?"+i).setValue(LikeRecipe[i]);
+        }
+
     }
 
 
