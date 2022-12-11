@@ -78,7 +78,7 @@ public class Userinfo extends AppCompatActivity {
                     myRef.child("users").child(uid).child("Weight").setValue(strWeight);
                     myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
                     myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
-                    myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(BaseActivity.Calorie));
+                    myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(0));
                     String Name,  Gender,  Favorite,  Dislike, ID;
                     double Weight,  Height;
                     int Age, Calories;

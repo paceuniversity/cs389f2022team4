@@ -55,6 +55,7 @@ public class diyrecipes_2 extends BaseActivity {
 
             @Override
             public void onClick(View v) {
+                DatabaseReference myRef = db.getReference();
                 if(stage>=1) {
                     ReturnfromSteps=true;
                     stage=0;
@@ -66,11 +67,14 @@ public class diyrecipes_2 extends BaseActivity {
                     }
                 }
                 Splash.Myuser.setHistoryRecipe(LinkRecipeList);
+                for (int i = 0; i < LinkRecipeList.length; i++){
+                    myRef.child("users").child(uid).child("History").child(String.valueOf(Splash.Myuser.HistoryRecipe.size())).child(String.valueOf(LinkRecipeList[i].ImageId)).setValue(String.valueOf(Splash.Myuser.HistoryRecipe.size()));
+                }
                 TempCalorie=0;
                 AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
                 AddCalorie(totalCalorie);
-                DatabaseReference myRef = db.getReference();
+
                 myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(Calorie));
                 Splash.Myuser.setCalories(Splash.Myuser.getCalories() + totalCalorie);
                 Intent intent=new Intent(diyrecipes_2.this,Step_by_step.class);

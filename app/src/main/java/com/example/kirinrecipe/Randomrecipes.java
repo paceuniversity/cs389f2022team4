@@ -84,12 +84,15 @@ public class Randomrecipes extends BaseActivity {
                 LinkRecipeList[0] = r1;
                 LinkRecipeList[1] = r2;
                 LinkRecipeList[2] = r3;
-
+                DatabaseReference myRef = db.getReference();
                 TempCalorie=0;
                 AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
+                Splash.Myuser.setHistoryRecipe(LinkRecipeList);
+                for (int i = 0; i < LinkRecipeList.length; i++){
+                    myRef.child("users").child(uid).child("History").child(String.valueOf(Splash.Myuser.HistoryRecipe.size())).child(String.valueOf(LinkRecipeList[i].ImageId)).setValue(String.valueOf(Splash.Myuser.HistoryRecipe.size()));
+                }
                 AddCalorie(r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
-                DatabaseReference myRef = db.getReference();
                 myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(Calorie));
                 Splash.Myuser.setCalories(Splash.Myuser.getCalories() + r1.GetRecipeCalorie(maxcalorie)+r2.GetRecipeCalorie(maxcalorie)+r3.GetRecipeCalorie(maxcalorie));
                 Intent intent = new Intent(Randomrecipes.this, Step_by_step.class);
