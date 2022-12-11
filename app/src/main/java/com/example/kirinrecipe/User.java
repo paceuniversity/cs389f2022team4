@@ -12,11 +12,16 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class User {
     //Create a user class to store user information.
     private String Name,Gender,Favorite,Dislike,ID;
     private double Weight,Height;
     private int Age, Calories;
+    private int HistoryAmount=0;
+    public ArrayList <recipe[]> HistoryRecipe= new ArrayList<>();
+    //private recipe [][] HistoryRecipe = new recipe;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     public User(){
@@ -38,6 +43,10 @@ public class User {
         this.Height = Height;
         this.Age = Age;
     }
+    public void setHistoryRecipe(recipe[] recipelist){
+        HistoryRecipe.add(recipelist);
+    }
+    
 
     public String getID(){
         return ID;

@@ -411,6 +411,7 @@ class recipe{
             amount++;
             if(amount>=maxamount)break;
         }
+        if(result==0)result+=perCalorie;
         return (int) result;
     }
     int GetRecipeAmount(int MaxCalorie){

@@ -65,6 +65,7 @@ public class diyrecipes_2 extends BaseActivity {
                         totalCalorie += LinkRecipeList[i].GetRecipeCalorie(GetMaxCalorie());
                     }
                 }
+                Splash.Myuser.setHistoryRecipe(LinkRecipeList);
                 TempCalorie=0;
                 AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);

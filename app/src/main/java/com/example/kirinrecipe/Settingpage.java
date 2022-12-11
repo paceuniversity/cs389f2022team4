@@ -49,6 +49,10 @@ public class Settingpage extends AppCompatActivity {
         Intent intent=new Intent(Settingpage.this,Basicinformation.class);
         startActivity(intent);
     }
+    public void GotoHistoryPage(View view) {
+        Intent intent=new Intent(Settingpage.this,HistoryRecipe.class);
+        startActivity(intent);
+    }
     public void signOut() {
         // [START auth_fui_signout]
         AuthUI.getInstance()
@@ -61,4 +65,6 @@ public class Settingpage extends AppCompatActivity {
                 });
         // [END auth_fui_signout]
     }
+
+
 }
