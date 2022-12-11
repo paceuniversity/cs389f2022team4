@@ -42,6 +42,7 @@ public class User {
         this.Weight = Weight;
         this.Height = Height;
         this.Age = Age;
+        this.Calories = Calories;
     }
     public void setHistoryRecipe(recipe[] recipelist){
         HistoryRecipe.add(recipelist);
