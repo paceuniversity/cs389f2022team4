@@ -34,6 +34,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Collections;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -104,6 +106,61 @@ public class Login extends AppCompatActivity {
                             Age = Integer.valueOf(task.getResult().child("Age").getValue().toString());
                             Calories = Integer.valueOf(task.getResult().child("Calories").getValue().toString());
                             Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age,Calories);
+                            if(String.valueOf(task.getResult().child("LikeRecipeList").getValue())!="null"){
+                                for(int i=0;i<55;i++){
+                                    Splash.Myuser.LikeRecipe[i]=Boolean.valueOf(task.getResult().child("LikeRecipeList").child("LikeRecipe?"+i).getValue().toString());
+                                }
+                            }
+                            if(String.valueOf(task.getResult().child("History").getValue())!="null"){
+                                String History = String.valueOf(task.getResult().child("History").getValue());
+                                int size = Integer.parseInt(History.substring(History.length()-3,History.length()-2));
+                                //Log.d("History","history " + History + " " +  size);
+
+                                for (int i = 0; i < size; i++){
+                                    String count = String.valueOf(i + 1);
+                                    String histories = String.valueOf(task.getResult().child("History").child(count).getValue());
+                                    int [] equal = new int[3];
+                                    int [] comma = new int[2];
+                                    Pattern pattern1 = Pattern.compile("=");
+                                    Matcher findMatcher = pattern1.matcher(histories);
+                                    int j = 0;
+                                    while(findMatcher.find()) {
+                                        equal[j] = findMatcher.start();
+                                        j++;
+                                    }
+                                    Pattern pattern2 = Pattern.compile(",");
+                                    findMatcher = pattern2.matcher(histories);
+                                    int c = 0;
+                                    while(findMatcher.find()) {
+                                        comma[c] = findMatcher.start();
+                                        c++;
+                                    }
+                                    int [] history = new int[3];
+                                    for (int m = 0; m < history.length; m++){
+                                        if (m == 0){
+                                            history[m] = Integer.parseInt(histories.substring(1,equal[m]));
+                                        }else {
+                                            int x = m-1;
+                                            int commaIndex = comma[x] + 2;
+                                            history[m] = Integer.parseInt(histories.substring(commaIndex,equal[m]));
+                                        }
+                                        //Log.d("History","Key " + history[m]);
+                                    }
+                                   // Log.d("History","Key " + histories);
+                                    recipe [] TempHistory = new recipe[3];
+                                    for (int n = 0; n < history.length; n++){
+                                        TempHistory[n] = BaseActivity.MyrecipeList.FindRecipeByID(history[n]);
+                                        //Log.d("History","Recipes " + TempHistory[n].ImageId + " " + TempHistory[n].type);
+                                    }
+                                    Splash.Myuser.setHistoryRecipe(TempHistory);
+                                    //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[0].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[0].type);
+                                    //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[1].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[1].type);
+                                    //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[2].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[2].type);
+                                }
+
+
+                            }
+
                             Intent intent=new Intent(Login.this,HomePage.class);
                             startActivity(intent);
                         }

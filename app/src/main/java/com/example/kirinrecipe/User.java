@@ -92,6 +92,14 @@ public class User {
         this.Age = age;
     }
 
+    public int getCalories(){
+        return Calories;
+    }
+
+    public void setCalories(Integer calories){
+        this.Calories = calories;
+    }
+
     public String getGender(){
         return Gender;
     }

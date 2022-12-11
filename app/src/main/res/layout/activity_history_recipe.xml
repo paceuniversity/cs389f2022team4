@@ -9,7 +9,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     android:typeface="serif"
-    tools:context=".DIYrecipes">
+    tools:context=".HistoryRecipe">
 
 
 
@@ -28,6 +28,7 @@
             android:id="@+id/HistoryRecipe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="History Recipe"
             android:textColor="@color/black"
@@ -35,7 +36,7 @@
             android:typeface="serif" />
 
         <ScrollView
-            android:id="@+id/DIYScroll"
+            android:id="@+id/HistoryScroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
@@ -43,7 +44,7 @@
             >
 
             <LinearLayout
-                android:id="@+id/DIYLayout"
+                android:id="@+id/HistoryLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
