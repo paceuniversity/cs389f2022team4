@@ -409,8 +409,9 @@ class recipe{
         while(result<RecipeNeedCalorie-perCalorie){
             result+=perCalorie;
             amount++;
-            if(amount>=5)break;
+            if(amount>=maxamount)break;
         }
+        if(result==0)result+=perCalorie;
         return (int) result;
     }
     int GetRecipeAmount(int MaxCalorie){
