@@ -18,7 +18,7 @@ public class User {
     //Create a user class to store user information.
     private String Name,Gender,Favorite,Dislike,ID;
     private double Weight,Height;
-    private int Age;
+    private int Age, Calories;
     private int HistoryAmount=0;
     public ArrayList <recipe[]> HistoryRecipe= new ArrayList<>();
     //private recipe [][] HistoryRecipe = new recipe;
@@ -33,7 +33,7 @@ public class User {
     }
 
     public User(String Name, String Gender, String Favorite, String Dislike,String ID,
-                double Weight, double Height, int Age){
+                double Weight, double Height, int Age, int Calories){
         this.Name = Name;
         this.Gender = Gender;
         this.Favorite = Favorite;
