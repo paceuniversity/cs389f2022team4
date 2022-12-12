@@ -49,7 +49,14 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:orientation="vertical">
-
+                <TextView
+                    android:id="@+id/NoHistory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/RecipesText"
+                    android:textSize="25sp"
+                    android:typeface="serif" />
 
             </LinearLayout>
 

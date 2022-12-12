@@ -18,12 +18,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class HistoryRecipe extends AppCompatActivity {
     private int imageSize, marginSE, marginTB;
     private int count = 0;
     private LinearLayout History;
+    TextView noHistory;
     FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String uid = user.getUid();
@@ -33,11 +36,16 @@ public class HistoryRecipe extends AppCompatActivity {
         setContentView(R.layout.activity_history_recipe);
         DatabaseReference myRef = db.getReference();
         History = (LinearLayout) super.findViewById(R.id.HistoryLayout);
+        noHistory = (TextView) super.findViewById(R.id.NoHistory);
         imageSize = (int) getResources().getDimension(R.dimen.about_image_size);
         marginSE = (int) getResources().getDimension(R.dimen.margin_se);
         marginTB = (int) getResources().getDimension(R.dimen.margin_tb);
-        changeLayout();
+        if (Splash.Myuser.HistoryRecipe.isEmpty()){
+            noHistory.setText("You don't have any history recipes yet!");
+        }else {
+            changeLayout();
 
+        }
     }
 
     public ImageView getImage(recipe r){
