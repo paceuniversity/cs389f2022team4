@@ -43,10 +43,15 @@ public class Settingpage extends AppCompatActivity {
 
     public void GoBack(View view) {
         Intent intent=new Intent(Settingpage.this,HomePage.class);
+        HomePage.count = 1;
         startActivity(intent);
     }
     public void Gotobasicinformation(View view) {
         Intent intent=new Intent(Settingpage.this,Basicinformation.class);
+        startActivity(intent);
+    }
+    public void GotoHistoryPage(View view) {
+        Intent intent=new Intent(Settingpage.this,HistoryRecipe.class);
         startActivity(intent);
     }
     public void signOut() {
@@ -61,4 +66,6 @@ public class Settingpage extends AppCompatActivity {
                 });
         // [END auth_fui_signout]
     }
+
+
 }

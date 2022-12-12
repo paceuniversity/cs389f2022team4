@@ -24,7 +24,9 @@ enum RecipeType
 }
 public class RecipeList {
     recipe[] list = new recipe[55];
+    boolean[] LikeRecipe=new boolean[55];
     RecipeList(){
+        LikeRecipe=Splash.Myuser.LikeRecipe;
         list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood,false,0);
         list[0].FullTextId= R.string.scalded_prawns;
         list[1]=new recipe(R.drawable.char_siu,206,RecipeType.Pork,true,8);
@@ -180,6 +182,9 @@ public class RecipeList {
         list[54]=new recipe(R.drawable.buddha_jumps_over_the_wall,175,RecipeType.Seafood,true,7);
         list[54].FullTextId=R.string.buddha_jumps_over_the_wall;
 
+        for(int i=0;i<55;i++){
+            list[i].Like=LikeRecipe[i];
+        }
 
     }
     public ArrayList GetAllSpecific(RecipeType R,boolean maindish){
@@ -226,6 +231,7 @@ public class RecipeList {
         ArrayList <recipe> result = GetAllSubDish();
         for(recipe subdish: result){
             subdish.Pivot+=AddPivotToRecipeBaseOnOil(maindish,subdish);
+            if(subdish.Like)subdish.Pivot+=1000;
             //Log.d("", "percalorie"+subdish.perCalorie+"type"+subdish.type+"SubDishPivot"+ subdish.Pivot);
             if(subdish.type!=maindish.type&& (subdish.type==RecipeType.Vegetables|maindish.type==RecipeType.Vegetables)){
                 //have one and only one vegetables
@@ -312,6 +318,28 @@ public class RecipeList {
         return null;
     }
 
+    public recipe SetLikeRecipe(int ImageId){
+        for(int i=0;i<55;i++){
+            if(list[i].ImageId==ImageId){
+                if(LikeRecipe[i]==true){
+                    LikeRecipe[i]=false;
+                }
+                else LikeRecipe[i]=true;
+                Splash.Myuser.updateInfo();
+            }
+        }
+        return null;
+    }
+
+    public boolean IfLikeRecipe(int ImageId){
+        for(int i=0;i<55;i++){
+            if(list[i].ImageId==ImageId){
+                return LikeRecipe[i];
+            }
+        }
+        return false;
+    }
+
     public int GetImageId(int index){
         return list[index].ImageId;
     }
@@ -356,6 +384,7 @@ class recipe{
     float Pivot=0;
     int oil;
     int FullTextId;
+    public boolean Like=false;
     recipe(){}
 
     public int getPivot(){return (int)Pivot;}
@@ -409,8 +438,9 @@ class recipe{
         while(result<RecipeNeedCalorie-perCalorie){
             result+=perCalorie;
             amount++;
-            if(amount>=5)break;
+            if(amount>=maxamount)break;
         }
+        if(result==0)result+=perCalorie;
         return (int) result;
     }
     int GetRecipeAmount(int MaxCalorie){
@@ -443,10 +473,10 @@ class recipe{
                             continue;
                         }
                     }
-                    else if(text.charAt(i)<'9'&&text.charAt(i)>'0'){
+                    else if(text.charAt(i)<='9'&&text.charAt(i)>='0'){
                         amount+=text.charAt(i)+"";
                         while(++i<text.length()){
-                            if(text.charAt(i)<'9'&&text.charAt(i)>'0'){
+                            if(text.charAt(i)<='9'&&text.charAt(i)>='0'){
                                 amount+=text.charAt(i)+"";
                             }
                             else{
@@ -455,6 +485,7 @@ class recipe{
                         }
                         i--;
                         int TempAmount=Integer.valueOf(amount.toString());
+                        //Log.d("eggp",TempAmount+"haha "+amount);
                         TempAmount*=GetRecipeAmount(MaxCalorie);
                         result+=String.valueOf(TempAmount);
                         amount="";

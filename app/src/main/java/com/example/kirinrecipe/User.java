@@ -12,11 +12,18 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class User {
     //Create a user class to store user information.
     private String Name,Gender,Favorite,Dislike,ID;
     private double Weight,Height;
-    private int Age;
+
+    boolean[] LikeRecipe=new boolean[55];
+    private int Age, Calories;
+    private int HistoryAmount=0;
+    public ArrayList <recipe[]> HistoryRecipe= new ArrayList<>();
+    //private recipe [][] HistoryRecipe = new recipe;
     FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     public User(){
@@ -28,7 +35,8 @@ public class User {
     }
 
     public User(String Name, String Gender, String Favorite, String Dislike,String ID,
-                double Weight, double Height, int Age){
+                double Weight, double Height, int Age, int Calories){
+        for(int i=0;i<55;i++)LikeRecipe[i]=false;
         this.Name = Name;
         this.Gender = Gender;
         this.Favorite = Favorite;
@@ -37,7 +45,12 @@ public class User {
         this.Weight = Weight;
         this.Height = Height;
         this.Age = Age;
+        this.Calories = Calories;
     }
+    public void setHistoryRecipe(recipe[] recipelist){
+        HistoryRecipe.add(recipelist);
+    }
+
 
     public String getID(){
         return ID;
@@ -77,6 +90,14 @@ public class User {
 
     public void setAge(Integer age){
         this.Age = age;
+    }
+
+    public int getCalories(){
+        return Calories;
+    }
+
+    public void setCalories(Integer calories){
+        this.Calories = calories;
     }
 
     public String getGender(){
@@ -131,6 +152,10 @@ public class User {
         myRef.child("users").child(ID).child("Weight").setValue(Weight);
         myRef.child("users").child(ID).child("Favorite").setValue(Favorite);
         myRef.child("users").child(ID).child("Dislike").setValue(Dislike);
+        for(int i=0;i<55;i++){
+            myRef.child("users").child(ID).child("LikeRecipeList").child("LikeRecipe?"+i).setValue(LikeRecipe[i]);
+        }
+
     }
 
 

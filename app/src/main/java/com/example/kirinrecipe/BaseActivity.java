@@ -31,7 +31,7 @@ public class BaseActivity extends AppCompatActivity {
     static recipe recipeInfo;
 
     //static FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
-    FirebaseStorage storage = FirebaseStorage.getInstance();
+    //FirebaseStorage storage = FirebaseStorage.getInstance();
 
     static int AnimateCalorie=0;
     static int AnimateTempCalorie=0;

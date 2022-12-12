@@ -86,7 +86,7 @@
             android:layout_height="80dp"
             android:layout_weight="1"
             android:src="@drawable/like_icon"
-            android:onClick="Random" />
+            android:onClick="Like" />
         <ImageView
             android:id="@+id/DislikeButton"
             android:layout_width="80dp"

@@ -47,6 +47,7 @@ public class Step_by_step extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Step_by_step.this,HomePage.class);
+                HomePage.count = 1;
                 startActivity(intent);
             }
         });

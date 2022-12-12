@@ -1,0 +1,111 @@
+package com.example.kirinrecipe;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+
+public class HistoryRecipe extends AppCompatActivity {
+    private int imageSize, marginSE, marginTB;
+    private int count = 0;
+    private LinearLayout History;
+    FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String uid = user.getUid();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_history_recipe);
+        DatabaseReference myRef = db.getReference();
+        History = (LinearLayout) super.findViewById(R.id.HistoryLayout);
+        imageSize = (int) getResources().getDimension(R.dimen.about_image_size);
+        marginSE = (int) getResources().getDimension(R.dimen.margin_se);
+        marginTB = (int) getResources().getDimension(R.dimen.margin_tb);
+        changeLayout();
+
+    }
+
+    public ImageView getImage(recipe r){
+        ImageView Image = new ImageView(HistoryRecipe.this);
+        LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
+        i1.setMarginStart(marginTB);
+        Image.setLayoutParams(i1);
+        Image.setImageResource(r.ImageId);
+        Image.setBackgroundResource(R.drawable.image_border);
+        Image.setScaleType(ImageView.ScaleType.FIT_XY);
+        Image.setPadding(10,10,10,10);
+
+        return Image;
+    }
+    public LinearLayout getLayout(TextView Text,ImageView Image1, ImageView Image2, ImageView Image3){
+        LinearLayout DIYL_1 = new LinearLayout(HistoryRecipe.this);
+
+        LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
+        //l1.setMargins(0,marginTB,0,0);
+        DIYL_1.setLayoutParams(l1);
+        DIYL_1.setPadding(0,marginTB,0,0);
+        DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
+        DIYL_1.addView(Text);
+        DIYL_1.addView(Image1);
+        DIYL_1.addView(Image2);
+        DIYL_1.addView(Image3);
+
+        return DIYL_1;
+    }
+
+    public void changeLayout(){
+        if (Splash.Myuser.HistoryRecipe != null) {
+            for (int i = 0; i < Splash.Myuser.HistoryRecipe.size(); i++) {
+                ImageView [] HistoryImage = new ImageView[3];
+                TextView HistoryNum = new TextView(HistoryRecipe.this);
+                LinearLayout.LayoutParams TextParams = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
+                TextParams.setMarginStart(marginTB);
+                HistoryNum.setLayoutParams(TextParams);
+                HistoryNum.setText(String.valueOf(i+1));
+                HistoryNum.setTextSize(60);
+                HistoryNum.setTypeface(Typeface.SERIF);
+                HistoryNum.setGravity(Gravity.CENTER);
+                HistoryNum.setTextColor(getResources().getColor(R.color.Themecolor5));
+                for (int j = 0; j < Splash.Myuser.HistoryRecipe.get(i).length; j++) {
+                    HistoryImage[j] = getImage(Splash.Myuser.HistoryRecipe.get(i)[j]);
+                    HistoryImage[j].setId(Splash.Myuser.HistoryRecipe.get(i)[j].ImageId);
+                    count++;
+                    if (count == 3){
+                        LinearLayout.LayoutParams ImageParams = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
+                        ImageParams.setMarginStart(marginTB);
+                        ImageParams.setMarginEnd(marginTB);
+                        HistoryImage[j].setLayoutParams(ImageParams);
+                    }
+                }
+                LinearLayout L1 = getLayout(HistoryNum,HistoryImage[0], HistoryImage[1], HistoryImage[2]);
+                int finalI = i;
+                L1.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+
+                        BaseActivity.LinkRecipeList = Splash.Myuser.HistoryRecipe.get(finalI);
+                        Intent intent=new Intent(HistoryRecipe.this,Step_by_step.class);
+                        startActivity(intent);
+                    }
+                });
+                History.addView(L1);
+
+            }
+        }
+    }
+}

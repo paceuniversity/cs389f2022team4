@@ -18,6 +18,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -32,6 +35,8 @@ public class diyrecipes_2 extends BaseActivity {
     private static boolean ChangePageByButton=false;
     private ImageView Confirm;
     private boolean ReturnfromSteps = false;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String uid = user.getUid();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,7 @@ public class diyrecipes_2 extends BaseActivity {
 
             @Override
             public void onClick(View v) {
+                DatabaseReference myRef = db.getReference();
                 if(stage>=1) {
                     ReturnfromSteps=true;
                     stage=0;
@@ -60,10 +66,17 @@ public class diyrecipes_2 extends BaseActivity {
                         totalCalorie += LinkRecipeList[i].GetRecipeCalorie(GetMaxCalorie());
                     }
                 }
+                Splash.Myuser.setHistoryRecipe(LinkRecipeList);
+                for (int i = 0; i < LinkRecipeList.length; i++){
+                    myRef.child("users").child(uid).child("History").child(String.valueOf(Splash.Myuser.HistoryRecipe.size())).child(String.valueOf(LinkRecipeList[i].ImageId)).setValue(String.valueOf(Splash.Myuser.HistoryRecipe.size()));
+                }
                 TempCalorie=0;
                 AnimateTempCalorie=0;
                 progressbar.setSecondaryProgress(0);
                 AddCalorie(totalCalorie);
+
+                myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(Calorie));
+                Splash.Myuser.setCalories(Splash.Myuser.getCalories() + totalCalorie);
                 Intent intent=new Intent(diyrecipes_2.this,Step_by_step.class);
                 startActivity(intent);
             }
