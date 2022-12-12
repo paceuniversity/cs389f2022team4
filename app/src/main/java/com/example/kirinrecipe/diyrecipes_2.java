@@ -68,7 +68,9 @@ public class diyrecipes_2 extends BaseActivity {
                 }
                 Splash.Myuser.setHistoryRecipe(LinkRecipeList);
                 for (int i = 0; i < LinkRecipeList.length; i++){
-                    myRef.child("users").child(uid).child("History").child(String.valueOf(Splash.Myuser.HistoryRecipe.size())).child(String.valueOf(LinkRecipeList[i].ImageId)).setValue(String.valueOf(Splash.Myuser.HistoryRecipe.size()));
+                    if(LinkRecipeList[i] != null){
+                        myRef.child("users").child(uid).child("History").child(String.valueOf(Splash.Myuser.HistoryRecipe.size())).child(String.valueOf(LinkRecipeList[i].ImageId)).setValue(String.valueOf(Splash.Myuser.HistoryRecipe.size()));
+                    }
                 }
                 TempCalorie=0;
                 AnimateTempCalorie=0;
