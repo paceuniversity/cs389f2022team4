@@ -52,7 +52,7 @@ public class HistoryRecipe extends AppCompatActivity {
 
         return Image;
     }
-    public LinearLayout getLayout(TextView Text,ImageView Image1, ImageView Image2, ImageView Image3){
+    public LinearLayout getLayout3(TextView Text,ImageView Image1, ImageView Image2, ImageView Image3){
         LinearLayout DIYL_1 = new LinearLayout(HistoryRecipe.this);
 
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
@@ -68,10 +68,39 @@ public class HistoryRecipe extends AppCompatActivity {
         return DIYL_1;
     }
 
+    public LinearLayout getLayout2(TextView Text,ImageView Image1, ImageView Image2){
+        LinearLayout DIYL_1 = new LinearLayout(HistoryRecipe.this);
+
+        LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
+        //l1.setMargins(0,marginTB,0,0);
+        DIYL_1.setLayoutParams(l1);
+        DIYL_1.setPadding(0,marginTB,0,0);
+        DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
+        DIYL_1.addView(Text);
+        DIYL_1.addView(Image1);
+        DIYL_1.addView(Image2);
+
+        return DIYL_1;
+    }
+
+    public LinearLayout getLayout(TextView Text,ImageView Image1){
+        LinearLayout DIYL_1 = new LinearLayout(HistoryRecipe.this);
+
+        LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
+        //l1.setMargins(0,marginTB,0,0);
+        DIYL_1.setLayoutParams(l1);
+        DIYL_1.setPadding(0,marginTB,0,0);
+        DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
+        DIYL_1.addView(Text);
+        DIYL_1.addView(Image1);
+
+        return DIYL_1;
+    }
+
     public void changeLayout(){
         if (Splash.Myuser.HistoryRecipe != null) {
             for (int i = 0; i < Splash.Myuser.HistoryRecipe.size(); i++) {
-                ImageView [] HistoryImage = new ImageView[3];
+                ImageView [] HistoryImage = new ImageView[Splash.Myuser.HistoryRecipe.get(i).length];
                 TextView HistoryNum = new TextView(HistoryRecipe.this);
                 LinearLayout.LayoutParams TextParams = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
                 TextParams.setMarginStart(marginTB);
@@ -82,28 +111,60 @@ public class HistoryRecipe extends AppCompatActivity {
                 HistoryNum.setGravity(Gravity.CENTER);
                 HistoryNum.setTextColor(getResources().getColor(R.color.Themecolor5));
                 for (int j = 0; j < Splash.Myuser.HistoryRecipe.get(i).length; j++) {
-                    HistoryImage[j] = getImage(Splash.Myuser.HistoryRecipe.get(i)[j]);
-                    HistoryImage[j].setId(Splash.Myuser.HistoryRecipe.get(i)[j].ImageId);
-                    count++;
-                    if (count == 3){
-                        LinearLayout.LayoutParams ImageParams = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
-                        ImageParams.setMarginStart(marginTB);
-                        ImageParams.setMarginEnd(marginTB);
-                        HistoryImage[j].setLayoutParams(ImageParams);
+                    if (Splash.Myuser.HistoryRecipe.get(i)[j] != null){
+                        HistoryImage[j] = getImage(Splash.Myuser.HistoryRecipe.get(i)[j]);
+                        HistoryImage[j].setId(Splash.Myuser.HistoryRecipe.get(i)[j].ImageId);
+                        count++;
+                        if (count == 3){
+                            LinearLayout.LayoutParams ImageParams = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
+                            ImageParams.setMarginStart(marginTB);
+                            ImageParams.setMarginEnd(marginTB);
+                            HistoryImage[j].setLayoutParams(ImageParams);
+                        }
                     }
-                }
-                LinearLayout L1 = getLayout(HistoryNum,HistoryImage[0], HistoryImage[1], HistoryImage[2]);
-                int finalI = i;
-                L1.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
 
-                        BaseActivity.LinkRecipeList = Splash.Myuser.HistoryRecipe.get(finalI);
-                        Intent intent=new Intent(HistoryRecipe.this,Step_by_step.class);
-                        startActivity(intent);
-                    }
-                });
-                History.addView(L1);
+                }
+                if (Splash.Myuser.HistoryRecipe.get(i)[0] != null && Splash.Myuser.HistoryRecipe.get(i)[1] != null && Splash.Myuser.HistoryRecipe.get(i)[2] != null ){
+                    LinearLayout L1 = getLayout3(HistoryNum,HistoryImage[0], HistoryImage[1], HistoryImage[2]);
+                    int finalI = i;
+                    L1.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+
+                            BaseActivity.LinkRecipeList = Splash.Myuser.HistoryRecipe.get(finalI);
+                            Intent intent=new Intent(HistoryRecipe.this,Step_by_step.class);
+                            startActivity(intent);
+                        }
+                    });
+                    History.addView(L1);
+                }else if (Splash.Myuser.HistoryRecipe.get(i)[0] != null && Splash.Myuser.HistoryRecipe.get(i)[1] != null && Splash.Myuser.HistoryRecipe.get(i)[2] == null ){
+                    LinearLayout L1 = getLayout2(HistoryNum,HistoryImage[0], HistoryImage[1]);
+                    int finalI = i;
+                    L1.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+
+                            BaseActivity.LinkRecipeList = Splash.Myuser.HistoryRecipe.get(finalI);
+                            Intent intent=new Intent(HistoryRecipe.this,Step_by_step.class);
+                            startActivity(intent);
+                        }
+                    });
+                    History.addView(L1);
+                }
+                else if (Splash.Myuser.HistoryRecipe.get(i)[0] != null && Splash.Myuser.HistoryRecipe.get(i)[1] == null && Splash.Myuser.HistoryRecipe.get(i)[2] == null ){
+                    LinearLayout L1 = getLayout(HistoryNum,HistoryImage[0]);
+                    int finalI = i;
+                    L1.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+
+                            BaseActivity.LinkRecipeList = Splash.Myuser.HistoryRecipe.get(finalI);
+                            Intent intent=new Intent(HistoryRecipe.this,Step_by_step.class);
+                            startActivity(intent);
+                        }
+                    });
+                    History.addView(L1);
+                }
 
             }
         }
