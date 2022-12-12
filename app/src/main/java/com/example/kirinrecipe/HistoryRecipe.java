@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,14 +45,13 @@ public class HistoryRecipe extends AppCompatActivity {
             noHistory.setText("You don't have any history recipes yet!");
         }else {
             changeLayout();
-
         }
     }
 
     public ImageView getImage(recipe r){
         ImageView Image = new ImageView(HistoryRecipe.this);
         LinearLayout.LayoutParams i1 = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
-        i1.setMarginStart(marginTB);
+        i1.setMarginStart(marginTB/2);
         Image.setLayoutParams(i1);
         Image.setImageResource(r.ImageId);
         Image.setBackgroundResource(R.drawable.image_border);
@@ -110,7 +110,7 @@ public class HistoryRecipe extends AppCompatActivity {
             for (int i = 0; i < Splash.Myuser.HistoryRecipe.size(); i++) {
                 ImageView [] HistoryImage = new ImageView[Splash.Myuser.HistoryRecipe.get(i).length];
                 TextView HistoryNum = new TextView(HistoryRecipe.this);
-                LinearLayout.LayoutParams TextParams = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
+                LinearLayout.LayoutParams TextParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 TextParams.setMarginStart(marginTB);
                 HistoryNum.setLayoutParams(TextParams);
                 HistoryNum.setText(String.valueOf(i+1));
@@ -125,8 +125,8 @@ public class HistoryRecipe extends AppCompatActivity {
                         count++;
                         if (count == 3){
                             LinearLayout.LayoutParams ImageParams = new LinearLayout.LayoutParams(imageSize/2, imageSize/2);
-                            ImageParams.setMarginStart(marginTB);
-                            ImageParams.setMarginEnd(marginTB);
+                            ImageParams.setMarginStart(marginTB/2);
+                            ImageParams.setMarginEnd(marginTB/2);
                             HistoryImage[j].setLayoutParams(ImageParams);
                         }
                     }

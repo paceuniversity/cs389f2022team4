@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.checkerframework.checker.units.qual.K;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Timer;
@@ -74,7 +75,15 @@ public class Splash extends AppCompatActivity {
                             }
                             if(String.valueOf(task.getResult().child("History").getValue())!="null"){
                                 String History = String.valueOf(task.getResult().child("History").getValue());
-                                int size = Integer.parseInt(History.substring(History.length()-3,History.length()-2));
+                                Pattern pattern0 = Pattern.compile("=");
+                                Matcher findMatcher0 = pattern0.matcher(History);
+                                ArrayList<Integer> equal2 = new ArrayList<Integer>();
+                                int e2 = 0;
+                                while(findMatcher0.find()) {
+                                    equal2.add(findMatcher0.start());
+                                    e2++;
+                                }
+                                int size = Integer.parseInt(History.substring(equal2.get(equal2.size()-1)+1,History.length()-2));
                                 Log.d("History","history " + History + " " +  size);
 
                                 for (int i = 0; i < size; i++){
@@ -114,9 +123,9 @@ public class Splash extends AppCompatActivity {
                                         //Log.d("History","Recipes " + TempHistory[n].ImageId + " " + TempHistory[n].type);
                                     }
                                     Splash.Myuser.setHistoryRecipe(TempHistory);
-                                    Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[0].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[0].type);
-                                    Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[1].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[1].type);
-                                    Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[2].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[2].type);
+                                    //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(i)[0].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[0].type);
+                                    //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(i)[1].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[1].type);
+                                    //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(i)[2].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[2].type);
 
 
                                 }
