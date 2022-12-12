@@ -473,10 +473,10 @@ class recipe{
                             continue;
                         }
                     }
-                    else if(text.charAt(i)<'9'&&text.charAt(i)>'0'){
+                    else if(text.charAt(i)<='9'&&text.charAt(i)>='0'){
                         amount+=text.charAt(i)+"";
                         while(++i<text.length()){
-                            if(text.charAt(i)<'9'&&text.charAt(i)>'0'){
+                            if(text.charAt(i)<='9'&&text.charAt(i)>='0'){
                                 amount+=text.charAt(i)+"";
                             }
                             else{
@@ -485,6 +485,7 @@ class recipe{
                         }
                         i--;
                         int TempAmount=Integer.valueOf(amount.toString());
+                        //Log.d("eggp",TempAmount+"haha "+amount);
                         TempAmount*=GetRecipeAmount(MaxCalorie);
                         result+=String.valueOf(TempAmount);
                         amount="";
