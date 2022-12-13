@@ -133,7 +133,7 @@ public class Splash extends AppCompatActivity {
                                     Integer.valueOf(String.valueOf(task.getResult().child("Date").getValue())) != Calendar.getInstance().get(Calendar.DAY_OF_MONTH)){
                                 myRef.child("users").child(uid).child("Calories").setValue(0);
                                 myRef.child("users").child(uid).child("Date").setValue(String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)));
-
+                                Myuser.setCalories(0);
                             }
 
                         }
