@@ -44,7 +44,6 @@ public class Splash extends AppCompatActivity {
         //Log.e("firebase", "time"+ Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
         if(user!=null){
             String uid = user.getUid();
-
             DatabaseReference myRef = db.getReference();
             myRef.child("users").child(uid).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
@@ -130,6 +129,12 @@ public class Splash extends AppCompatActivity {
                                 }
 
 
+                            }
+                            if (String.valueOf(task.getResult().child("Date").getValue())!="null" &&
+                                    Integer.valueOf(String.valueOf(task.getResult().child("Date").getValue())) != Calendar.getInstance().get(Calendar.DAY_OF_MONTH)){
+                                myRef.child("users").child(uid).child("Calories").setValue(0);
+                                myRef.child("users").child(uid).child("Date").setValue(String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)));
+                                Myuser.setCalories(0);
                             }
 
                         }

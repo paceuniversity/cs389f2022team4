@@ -60,7 +60,7 @@ public class HistoryRecipe extends AppCompatActivity {
 
         return Image;
     }
-    public LinearLayout getLayout3(TextView Text,ImageView Image1, ImageView Image2, ImageView Image3){
+    public LinearLayout getLayout3(ImageView Image1, ImageView Image2, ImageView Image3){
         LinearLayout DIYL_1 = new LinearLayout(HistoryRecipe.this);
 
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
@@ -68,7 +68,6 @@ public class HistoryRecipe extends AppCompatActivity {
         DIYL_1.setLayoutParams(l1);
         DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
-        DIYL_1.addView(Text);
         DIYL_1.addView(Image1);
         DIYL_1.addView(Image2);
         DIYL_1.addView(Image3);
@@ -76,7 +75,7 @@ public class HistoryRecipe extends AppCompatActivity {
         return DIYL_1;
     }
 
-    public LinearLayout getLayout2(TextView Text,ImageView Image1, ImageView Image2){
+    public LinearLayout getLayout2(ImageView Image1, ImageView Image2){
         LinearLayout DIYL_1 = new LinearLayout(HistoryRecipe.this);
 
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
@@ -84,14 +83,13 @@ public class HistoryRecipe extends AppCompatActivity {
         DIYL_1.setLayoutParams(l1);
         DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
-        DIYL_1.addView(Text);
         DIYL_1.addView(Image1);
         DIYL_1.addView(Image2);
 
         return DIYL_1;
     }
 
-    public LinearLayout getLayout(TextView Text,ImageView Image1){
+    public LinearLayout getLayout(ImageView Image1){
         LinearLayout DIYL_1 = new LinearLayout(HistoryRecipe.this);
 
         LinearLayout.LayoutParams l1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,2.0f);
@@ -99,7 +97,6 @@ public class HistoryRecipe extends AppCompatActivity {
         DIYL_1.setLayoutParams(l1);
         DIYL_1.setPadding(0,marginTB,0,0);
         DIYL_1.setOrientation(LinearLayout.HORIZONTAL);
-        DIYL_1.addView(Text);
         DIYL_1.addView(Image1);
 
         return DIYL_1;
@@ -109,7 +106,7 @@ public class HistoryRecipe extends AppCompatActivity {
         if (Splash.Myuser.HistoryRecipe != null) {
             for (int i = 0; i < Splash.Myuser.HistoryRecipe.size(); i++) {
                 ImageView [] HistoryImage = new ImageView[Splash.Myuser.HistoryRecipe.get(i).length];
-                TextView HistoryNum = new TextView(HistoryRecipe.this);
+                /*TextView HistoryNum = new TextView(HistoryRecipe.this);
                 LinearLayout.LayoutParams TextParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 TextParams.setMarginStart(marginTB);
                 HistoryNum.setLayoutParams(TextParams);
@@ -117,7 +114,7 @@ public class HistoryRecipe extends AppCompatActivity {
                 HistoryNum.setTextSize(60);
                 HistoryNum.setTypeface(Typeface.SERIF);
                 HistoryNum.setGravity(Gravity.CENTER);
-                HistoryNum.setTextColor(getResources().getColor(R.color.Themecolor5));
+                HistoryNum.setTextColor(getResources().getColor(R.color.Themecolor5));*/
                 for (int j = 0; j < Splash.Myuser.HistoryRecipe.get(i).length; j++) {
                     if (Splash.Myuser.HistoryRecipe.get(i)[j] != null){
                         HistoryImage[j] = getImage(Splash.Myuser.HistoryRecipe.get(i)[j]);
@@ -133,7 +130,7 @@ public class HistoryRecipe extends AppCompatActivity {
 
                 }
                 if (Splash.Myuser.HistoryRecipe.get(i)[0] != null && Splash.Myuser.HistoryRecipe.get(i)[1] != null && Splash.Myuser.HistoryRecipe.get(i)[2] != null ){
-                    LinearLayout L1 = getLayout3(HistoryNum,HistoryImage[0], HistoryImage[1], HistoryImage[2]);
+                    LinearLayout L1 = getLayout3(HistoryImage[0], HistoryImage[1], HistoryImage[2]);
                     int finalI = i;
                     L1.setOnClickListener(new View.OnClickListener(){
                         @Override
@@ -146,7 +143,7 @@ public class HistoryRecipe extends AppCompatActivity {
                     });
                     History.addView(L1);
                 }else if (Splash.Myuser.HistoryRecipe.get(i)[0] != null && Splash.Myuser.HistoryRecipe.get(i)[1] != null && Splash.Myuser.HistoryRecipe.get(i)[2] == null ){
-                    LinearLayout L1 = getLayout2(HistoryNum,HistoryImage[0], HistoryImage[1]);
+                    LinearLayout L1 = getLayout2(HistoryImage[0], HistoryImage[1]);
                     int finalI = i;
                     L1.setOnClickListener(new View.OnClickListener(){
                         @Override
@@ -160,7 +157,7 @@ public class HistoryRecipe extends AppCompatActivity {
                     History.addView(L1);
                 }
                 else if (Splash.Myuser.HistoryRecipe.get(i)[0] != null && Splash.Myuser.HistoryRecipe.get(i)[1] == null && Splash.Myuser.HistoryRecipe.get(i)[2] == null ){
-                    LinearLayout L1 = getLayout(HistoryNum,HistoryImage[0]);
+                    LinearLayout L1 = getLayout(HistoryImage[0]);
                     int finalI = i;
                     L1.setOnClickListener(new View.OnClickListener(){
                         @Override
