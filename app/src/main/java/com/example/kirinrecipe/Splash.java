@@ -69,7 +69,7 @@ public class Splash extends AppCompatActivity {
                             Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age,Calories);
                             if(String.valueOf(task.getResult().child("LikeRecipeList").getValue())!="null"){
                                 for(int i=0;i<55;i++){
-                                    Myuser.LikeRecipe[i]=Boolean.valueOf(task.getResult().child("LikeRecipeList").child("LikeRecipe?"+i).getValue().toString());
+                                    Myuser.LikeRecipe[i]=IfLike.valueOf(task.getResult().child("LikeRecipeList").child("LikeRecipe?"+i).getValue().toString());
                                 }
                             }
                             if(String.valueOf(task.getResult().child("History").getValue())!="null"){
@@ -113,9 +113,9 @@ public class Splash extends AppCompatActivity {
                                             int commaIndex = comma[x] + 2;
                                             history[m] = Integer.parseInt(histories.substring(commaIndex,equal[m]));
                                         }
-                                        Log.d("History","Key " + history[m]);
+                                        //Log.d("History","Key " + history[m]);
                                     }
-                                    Log.d("History","Key " + histories);
+                                    //Log.d("History","Key " + histories);
                                     recipe [] TempHistory = new recipe[3];
                                     for (int n = 0; n < history.length; n++){
                                         TempHistory[n] = BaseActivity.MyrecipeList.FindRecipeByID(history[n]);

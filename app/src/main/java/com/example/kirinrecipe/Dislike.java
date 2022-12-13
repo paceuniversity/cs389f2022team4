@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,9 @@ public class Dislike extends AppCompatActivity {
     private int imageSize, marginSE, marginTB;
     private int count = 0;
     private LinearLayout DislikeLayout;
+    public static boolean flag2=false;
     TextView noDislike;
+    int j=1;
     private ArrayList<recipe> DislikeRecipeList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +32,31 @@ public class Dislike extends AppCompatActivity {
         imageSize = (int) getResources().getDimension(R.dimen.about_image_size);
         marginSE = (int) getResources().getDimension(R.dimen.margin_se);
         marginTB = (int) getResources().getDimension(R.dimen.margin_tb);
-        DislikeRecipeList = BaseActivity.MyrecipeList.GetAllSpecific(BaseActivity.MyrecipeList.translate(Splash.Myuser.getDislike()), true);
-        if (BaseActivity.MyrecipeList.GetAllSpecific(BaseActivity.MyrecipeList.translate(Splash.Myuser.getDislike()), true) != null){
+        boolean flag1= false;
+        flag2=true;
+        for(IfLike r : Splash.Myuser.LikeRecipe){
+            if(r==IfLike.Dislike){
+                flag1=true;
+                break;
+            }
+        }
+        //Log.d("create","haha");
+        if (flag1){
             changeLayout();
         }else {
             noDislike.setText("You don't have any history recipes yet!");
         }
+    }
 
+    @Override
+    protected void onStart() {
+        //Log.d("create","haha2");
+        if(!flag2){
+            Intent intent=new Intent(Dislike.this,Settingpage.class);
+            startActivity(intent);
+        }
+        flag2=false;
+        super.onStart();
     }
 
     public ImageView getImage(recipe r){
@@ -47,7 +68,6 @@ public class Dislike extends AppCompatActivity {
         Image.setBackgroundResource(R.drawable.image_border);
         Image.setScaleType(ImageView.ScaleType.FIT_XY);
         Image.setPadding(10,10,10,10);
-
         return Image;
     }
 
@@ -79,34 +99,40 @@ public class Dislike extends AppCompatActivity {
     }
 
     public void changeLayout() {
-        if (BaseActivity.MyrecipeList.GetAllSpecific(BaseActivity.MyrecipeList.translate(Splash.Myuser.getDislike()), true) != null && DislikeRecipeList != null) {
-            for (int i = 0; i < DislikeRecipeList.size(); i++) {
-                TextView DislikeNum = new TextView(Dislike.this);
-                LinearLayout.LayoutParams TextParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                TextParams.setMarginStart(marginTB);
-                DislikeNum.setLayoutParams(TextParams);
-                DislikeNum.setText(String.valueOf(i + 1));
-                DislikeNum.setTextSize(60);
-                DislikeNum.setTypeface(Typeface.SERIF);
-                DislikeNum.setGravity(Gravity.CENTER);
-                DislikeNum.setTextColor(getResources().getColor(R.color.Themecolor5));
-                ImageView DeleteButton = getRemoveImage();
-                LinearLayout L1 = getLayout(DislikeNum, DeleteButton, getImage(DislikeRecipeList.get(i)));
-                int finalI = i;
-                L1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        DislikeRecipeList.remove(finalI);
-                        DislikeLayout.removeAllViews();
-                        BaseActivity.MyrecipeList.GetAllSpecific(BaseActivity.MyrecipeList.translate(Splash.Myuser.getDislike()), true).remove(finalI);
-                        changeLayout();
-                    }
-                });
 
-                DislikeLayout.addView(L1);
+        //if (BaseActivity.MyrecipeList.GetAllSpecific(BaseActivity.MyrecipeList.translate(Splash.Myuser.getDislike()), true) != null && DislikeRecipeList != null) {
+            for (int i = 0; i < Splash.Myuser.LikeRecipe.length; i++) {
+                if(Splash.Myuser.LikeRecipe[i]==IfLike.Dislike){
+                    TextView DislikeNum = new TextView(Dislike.this);
+                    LinearLayout.LayoutParams TextParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    TextParams.setMarginStart(marginTB);
+                    DislikeNum.setLayoutParams(TextParams);
+                    DislikeNum.setText(String.valueOf(j++));
+                    DislikeNum.setTextSize(60);
+                    DislikeNum.setTypeface(Typeface.SERIF);
+                    DislikeNum.setGravity(Gravity.CENTER);
+                    DislikeNum.setTextColor(getResources().getColor(R.color.Themecolor5));
+                    ImageView DeleteButton = getRemoveImage();
+                    LinearLayout L1 = getLayout(DislikeNum, DeleteButton, getImage(BaseActivity.MyrecipeList.list[i]));
+                    int finalI = i;
+                    L1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            DislikeLayout.removeAllViews();
+                            BaseActivity.MyrecipeList.list[finalI].iflike=IfLike.Normal;
+                            Splash.Myuser.LikeRecipe[finalI]=IfLike.Normal;
+                            Splash.Myuser.updateInfo();
+                            flag2=true;
+                            Intent intent=new Intent(Dislike.this,Dislike.class);
+                            startActivity(intent);
+                        }
+                    });
+                    DislikeLayout.addView(L1);
+                }
 
 
-            }
+
+
         }
     }
 }

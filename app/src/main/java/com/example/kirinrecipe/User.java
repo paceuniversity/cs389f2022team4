@@ -19,7 +19,7 @@ public class User {
     private String Name,Gender,Favorite,Dislike,ID;
     private double Weight,Height;
 
-    boolean[] LikeRecipe=new boolean[55];
+    IfLike[] LikeRecipe=new IfLike[55];
     private int Age, Calories;
     private int HistoryAmount=0;
     public ArrayList <recipe[]> HistoryRecipe= new ArrayList<>();
@@ -36,7 +36,7 @@ public class User {
 
     public User(String Name, String Gender, String Favorite, String Dislike,String ID,
                 double Weight, double Height, int Age, int Calories){
-        for(int i=0;i<55;i++)LikeRecipe[i]=false;
+        for(int i=0;i<55;i++)LikeRecipe[i]=IfLike.Normal;
         this.Name = Name;
         this.Gender = Gender;
         this.Favorite = Favorite;
@@ -155,7 +155,6 @@ public class User {
         for(int i=0;i<55;i++){
             myRef.child("users").child(ID).child("LikeRecipeList").child("LikeRecipe?"+i).setValue(LikeRecipe[i]);
         }
-
     }
 
 
