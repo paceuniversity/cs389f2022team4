@@ -82,15 +82,15 @@
 
         <ImageView
             android:id="@+id/LikeButton"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:src="@drawable/like_icon"
             android:onClick="Like" />
         <ImageView
             android:id="@+id/DislikeButton"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:src="@drawable/dislike_icon"/>
 
