@@ -108,7 +108,7 @@ public class Login extends AppCompatActivity {
                             Splash.Myuser = new User(Name,Gender,Favorite,Dislike,ID,Weight,Height,Age,Calories);
                             if(String.valueOf(task.getResult().child("LikeRecipeList").getValue())!="null"){
                                 for(int i=0;i<55;i++){
-                                    Splash.Myuser.LikeRecipe[i]=Boolean.valueOf(task.getResult().child("LikeRecipeList").child("LikeRecipe?"+i).getValue().toString());
+                                    Splash.Myuser.LikeRecipe[i]=IfLike.valueOf(task.getResult().child("LikeRecipeList").child("LikeRecipe?"+i).getValue().toString());
                                 }
                             }
                             if(String.valueOf(task.getResult().child("History").getValue())!="null"){
@@ -135,7 +135,7 @@ public class Login extends AppCompatActivity {
                                         comma[c] = findMatcher.start();
                                         c++;
                                     }
-                                    int [] history = new int[3];
+                                    int [] history = new int[j];
                                     for (int m = 0; m < history.length; m++){
                                         if (m == 0){
                                             history[m] = Integer.parseInt(histories.substring(1,equal[m]));

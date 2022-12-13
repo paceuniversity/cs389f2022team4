@@ -67,5 +67,11 @@ public class Settingpage extends AppCompatActivity {
         // [END auth_fui_signout]
     }
 
+    public void GotoDislike(View view) {
+        //Dislike.flag2=true;
+        Intent intent=new Intent(Settingpage.this,Dislike.class);
+        startActivity(intent);
+    }
+
 
 }

@@ -32,7 +32,6 @@ public class RecipeList {
     recipe[] list = new recipe[55];
     boolean[] LikeRecipe=new boolean[55];
     RecipeList(){
-        LikeRecipe=Splash.Myuser.LikeRecipe;
         list[0]=new recipe(R.drawable.scalded_prawns,150,RecipeType.Seafood,false,0);
         list[0].FullTextId= R.string.scalded_prawns;
         list[1]=new recipe(R.drawable.char_siu,206,RecipeType.Pork,true,8);
@@ -189,7 +188,7 @@ public class RecipeList {
         list[54].FullTextId=R.string.buddha_jumps_over_the_wall;
 
         for(int i=0;i<55;i++){
-            list[i].Like=LikeRecipe[i];
+            list[i].iflike=Splash.Myuser.LikeRecipe[i];
         }
 
     }
@@ -198,20 +197,29 @@ public class RecipeList {
         int Amount = 0;
         ArrayList <recipe> result = new ArrayList<>();
         for(recipe r : list){
-
-            if(r.type==R){
-                if(maindish){
-                    if(r.MainDish){
-                        Amount++;
-                        result.add(r);
+            if(r.iflike!=IfLike.Dislike){
+                if(r.type==R){
+                    if(maindish){
+                        if(r.MainDish){
+                            Amount++;
+                            result.add(r);
+                        }
+                    }
+                    else{
+                        if(!r.MainDish){
+                            Amount++;
+                            result.add(r);
+                        }
                     }
                 }
-                else{
-                    if(!r.MainDish){
-                        Amount++;
-                        result.add(r);
-                    }
-                }
+            }
+        }
+        int i=0;
+        for(int j=0;j<result.size();j++){
+            if(result.get(j).iflike==IfLike.Like){
+                recipe temp=result.get(j);
+                result.set(j,result.get(i));
+                result.set(i++,temp);
             }
         }
         if(Amount>0)return result;
@@ -237,7 +245,7 @@ public class RecipeList {
         ArrayList <recipe> result = GetAllSubDish();
         for(recipe subdish: result){
             subdish.Pivot+=AddPivotToRecipeBaseOnOil(maindish,subdish);
-            if(subdish.Like)subdish.Pivot+=1000;
+            if(subdish.iflike==IfLike.Like)subdish.Pivot+=1000;
             //Log.d("", "percalorie"+subdish.perCalorie+"type"+subdish.type+"SubDishPivot"+ subdish.Pivot);
             if(subdish.type!=maindish.type&& (subdish.type==RecipeType.Vegetables|maindish.type==RecipeType.Vegetables)){
                 //have one and only one vegetables
@@ -328,6 +336,7 @@ public class RecipeList {
         for(int i=0;i<55;i++){
             if(list[i].ImageId==ImageId){
                 list[i].iflike=ifLike;
+                Splash.Myuser.LikeRecipe[i]=ifLike;
                 Splash.Myuser.updateInfo();
             }
         }
@@ -386,7 +395,6 @@ class recipe{
     float Pivot=0;
     int oil;
     int FullTextId;
-    public boolean Like=false;
     public IfLike iflike=IfLike.Normal;
     recipe(){}
 
