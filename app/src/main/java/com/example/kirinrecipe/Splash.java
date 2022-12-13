@@ -96,7 +96,7 @@ public class Splash extends AppCompatActivity {
                                         comma[c] = findMatcher.start();
                                         c++;
                                     }
-                                    int [] history = new int[3];
+                                    int [] history = new int[j];
                                     for (int m = 0; m < history.length; m++){
                                         if (m == 0){
                                             history[m] = Integer.parseInt(histories.substring(1,equal[m]));
@@ -117,7 +117,6 @@ public class Splash extends AppCompatActivity {
                                     Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[0].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[0].type);
                                     Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[1].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[1].type);
                                     Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(0)[2].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[2].type);
-
 
                                 }
 
