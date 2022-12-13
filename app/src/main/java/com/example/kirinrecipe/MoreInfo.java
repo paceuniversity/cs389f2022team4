@@ -14,7 +14,6 @@ import org.w3c.dom.Text;
 public class MoreInfo extends BaseActivity {
     private TextView moreinfo;
     private ImageView Heart;
-    private boolean IfLikeRecipe=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,24 +21,24 @@ public class MoreInfo extends BaseActivity {
         moreinfo = (TextView) super.findViewById(R.id.Recipe_MoreInfo);
         moreinfo.setText(recipeInfo.FullTextId);
         Heart=findViewById(R.id.LikeButton);
-        if(MyrecipeList.IfLikeRecipe(recipeInfo.ImageId)){
+        if(MyrecipeList.IfLikeRecipe(recipeInfo.ImageId)==IfLike.Like){
             Heart.setColorFilter(getResources().getColor(R.color.red));
-            IfLikeRecipe=true;
         }
     }
 
     public void Like(View view) {
-        if(!IfLikeRecipe){
-            MyrecipeList.SetLikeRecipe(recipeInfo.ImageId);
+        if(MyrecipeList.IfLikeRecipe(recipeInfo.ImageId)==IfLike.Normal){
+            MyrecipeList.SetLikeOrDislikeRecipe(recipeInfo.ImageId,IfLike.Like);
             Heart.setColorFilter(getResources().getColor(R.color.red));
-            IfLikeRecipe=true;
         }
-        else{
-            IfLikeRecipe=false;
-            MyrecipeList.SetLikeRecipe(recipeInfo.ImageId);
+        else if(MyrecipeList.IfLikeRecipe(recipeInfo.ImageId)==IfLike.Like){
+            MyrecipeList.SetLikeOrDislikeRecipe(recipeInfo.ImageId,IfLike.Normal);
             Heart.setColorFilter(getResources().getColor(R.color.Themecolor5));
         }
-        //Heart.setBackgroundColor();
     }
 
+    public void DisLike(View view) {
+        MyrecipeList.SetLikeOrDislikeRecipe(recipeInfo.ImageId,IfLike.Dislike);
+        Heart.setColorFilter(getResources().getColor(R.color.Themecolor5));
+    }
 }

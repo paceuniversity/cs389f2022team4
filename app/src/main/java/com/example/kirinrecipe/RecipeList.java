@@ -22,6 +22,12 @@ enum RecipeType
     Poultry,
     Soup,
 }
+enum IfLike
+{
+    Normal,
+    Like,
+    Dislike
+}
 public class RecipeList {
     recipe[] list = new recipe[55];
     boolean[] LikeRecipe=new boolean[55];
@@ -318,26 +324,22 @@ public class RecipeList {
         return null;
     }
 
-    public recipe SetLikeRecipe(int ImageId){
+    public void SetLikeOrDislikeRecipe(int ImageId,IfLike ifLike){
         for(int i=0;i<55;i++){
             if(list[i].ImageId==ImageId){
-                if(LikeRecipe[i]==true){
-                    LikeRecipe[i]=false;
-                }
-                else LikeRecipe[i]=true;
+                list[i].iflike=ifLike;
                 Splash.Myuser.updateInfo();
             }
         }
-        return null;
     }
 
-    public boolean IfLikeRecipe(int ImageId){
+    public IfLike IfLikeRecipe(int ImageId){
         for(int i=0;i<55;i++){
             if(list[i].ImageId==ImageId){
-                return LikeRecipe[i];
+                return list[i].iflike;
             }
         }
-        return false;
+        return IfLike.Normal;
     }
 
     public int GetImageId(int index){
@@ -385,6 +387,7 @@ class recipe{
     int oil;
     int FullTextId;
     public boolean Like=false;
+    public IfLike iflike=IfLike.Normal;
     recipe(){}
 
     public int getPivot(){return (int)Pivot;}

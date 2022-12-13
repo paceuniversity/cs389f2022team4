@@ -125,6 +125,7 @@ public class Splash extends AppCompatActivity {
                                     //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(i)[0].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[0].type);
                                     //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(i)[1].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[1].type);
                                     //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(i)[2].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[2].type);
+
                                 }
 
 
