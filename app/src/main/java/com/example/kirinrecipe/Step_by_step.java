@@ -82,6 +82,7 @@ public class Step_by_step extends BaseActivity {
                 });
             }
         }
+        LinkRecipeList = new recipe[3];
 
     }
 
