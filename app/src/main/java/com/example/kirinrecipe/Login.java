@@ -30,6 +30,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -112,8 +113,17 @@ public class Login extends AppCompatActivity {
                                 }
                             }
                             if(String.valueOf(task.getResult().child("History").getValue())!="null"){
+
                                 String History = String.valueOf(task.getResult().child("History").getValue());
-                                int size = Integer.parseInt(History.substring(History.length()-3,History.length()-2));
+                                Pattern pattern0 = Pattern.compile("=");
+                                Matcher findMatcher0 = pattern0.matcher(History);
+                                ArrayList<Integer> equal2 = new ArrayList<Integer>();
+                                int e2 = 0;
+                                while(findMatcher0.find()) {
+                                    equal2.add(findMatcher0.start());
+                                    e2++;
+                                }
+                                int size = Integer.parseInt(History.substring(equal2.get(equal2.size()-1)+1,History.length()-2));
                                 //Log.d("History","history " + History + " " +  size);
 
                                 for (int i = 0; i < size; i++){
