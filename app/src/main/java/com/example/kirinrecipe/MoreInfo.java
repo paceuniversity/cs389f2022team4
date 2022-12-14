@@ -40,5 +40,6 @@ public class MoreInfo extends BaseActivity {
     public void DisLike(View view) {
         MyrecipeList.SetLikeOrDislikeRecipe(recipeInfo.ImageId,IfLike.Dislike);
         Heart.setColorFilter(getResources().getColor(R.color.Themecolor5));
+        finish();
     }
 }
