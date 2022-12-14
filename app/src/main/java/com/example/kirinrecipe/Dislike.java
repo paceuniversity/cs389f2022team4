@@ -130,6 +130,10 @@ public class Dislike extends AppCompatActivity {
                                 DIYL_1.addView(noDislike);
                                 DislikeLayout.addView(DIYL_1);
                             }
+                            else {
+                                j=1;
+                                changeLayout();
+                            }
 
                             //Intent intent=new Intent(Dislike.this,Dislike.class);
                             //startActivity(intent);

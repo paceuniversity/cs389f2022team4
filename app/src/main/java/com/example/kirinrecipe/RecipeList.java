@@ -237,7 +237,7 @@ public class RecipeList {
         ArrayList <recipe> result = new ArrayList<>();
         RecipeList cloneRecipe = new RecipeList();
         for(recipe r : cloneRecipe.list){
-            if(!r.MainDish&&r.ImageId!= except.ImageId)result.add(r);
+            if(!r.MainDish&&r.iflike!=IfLike.Dislike&&r.ImageId!= except.ImageId)result.add(r);
         }
         return result;
     }
