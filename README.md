@@ -54,8 +54,8 @@ Our app is designed to help people who are not residents of China learn about he
 
 * [Sprint planning](https://docs.google.com/document/d/1t0GMUZ_tSQteTmeu55MHhd4c5QyO1TpB5GusxCyuT1M/edit?usp=sharing) | [backlog](https://docs.google.com/spreadsheets/d/1r_N3y7DityhT2Ytg3oCRpiWHLLiWRi9mEHZhqaDs168/edit?usp=sharing)
 * [Scrums](https://docs.google.com/document/d/16HiNd7_p2Wo3FNkDyQvHOi_f4UEbpV8S_v_5RkEmsjQ/edit?usp=sharing)
-* [Sprint demo video](https://docs.google.com/document/d/1AJUdov3mPVhF3OQ_pgZxhRBZeQConDRzPnYeQFHlLaA/edit?usp=sharing)
-* [Sprint retrospective]()
+* [Sprint demo video](https://docs.google.com/document/d/1AJUdov3mPVhF3OQ_pgZxhRBZeQConDRzPnYeQFHlLaA/edit?usp=sharing) | [APK](https://drive.google.com/file/d/1JZf6olcwsbj3Te_lP57rxTv6Exo9p0g_/view?usp=share_link)
+* [Sprint retrospective](https://docs.google.com/document/d/157joXIh0_FUeh6JHkhl529JWLaFFoy3OJuEhJMyQfw0/edit?usp=sharing)
 
 ## Tools & APIs
 
