@@ -76,14 +76,12 @@ public class Login extends AppCompatActivity {
 
     }
 
-
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
-
             String uid = user.getUid();
             FirebaseDatabase db = FirebaseDatabase.getInstance("https://kirin-recipe-database-default-rtdb.firebaseio.com");
             DatabaseReference myRef = db.getReference();
