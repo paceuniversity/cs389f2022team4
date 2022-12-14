@@ -266,7 +266,7 @@ public class RecipeList {
         for(recipe subdish: result){
             subdish.Pivot+=AddPivotToRecipeBaseOnOil(maindish,subdish);
             //Log.d("", "percalorie"+subdish.perCalorie+"type"+subdish.type+"SubDishPivot"+ subdish.Pivot);
-            if(subdish.type!=maindish.type&& (subdish.type==RecipeType.Vegetables|maindish.type==RecipeType.Vegetables)){
+            if(subdish.type!=maindish.type&& subdish.iflike!=IfLike.Dislike&&(subdish.type==RecipeType.Vegetables|maindish.type==RecipeType.Vegetables)){
                 //have one and only one vegetables
                 //Log.d("", "percalorie"+subdish.perCalorie+"type"+subdish.type+"SubDishPivot"+ subdish.Pivot);
                 subdish.Pivot*=(1.5f+ 0.3f*(1f-2*Math.random()));
