@@ -127,8 +127,6 @@ public class Splash extends AppCompatActivity {
                                     //Log.d("History","Recipes " + Splash.Myuser.HistoryRecipe.get(i)[2].ImageId + " " + Splash.Myuser.HistoryRecipe.get(0)[2].type);
 
                                 }
-
-
                             }
                             if (String.valueOf(task.getResult().child("Date").getValue())!="null" &&
                                     Integer.valueOf(String.valueOf(task.getResult().child("Date").getValue())) != Calendar.getInstance().get(Calendar.DAY_OF_MONTH)){

@@ -39,6 +39,7 @@ public class BaseActivity extends AppCompatActivity {
     public  void CreateProgress(){
         progressbar=findViewById(R.id.progressBar2);
         if(MaxCalorie!= GetMaxCalorie()){
+            resetCalorie();
             MaxCalorie=GetMaxCalorie();
         }
         progressbar.setMax(MaxCalorie);
@@ -47,8 +48,14 @@ public class BaseActivity extends AppCompatActivity {
         textView=findViewById(R.id.ProgressBarText);
         int currentC=Calorie+TempCalorie;
         textView.setText("Toady's Calories: "+currentC+" / "+ MaxCalorie);
-        Log.d("", "CalorieCreate"+Calorie+" "+AnimateTempCalorie+" "+progressbar.getMax());
+        //Log.d("", "CalorieCreate"+Calorie+" "+AnimateTempCalorie+" "+progressbar.getMax());
 
+    }
+    void resetCalorie(){
+        AnimateCalorie=Splash.Myuser.getCalories();
+        AnimateTempCalorie=0;
+        Calorie=Splash.Myuser.getCalories();
+        TempCalorie=0;
     }
     int GetMaxCalorie(){
         double result=0;
@@ -58,6 +65,8 @@ public class BaseActivity extends AppCompatActivity {
         else{
             result = 66.47+(13.75*Splash.Myuser.getWeight())+(5.003*Splash.Myuser.getHeight())-(6.755*Splash.Myuser.getAge());
         }
+        Log.d("hahaha", "hahahahCalorieCreate"+Splash.Myuser.getCalories());
+
         return (int)result;
     }
     //Set Weight
