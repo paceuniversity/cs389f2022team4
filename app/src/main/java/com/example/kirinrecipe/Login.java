@@ -100,6 +100,7 @@ public class Login extends AppCompatActivity {
                             Gender = String.valueOf(task.getResult().child("Gender").getValue());
                             Favorite = String.valueOf(task.getResult().child("Favorite").getValue());
                             Dislike = String.valueOf(task.getResult().child("Dislike").getValue());
+                            BaseActivity.MaxCalorie=0;
                             ID = uid;
                             Weight = Double.valueOf(task.getResult().child("Weight").getValue().toString());
                             Height = Double.valueOf(task.getResult().child("Height").getValue().toString());
@@ -111,6 +112,7 @@ public class Login extends AppCompatActivity {
                                     Splash.Myuser.LikeRecipe[i]=IfLike.valueOf(task.getResult().child("LikeRecipeList").child("LikeRecipe?"+i).getValue().toString());
                                 }
                             }
+
                             if(String.valueOf(task.getResult().child("History").getValue())!="null"){
 
                                 String History = String.valueOf(task.getResult().child("History").getValue());
