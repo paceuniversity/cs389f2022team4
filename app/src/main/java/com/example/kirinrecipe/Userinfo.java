@@ -25,6 +25,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
+
 public class Userinfo extends AppCompatActivity {
     private EditText editName, editID, editAge, editHeight, editWeight;
     private Spinner editGender, editFavorite, editDislike;
@@ -79,6 +81,7 @@ public class Userinfo extends AppCompatActivity {
                     myRef.child("users").child(uid).child("Favorite").setValue(strFavorite);
                     myRef.child("users").child(uid).child("Dislike").setValue(strDislike);
                     myRef.child("users").child(uid).child("Calories").setValue(String.valueOf(0));
+                    myRef.child("users").child(uid).child("Date").setValue(String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)));
                     String Name,  Gender,  Favorite,  Dislike, ID;
                     double Weight,  Height;
                     int Age, Calories;
