@@ -44,10 +44,7 @@ public class HomePage extends BaseActivity implements GestureDetector.OnGestureL
     protected void onStart() {
         CreateProgress();
         ModifyTempCalorie( 0);
-        if (count == 0){
-            AddCalorie(Splash.Myuser.getCalories());
-            count++;
-        }
+
         super.onStart();
     }
 
