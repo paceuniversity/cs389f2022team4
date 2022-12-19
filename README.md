@@ -70,8 +70,8 @@ Our app is designed to help people who are not residents of China learn about he
 
 ## Final delivery
 
-* [Final presentation]()
-* [Poster]()
+* [Final presentation](https://docs.google.com/presentation/d/1ap9I3Xeh1PgKhm5N9kUcRCMP9kn-PaTk/edit?usp=sharing&ouid=118323067870476336102&rtpof=true&sd=true)
+* [Poster](https://docs.google.com/presentation/d/17iIMbJYeoNmKcWisZ8kDTtxMDUPWsxfn/edit?usp=sharing&ouid=118323067870476336102&rtpof=true&sd=true)
 * [Process description]()
 
 
