@@ -32,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Collections;
@@ -99,7 +100,6 @@ public class Login extends AppCompatActivity {
                             Gender = String.valueOf(task.getResult().child("Gender").getValue());
                             Favorite = String.valueOf(task.getResult().child("Favorite").getValue());
                             Dislike = String.valueOf(task.getResult().child("Dislike").getValue());
-                            BaseActivity.MaxCalorie=0;
                             ID = uid;
                             Weight = Double.valueOf(task.getResult().child("Weight").getValue().toString());
                             Height = Double.valueOf(task.getResult().child("Height").getValue().toString());
@@ -169,6 +169,12 @@ public class Login extends AppCompatActivity {
                                 }
 
 
+                            }
+                            if (String.valueOf(task.getResult().child("Date").getValue())!="null" &&
+                                    Integer.valueOf(String.valueOf(task.getResult().child("Date").getValue())) != Calendar.getInstance().get(Calendar.DAY_OF_MONTH)){
+                                myRef.child("users").child(uid).child("Calories").setValue(0);
+                                myRef.child("users").child(uid).child("Date").setValue(String.valueOf(Calendar.getInstance().get(Calendar.DAY_OF_MONTH)));
+                                Splash.Myuser.setCalories(0);
                             }
 
                             Intent intent=new Intent(Login.this,HomePage.class);
