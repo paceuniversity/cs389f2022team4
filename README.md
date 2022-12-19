@@ -72,6 +72,7 @@ Our app is designed to help people who are not residents of China learn about he
 
 * [Final presentation](https://docs.google.com/presentation/d/1ap9I3Xeh1PgKhm5N9kUcRCMP9kn-PaTk/edit?usp=sharing&ouid=118323067870476336102&rtpof=true&sd=true)
 * [Poster](https://docs.google.com/presentation/d/17iIMbJYeoNmKcWisZ8kDTtxMDUPWsxfn/edit?usp=sharing&ouid=118323067870476336102&rtpof=true&sd=true)
-* [Process description]()
+* [Demo](https://youtu.be/1mwnERn59yA) | [APK](https://drive.google.com/file/d/1QUmKkch4qgHc7tmpw26xOcjq9Z4e45zt/view?usp=share_link
+)
 
 
