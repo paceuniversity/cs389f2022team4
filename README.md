@@ -64,6 +64,8 @@ Our app is designed to help people who are not residents of China learn about he
 ![image](https://user-images.githubusercontent.com/94885719/208333415-d2668109-72cb-4a7a-bb61-30918bd2a86b.png)
 ![image](https://user-images.githubusercontent.com/94885719/208333753-845cdefb-b25b-4420-9d50-8cb76ca2b9ba.png)
 ![image](https://user-images.githubusercontent.com/94885719/208333810-905d7554-7b81-4463-b4b7-294d621e43d6.png)
+![image](https://user-images.githubusercontent.com/94885719/208339986-f15fa426-a59b-4d0f-bafa-f4fcd289db56.png)
+
 
 
 ## Final delivery
