@@ -3,7 +3,7 @@
 ## App name：Kirin recipe
 
 ## Team members
-![Kuan Zhang](https://user-images.githubusercontent.com/94885719/217454782-e826b516-ae30-4a05-8219-d0881354f74f.jpg)
+![Kuan Zhang](https://user-images.githubusercontent.com/94885719/217455447-1bb76ab9-d40d-431d-801a-6d182d665002.jpg)
 ![image](https://user-images.githubusercontent.com/100736782/195180687-8ed23243-c042-4b9c-ba9d-020bcc1e8582.png)
 ![9299ac459a101057a361d57bf11f7fa](https://user-images.githubusercontent.com/114660329/199591477-13f2f7a6-0e7c-47ad-b862-32928a9666aa.png)
 
